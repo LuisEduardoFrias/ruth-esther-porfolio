@@ -1,14 +1,31 @@
 {
-  "name": "velada",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^5.6.0"
-  }
+    "name": "velada",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro --port=3000 dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro",
+        "lint": "eslint --ext .astro .",
+        "lint:fix": "eslint --ext .astro --fix ."
+    },
+    "dependencies": {
+        "@astrojs/sitemap": "3.3.0",
+        "@astrojs/vercel": "8.1.3",
+        "@midudev/tailwind-animations": "0.2.0",
+        "@tailwindcss/vite": "4.0.17",
+        "astro": "^5.6.0",
+        "neostandard": "0.12.1",
+        "sharp": "^0.33.5"
+    },
+    "devDependencies": {
+        "@astrojs/tailwind": "^6.0.2",
+        "@typescript-eslint/parser": "8.28.0",
+        "autoprefixer": "^10.4.21",
+        "eslint": "9.23.0",
+        "eslint-plugin-astro": "1.3.1",
+        "postcss": "^8.5.3",
+        "tailwindcss": "^3.4.1"
+    }
 }
