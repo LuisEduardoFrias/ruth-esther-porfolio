@@ -1,0 +1,41 @@
+<!--
+---
+import Layout from '@/layouts/Layout.astro'
+import Sidebar from '@/components/Sidebar.astro'
+import Content from '@/components/Content.astro'
+
+const title = 'Analista de datos'
+
+const items = [
+  { id: 1, texto: 'Elemento A' },
+  { id: 2, texto: 'Elemento B' },
+  { id: 3, texto: 'Elemento C' },
+  { id: 4, texto: 'Elemento D' },
+  { id: 5, texto: 'Elemento E' },
+  { id: 6, texto: 'Elemento F' },
+  { id: 7, texto: 'Elemento G' },
+];
+---
+
+<Layout title={title}>
+  
+  <div class="col-span-4 row-span-3 col-start-2 row-start-2 w-full h-full px-2 grid grid-cols-[4rem_1fr_14rem] grid-rows-[2rem_10rem_auto] -md:grid-cols-[1fr_10rem] gap-2">
+
+    <div class="h-full w-full col-start-2 row-start-2 -md:col-start-1 flex flex-row flex-wrap pt-5 gap-2 px-2 overflow-y-scroll bg-theme-2 border-2 border-theme-4">
+      {items.map((item) => (
+        <div key={item.id} class="h-32 w-full text-theme-4 bg-theme-6">
+          <span>
+            {item.texto}
+          </span>
+        </div>
+      ))}
+    </div>
+    
+    <Content />
+
+    <Sidebar />
+
+  </div>
+  
+</Layout>
+-->

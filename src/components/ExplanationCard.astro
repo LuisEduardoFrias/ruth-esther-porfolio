@@ -1,0 +1,30 @@
+---
+interface Props {
+  isVisible: boolean;
+}
+
+const { isVisible } = Astro.props;
+---
+
+{isVisible && (
+  <div id="explanation-card" class="absolute top-0 left-0 bg-gray-800 text-white p-4 rounded-md shadow-lg z-10 mt-2 ml-2">
+    <p class="text-sm">
+      La representación visual en "Skills" y "References" no indica un nivel de conocimiento exacto ni una métrica de referencia, es solo un efecto de
+      gráfico de barra.
+    </p>
+  </div>
+)}
+
+<style>
+  /* Puedes añadir estilos específicos si quieres animar la aparición/desaparición */
+  /* Por ejemplo, usando transiciones CSS en lugar de solo visibilidad instantánea */
+  #explanation-card {
+    opacity: 0;
+    pointer-events: none; /* Para que no bloquee eventos del mouse cuando está invisible */
+    transition: opacity 0.3s ease-in-out;
+  }
+  #explanation-card[data-visible="true"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>

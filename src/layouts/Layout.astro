@@ -1,109 +1,89 @@
 ---
-import { ClientRouter } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions';
 
-import '@/styles/global.css'
+import '@/styles/global.css';
 
-import Header from '@/components/Header.astro'
-import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro';
+import Menubar from '@/components/Menubar.astro';
+import Content from '@/components/Content.astro';
+import Sidebar from '@/components/Sidebar.astro';
+import Footer from '@/components/Footer.astro';
 
 interface Props {
-  title: string
+  title?: string;
+  name?: string;
+  description?: string;
 }
 
-const { title = "Porfolio de Ruth Esther" } = Astro.props
+const {
+  title = "Portafolio de Ruth Esther",
+  name = "Ruth Esther - Portafolio",
+  description = "Portafolio profesional de Ruth Esther, Data Analyst.",
+} = Astro.props;
 ---
 
-<!doctype html>
+<!Doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>
-      {title}
-    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content={name} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:site_name" content={name} />
+    <meta property="twitter:description" content={description} />
+    <title>{title}</title>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <link
       rel="preload"
-      href="/images/hero.avif"
+      href="/images/profile-resize.webp"
       as="image"
-      type="image/avif"
+      type="image/webp"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/YourFontName.woff2"
+      as="font"
+      type="font/woff2"
       crossorigin="anonymous"
     />
 
-    <!-- Preload de las fuentes para que no se vea el cambio de fuente al cargar la pagina -->
-    <link
-      rel="preload"
-      href="/fonts/anisette-medium.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="/fonts/anisette-light.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="/fonts/anisette-bold.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="/fonts/anisette-black.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <meta
-      name="description"
-      content="Evento de boxeo aficionado entre streamers y creadores de contenido, organizado por Ibai Llanos"
-    />
-
-    <meta property="og:url" content="https://www.infolavelada.com" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="La Velada del Año V de Ibai Llanos" />
-    <meta
-      property="og:description"
-      content="Evento de boxeo aficionado entre streamers y creadores de contenido, organizado por Ibai Llanos"
-    />
-    <meta property="og:image" content="https://www.infolavelada.com/og.jpg" />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="La Velada del Año V" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@infoLaVelada" />
-    <meta name="twitter:creator" content="@ibaiLlanos" />
-    <meta name="twitter:title" content="La Velada del Año V de Ibai Llanos" />
-    <meta
-      name="twitter:description"
-      content="Evento de boxeo aficionado entre streamers y creadores de contenido, organizado por Ibai Llanos"
-    />
     <ClientRouter />
   </head>
-  <body>
-    <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+  <body class="min-h-screen bg-background text-text-primary">
+    <div class="grid grid-cols-1 md:grid-cols-[70px_1fr] lg:grid-cols-[70px_minmax(0,2fr)_minmax(0,1fr)] grid-rows-[auto_1fr_auto] min-h-screen gap-4 p-4">
+
+      <nav class="hidden md:block col-start-1 row-start-1 row-end-4 bg-white border-r border-border rounded-lg shadow-sm p-2">
+        <Menubar />
+      </nav>
+
+      <header class="col-span-full md:col-start-2 row-start-1 bg-white border border-border rounded-lg shadow-sm p-4">
+        <Header />
+      </header>
+
+      <main class="col-span-full md:col-start-2 row-start-2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <section class="md:col-span-2 lg:col-span-3">
+          <Content />
+        </section>
+
+        <aside class="md:col-span-1">
+          <Sidebar />
+        </aside>
+      </main>
+
+      <footer class="col-span-full md:col-start-2 row-start-3 bg-white border border-border rounded-lg shadow-sm p-4 text-center text-text-secondary">
+        <Footer />
+      </footer>
+
+    </div>
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    background: #9fd3f1;
-    display: flex;
-    flex-direction: column;
-  }
-</style>

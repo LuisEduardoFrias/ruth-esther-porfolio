@@ -1,34 +1,28 @@
 // @ts-check
 import { defineConfig } from 'astro/config'
-import tailwind from "@astrojs/tailwind";
-//import tailwindcss from '@tailwindcss/vite'
+import tailwind from "@astrojs/tailwind"
 import vercel from '@astrojs/vercel'
 import sitemap from '@astrojs/sitemap'
 
 export default defineConfig({
-    output: 'server',
+   output: 'server',
+   integrations: [tailwind()],
 
-    // vite: {
-    //     plugins: [tailwindcss()],
-    //   },
+   build: {
+      inlineStylesheets: 'always',
+   },
 
-    integrations: [tailwind()],
+   experimental: {
+      svg: true,
+   },
 
-    build: {
-        inlineStylesheets: 'always',
-    },
+   adapter: vercel({
+      webAnalytics: {
+         enabled: true,
+      },
+   }),
 
-    experimental: {
-        svg: true,
-    },
+   integrations: [sitemap()],
 
-    adapter: vercel({
-        webAnalytics: {
-            enabled: true,
-        },
-    }),
-
-    integrations: [sitemap()],
-
-    site: 'https://www.infolavelada.com/',
+   //site: 'https://www.ruth-esther-porfolio.com/',
 })

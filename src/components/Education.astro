@@ -1,0 +1,36 @@
+---
+// src/components/Education.astro
+// Asegúrate de que tu constante EDUCATIONS tenga un formato como este:
+// {
+//   title: string;
+//   institution: string;
+//   date?: string; // Ejemplo: '2020 - 2022' o 'Octubre 2023'
+//   details?: string; // Opcional, para una descripción corta o logros
+// }
+import { EDUCATIONS } from '@/consts/educations';
+---
+
+<ul class="space-y-6"> {/* Mayor espacio entre cada entrada de educación */}
+  
+  {EDUCATIONS.map(({ title, institution, date, details }) => (
+    <li class="bg-white rounded-lg shadow-md p-6 border border-border"> {/* Consistente con WorkExperience */}
+      
+      <div class="mb-2">
+        <h3 class="text-xl font-bold text-text-primary leading-tight">
+          {title}
+        </h3>
+        <p class="text-base text-primary mt-1"> {/* Institución en color primario para destacarla */}
+          {institution}
+        </p>
+        {date && <p class="text-sm text-text-secondary mt-1">{date}</p>} {/* Fechas, si están disponibles */}
+      </div>
+
+      {details && (
+        <p class="text-sm text-text-primary mt-3 leading-relaxed"> {/* Detalles, con buen espaciado y legibilidad */}
+          {details}
+        </p>
+      )}
+    </li>
+  ))}
+  
+</ul>

@@ -1,0 +1,46 @@
+---
+// src/components/WorkExperience.astro
+// Asegúrate de que tu constante WORKEXPERIENCES tenga un formato como este:
+// {
+//   company: string;
+//   cargo: string;
+//   area?: string; // Opcional
+//   startDate: string; // Ejemplo: 'Mayo 2020'
+//   endDate: string;   // Ejemplo: 'Actual' o 'Noviembre 2023'
+//   tasks: string[];
+// }
+import { WORKEXPERIENCES } from '@/consts/workExperiences';
+---
+
+<ul class="space-y-6"> {/* Mayor espacio entre cada experiencia laboral */}
+  
+  {WORKEXPERIENCES.map(({ company, cargo, area, tasks, startDate, endDate }) => (
+    <li class="bg-white rounded-lg shadow-md p-6 border border-border"> {/* Ajustado padding y shadow, usando border sutil */}
+      
+      <div class="mb-2">
+        <h3 class="text-xl font-bold text-text-primary leading-tight">
+          {cargo} <span class="font-normal text-text-secondary">en {company}</span>
+        </h3>
+        <p class="text-sm text-text-secondary mt-1">
+          {startDate} - {endDate}
+          {area && <span class="ml-2">| Área: {area}</span>} {/* Área integrada en la misma línea o con un salto de línea sutil */}
+        </p>
+      </div>
+
+      {tasks && tasks.length > 0 && (
+        <div class="mt-4">
+          <h4 class="text-base font-semibold text-text-primary mb-2">Responsabilidades:</h4>
+          <ul class="list-disc list-inside space-y-1 text-text-primary text-sm pl-4"> {/* Lista con viñetas y espaciado */}
+            {tasks.map((task, index) => (
+              <li key={index}>
+                {task}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </li>
+  ))}
+  
+</ul>
+

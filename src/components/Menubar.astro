@@ -1,0 +1,76 @@
+<!--
+---
+import IconHouse from '../assets/svg/IconHouse.svg';
+import IconCube from '../assets/svg/IconCube.svg';
+import IconCalendar from '../assets/svg/IconCalendar.svg';
+import IconGraf from '../assets/svg/IconGraf.svg';
+import IconMessage from '../assets/svg/IconMessage.svg';
+import IconMoney from '../assets/svg/IconMoney.svg';
+import IconFilter from '../assets/svg/IconFilter.svg';
+import IconDataScience from '../assets/svg/IconDataScience.svg';
+---
+
+<div class="h-full w-full px-4 flex flex-col bg-yellow-300 justify-center items-center gap-2 py-7">
+  <IconFilter class="w-10 h-10" />
+    <div class="h-full w-full flex flex-col justify-center items-center gap-7">
+      <IconHouse class="w-10 h-10" />
+      <IconCube class="w-10 h-10" />
+      <IconCalendar class="w-10 h-10" />
+      <IconGraf class="w-10 h-10" />
+      <IconMessage class="w-10 h-10" />
+      <IconMoney class="w-10 h-10" />
+    </div>
+    <IconDataScience class="w-10 h-10" />
+</div>
+-->
+
+---
+// src/components/Menubar.astro
+// Asegúrate de que las importaciones de SVG usen '?raw' para importar el contenido HTML del SVG
+import IconHouse from '../assets/svg/IconHouse.svg?raw';
+import IconCube from '../assets/svg/IconCube.svg?raw';
+import IconCalendar from '../assets/svg/IconCalendar.svg?raw';
+import IconGraf from '../assets/svg/IconGraf.svg?raw';
+import IconMessage from '../assets/svg/IconMessage.svg?raw';
+import IconMoney from '../assets/svg/IconMoney.svg?raw';
+import IconFilter from '../assets/svg/IconFilter.svg?raw';
+import IconDataScience from '../assets/svg/IconDataScience.svg?raw';
+
+// Definir los elementos del menú
+const menuItems = [
+  { id: 'home', iconHTML: IconHouse, label: 'Inicio', href: '#home' },
+  { id: 'projects', iconHTML: IconCube, label: 'Proyectos', href: '#projects' },
+  { id: 'experience', iconHTML: IconCalendar, label: 'Experiencia', href: '#experience' },
+  { id: 'skills', iconHTML: IconGraf, label: 'Habilidades', href: '#skills' },
+  { id: 'contact', iconHTML: IconMessage, label: 'Contacto', href: '#contact' },
+  { id: 'pricing', iconHTML: IconMoney, label: 'Precios', href: '#pricing' },
+];
+---
+
+<div class="h-full w-full flex flex-col justify-between items-center py-6 px-1"> {/* Aumentado py, reducido px */}
+  <a href="#top" class="text-text-primary hover:text-primary transition-colors duration-200 p-2">
+    <div class="w-10 h-10 p-0"  set:html={IconFilter}></div> {/* ÍCONO AÚN MÁS PEQUEÑO: w-4 h-4 */}
+    <span class="sr-only">Filtrar / Top</span>
+  </a>
+
+  <nav class="flex flex-col gap-9"> {/* MAYOR ESPACIADO: gap-9 */}
+    {menuItems.map(item => (
+      <a
+        key={item.id}
+        href={item.href}
+        class="group flex flex-col items-center justify-center p-2 rounded-md
+               text-text-secondary hover:text-primary hover:bg-gray-100
+               focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
+               transition-colors duration-200"
+        aria-label={item.label}
+      >
+        <div class="w-10 h-10 p-0" set:html={item.iconHTML}></div> {/* ÍCONO AÚN MÁS PEQUEÑO: w-4 h-4 */}
+        </a>
+    ))}
+  </nav>
+
+  <a href="#data-science-info" class="text-text-primary hover:text-primary transition-colors duration-200 p-2">
+    <div class="w-10 h-10 p-0" set:html={IconDataScience}></div> {/* ÍCONO AÚN MÁS PEQUEÑO: w-4 h-4 */}
+    <span class="sr-only">Información de Data Science</span>
+  </a>
+</div>

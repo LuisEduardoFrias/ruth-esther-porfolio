@@ -1,0 +1,23 @@
+---
+// src/components/Content.astro
+import WorkExperience from './WorkExperience.astro';
+import Education from './Education.astro';
+---
+
+<div class="bg-white p-6 rounded-lg shadow-sm border border-border flex flex-col gap-8">
+  
+  <section>
+    <h2 class="text-3xl font-bold text-primary mb-6 border-l-4 border-primary pl-4">
+      Experiencia Laboral
+    </h2>
+    <WorkExperience />
+  </section>
+  
+  <section>
+    <h2 class="text-3xl font-bold text-primary mb-6 border-l-4 border-primary pl-4">
+      Educación
+    </h2>
+    <Education />
+  </section>
+  
+</div>
