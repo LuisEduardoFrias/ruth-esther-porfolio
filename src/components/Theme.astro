@@ -1,0 +1,112 @@
+---
+import IconMoon from '../assets/svg/IconMoon.svg?raw';
+import IconSun from '../assets/svg/IconSun.svg?raw';
+---
+
+<div class="fixed top-3 right-28 z-50 flex items-center justify-end py-3 pr-5"> 
+   <button
+      id="darkModeToggle"
+      class="relative inline-flex h-5 w-16 items-center rounded-full transition-colors duration-200 ease-in-out
+             bg-gray-200 border-2 border-transparent shadow-inner shadow shadow-amber-400
+             data-[dark-mode='true']:bg-primary data-[dark-mode='true']:border-primary-dark-variant"
+      role="switch"
+      aria-checked="false"
+      tabindex="0"
+   >
+      <span
+         id="toggle-handle"
+         class="inline-block h-3 w-6 transform rounded-full bg-transparent shadow-md transition-transform duration-200 ease-in-out
+                data-[dark-mode='true']:translate-x-6 data-[dark-mode='false']:translate-x-1 flex justify-center items-center"
+      >
+         <div id="moon-icon" class="scale-[0.6]" set:html={IconMoon}></div>
+         <div id="sun-icon" class="scale-[0.6] hidden" set:html={IconSun}></div>
+      </span>
+   </button>
+</div>
+
+<script is:inline>
+  // Script Vanilla JS para la funcionalidad de Dark Mode
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.getElementById('darkModeToggle');
+    const toggleHandle = document.getElementById('toggle-handle');
+    const moonIcon = document.getElementById('moon-icon');
+    const sunIcon = document.getElementById('sun-icon');
+
+    if (!toggleButton || !toggleHandle || !moonIcon || !sunIcon) {
+      console.error('Missing elements for dark mode toggle.');
+      return;
+    }
+
+    // Función para aplicar el tema
+    const applyTheme = (isDark) => {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        toggleButton.setAttribute('data-dark-mode', 'true');
+        toggleHandle.setAttribute('data-dark-mode', 'true');
+        toggleButton.setAttribute('aria-checked', 'true');
+        moonIcon.classList.remove('hidden');
+        sunIcon.classList.add('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        toggleButton.setAttribute('data-dark-mode', 'false');
+        toggleHandle.setAttribute('data-dark-mode', 'false');
+        toggleButton.setAttribute('aria-checked', 'false');
+        moonIcon.classList.add('hidden');
+        sunIcon.classList.remove('hidden');
+      }
+    };
+
+    // Cargar el tema desde localStorage o usar el predeterminado del sistema
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialIsDark = savedTheme === 'dark' || (savedTheme === null && prefersDark);
+
+    applyTheme(initialIsDark); // Aplicar el tema inicial
+
+    // Event listener para el toggle
+    toggleButton.addEventListener('click', () => {
+      const isCurrentlyDark = document.documentElement.classList.contains('dark');
+      const newMode = !isCurrentlyDark;
+      localStorage.setItem('theme', newMode ? 'dark' : 'light');
+      applyTheme(newMode);
+    });
+
+    // Opcional: Escuchar cambios en las preferencias del sistema
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+        // Solo actualiza si no hay un tema guardado explícitamente por el usuario
+        if (localStorage.getItem('theme') === null) {
+            applyTheme(event.matches);
+        }
+    });
+  });
+</script>
+
+<style is:global>
+  /* Aquí definimos las variables para el modo oscuro si no las tienes en global.css */
+  /* Asegúrate de que estas variables estén disponibles y se actualicen al cambiar la clase 'dark' */
+  html.dark {
+    /* Ejemplo de cómo definir colores para el modo oscuro */
+    /* Asegúrate de que estos valores de color correspondan a tu paleta oscura deseada */
+    --color-background: #1a1a2e; /* Fondo oscuro */
+    --color-primary: #9d4edd; /* Púrpura más brillante para el modo oscuro */
+    --color-text-primary: #f0f0f0; /* Texto claro */
+    --color-text-secondary: #cccccc; /* Texto secundario claro */
+
+    --color-success: #4CAF50; /* Verde adaptable */
+    --primary-dark-variant: #6b3fa2; /* Un tono más oscuro del primario para el borde del toggle en dark mode */
+
+    /* Otros elementos que cambian en dark mode */
+    --tw-bg-white: #2e2e4e; /* Las cards de contenido y sidebar se vuelven oscuras */
+    --tw-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12); /* Sombra más sutil */
+  }
+
+  /* Si necesitas que los SVGs cambien de color, puedes hacerlo con CSS */
+  html.dark #moon-icon svg path,
+  html.dark #sun-icon svg path {
+      fill: var(--color-text-primary); /* Ejemplo: Los iconos de sol/luna se vuelven blancos en dark mode */
+  }
+  #moon-icon svg path,
+  #sun-icon svg path {
+      fill: #888; /* Color por defecto de los iconos en light mode */
+  }
+</style>

@@ -1,13 +1,7 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-
 import '@/styles/global.css';
-
-import Header from '@/components/Header.astro';
-import Menubar from '@/components/Menubar.astro';
-import Content from '@/components/Content.astro';
-import Sidebar from '@/components/Sidebar.astro';
-import Footer from '@/components/Footer.astro';
+import Language from '@/components/Language.astro';
+import Theme from '@/components/Theme.astro';
 
 interface Props {
   title?: string;
@@ -18,72 +12,47 @@ interface Props {
 const {
   title = "Portafolio de Ruth Esther",
   name = "Ruth Esther - Portafolio",
+  image_url= "/images/profile-resize.webp",
   description = "Portafolio profesional de Ruth Esther, Data Analyst.",
 } = Astro.props;
 ---
 
 <!Doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:site_name" content={name} />
-    <meta property="og:description" content={description} />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:site_name" content={name} />
-    <meta property="twitter:description" content={description} />
-    <title>{title}</title>
-
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <link
-      rel="preload"
-      href="/images/profile-resize.webp"
-      as="image"
-      type="image/webp"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="/fonts/YourFontName.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-
-    <ClientRouter />
-  </head>
-  <body class="min-h-screen bg-background text-text-primary">
-    <div class="grid grid-cols-1 md:grid-cols-[70px_1fr] lg:grid-cols-[70px_minmax(0,2fr)_minmax(0,1fr)] grid-rows-[auto_1fr_auto] min-h-screen gap-4 p-4">
-
-      <nav class="hidden md:block col-start-1 row-start-1 row-end-4 bg-white border-r border-border rounded-lg shadow-sm p-2">
-        <Menubar />
-      </nav>
-
-      <header class="col-span-full md:col-start-2 row-start-1 bg-white border border-border rounded-lg shadow-sm p-4">
-        <Header />
-      </header>
-
-      <main class="col-span-full md:col-start-2 row-start-2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <section class="md:col-span-2 lg:col-span-3">
-          <Content />
-        </section>
-
-        <aside class="md:col-span-1">
-          <Sidebar />
-        </aside>
-      </main>
-
-      <footer class="col-span-full md:col-start-2 row-start-3 bg-white border border-border rounded-lg shadow-sm p-4 text-center text-text-secondary">
-        <Footer />
-      </footer>
-
-    </div>
-  </body>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={title} />
+      <meta property="og:site_name" content={name} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image_url} />
+      <meta property="og:locale" content="es_ES" />
+    <!--  <meta property="og:url" content={page_url} /> -->
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image_url} />
+      <meta name="twitter:site" content="@yourtwitterhandle" /> 
+      <meta name="twitter:creator" content="@yourtwitterhandle" /> 
+      
+      <meta name="description" content={description} />
+      <title>{title}</title>
+   
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="preload" href={image_url}  as="image" type="image/webp" crossorigin="anonymous" />
+      <link rel="preload" href="/fonts/YourFontName.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
+   
+   </head>
+   
+   <body class="min-h-screen bg-background text-text-primary">
+      <Language />
+      <Theme />
+      <slot />
+   </body>
+   
 </html>

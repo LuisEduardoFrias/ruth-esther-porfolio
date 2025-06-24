@@ -1,0 +1,34 @@
+---
+---
+
+<div class="fixed top-5 right-5 z-50">
+  <select id="languageSelect" class="appearance-none bg-white border border-border rounded-md py-2 px-3 text-text-secondary cursor-pointer focus:outline-none focus:border-primary">
+    <option value="en" class="bg-white text-text-primary">🇺🇸 English</option>
+    <option value="es" class="bg-white text-text-primary">🇩🇴 Español</option>
+  </select>
+</div>
+
+<style>
+  #languageSelect {
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease-in-out;
+  }
+
+  #languageSelect:hover {
+    border-color: var(--color-primary);
+  }
+
+</style>
+
+<script>
+  const languageSelect = document.getElementById('languageSelect');
+  if (languageSelect) {
+    languageSelect.addEventListener('change', (event) => {
+      const selectedLanguage = event.target.value;
+
+      console.log('Idioma seleccionado:', selectedLanguage);
+
+      // window.location.href = `/${selectedLanguage}`;
+    });
+  }
+</script>

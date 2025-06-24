@@ -1,0 +1,39 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Header from '@/components/Header.astro';
+import Menubar from '@/components/Menubar.astro';
+import Content from '@/components/Content.astro';
+import Sidebar from '@/components/Sidebar.astro';
+import Footer from '@/components/Footer.astro';
+---
+
+<Layout 
+   title="Análista de datos" 
+   name="Ruth Esther - Portafolio",
+  description="Portafolio profesional de Ruth Esther, Data Analyst.">
+   <div class="grid grid-cols-1 md:grid-cols-[70px_1fr] lg:grid-cols-[70px_minmax(0,2fr)_minmax(0,1fr)] grid-rows-[auto_1fr_auto] min-h-screen gap-4 p-4">
+
+      <nav class="hidden md:block col-start-1 row-start-1 row-end-4 bg-background border-r-4 border-b-4 border-border rounded-lg shadow-sm p-2">
+        <Menubar />
+      </nav>
+
+      <header class="col-span-full md:col-start-2 row-start-1 bg-background border-r-4 border-b-4 border-border rounded-lg shadow-sm p-4">
+        <Header />
+      </header>
+
+      <main class="col-span-full md:col-start-2 row-start-2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <section class="md:col-span-2 lg:col-span-3">
+          <Content />
+        </section>
+
+        <aside class="md:col-span-1">
+          <Sidebar />
+        </aside>
+      </main>
+
+      <footer class="col-span-full md:col-start-2 row-start-3 bg-background border-r-4 border-b-4 border-border rounded-lg shadow-sm p-4 text-center text-text-secondary">
+        <Footer />
+      </footer>
+
+   </div>
+</Layout>
