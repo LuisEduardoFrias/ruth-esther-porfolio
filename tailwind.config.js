@@ -3,35 +3,40 @@ import tailwindAnimations from '@midudev/tailwind-animations';
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
-  ],
-  theme: {
-    extend: {
-      fontSize: {
-        '0x': '10px',
-        '1x': '12px',
-        '2x': '14px',
-        '3x': '16px',
-        '4x': '18px',
+   content: [
+      './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+   ],
+   theme: {
+      extend: {
+         fontSize: {
+            '0x': '10px',
+            '1x': '12px',
+            '2x': '14px',
+            '3x': '16px',
+            '4x': '18px',
+         },
+         screens: {
+            '-md': { 'max': '768px' },
+         },
+         colors: {
+            "tm-pr": 'var(--tm-pr)',
+            "tm-se": 'var(--tm-se)',
+            "tm-te": 'var(--tm-te)',
+
+            "tm-text": 'var(--tm-text)',
+            "tm-inv-text": 'var(--tm-inv-text)',
+            "tm-text2": 'var(--tm-text2)',
+
+            "tm-border": 'var(--tm-border)',
+            "tm-inv-border": 'var(--tm-inv-border)',
+
+            "tm-bg": 'var(--tm-bg)',
+            "tm-inv-bg": 'var(--tm-inv-bg)',
+         }
       },
-      screens: {
-        '-md': { 'max': '768px' },
-      },
-      colors: {
-       background: 'var(--color-background)',
-        'text-primary': 'var(--color-text-primary)',
-        'text-secondary': 'var(--color-text-secondary)',
-        border: 'var(--color-border)',
-        primary: 'var(--color-primary)',
-        secondary: 'var(--color-secondary)',
-        accent: 'var(--color-accent)',
-        success: 'var(--color-success)',
-      }
-    },
-  },
-  plugins: [
-    tailwindcss,
-    tailwindAnimations,
-  ],
+   },
+   plugins: [
+      tailwindcss,
+      tailwindAnimations,
+   ],
 };

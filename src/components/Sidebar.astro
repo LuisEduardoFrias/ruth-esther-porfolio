@@ -4,31 +4,31 @@ import { REFERENCES } from '@/consts/references';
 import ExplanationCard from './ExplanationCard.astro';
 ---
 
-<div id="sidebar-container" class="bg-white p-4 rounded-lg shadow-sm border border-border flex flex-col gap-6 h-full relative">
+<div id="sidebar-container" class="bg-tm-bg p-4 rounded-lg shadow-sm border-b-4 border-r-4 border-tm-border flex flex-col gap-6 h-full relative">
 
-  <div class="hidden md:block w-full flex flex-col items-center justify-center p-2">
+  <div class="hidden md:block ">
     <img
-      class="w-40 h-40 md:w-40 md:h-40 object-cover rounded-full border-4 border-primary shadow-md"
+      class="w-40 h-40 object-cover rounded-full mx-auto border-4 border-tm-pr shadow-md"
       src="/images/profile_resize.webp"
       alt="Imagen de perfil de Ruth Esther"
       loading="lazy"
     />
   </div>
 
-  <div id="skills-container" class="w-full">
-    <h3 class="text-2xl font-bold text-primary mb-4 border-l-4 border-primary pl-3">
+  <div id="skills-container" class="w-full border-l-4 border-tm-pr pb-6">
+    <h3 class="text-2xl font-bold text-tm-pr mb-4  pl-3">
       Skills
     </h3>
     <div class="flex flex-col gap-3">
       {
         SKILLS.map((skill) => (
           <div key={skill.id} class="mb-1">
-            <div class="flex items-center mb-1">
-              <span class="text-base font-semibold text-text-primary">{skill.name}</span>
+            <div class="flex items-center ml-2">
+              <span class="text-base font-semibold text-tm-text">{skill.name}</span>
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+            <div class="w-full h-4 overflow-hidden">
               <div
-                class="bg-success h-2.5 rounded-full"
+                class="bg-tm-se h-4"
                 style={{ width: skill.width }}
               ></div>
             </div>
@@ -38,26 +38,26 @@ import ExplanationCard from './ExplanationCard.astro';
     </div>
   </div>
 
-  <div class="w-full">
-    <h3 class="text-2xl font-bold text-primary mb-4 border-l-4 border-primary pl-3">
+  <div class="w-full border-l-4 border-tm-pr pb-6">
+    <h3 class="text-2xl font-bold text-tm-pr mb-4 pl-3">
       References
     </h3>
     <div class="flex flex-col gap-4">
       {
         REFERENCES.map((reference) => (
-          <div key={reference.id} class="pb-2 border-b border-border last:border-b-0">
-            <p class="text-base font-semibold text-text-primary leading-snug">{reference.name}</p>
-            {reference.title && <p class="text-sm text-text-secondary">{reference.title}</p>}
-            {reference.company && <p class="text-sm text-text-secondary">{reference.company}</p>}
-            {reference.phoneNumber && <p class="text-sm text-text-secondary mt-1">{reference.phoneNumber}</p>}
-            {reference.email && <p class="text-sm text-text-secondary">{reference.email}</p>}
+          <div key={reference.id} class="pb-2">
+            <div class="flex justify-between md:flex-col">
+               <p class="text-base font-semibold text-tm-text leading-snug">{reference.name}</p>
+               {/*reference.title && <p class="text-sm text-tm-text2">{reference.title}</p>*/}
+               {/*reference.company && <p class="text-sm text-tm-text2">{reference.company}</p>*/}
+               {reference.phoneNumber && <p class="text-sm text-tm-text2 mt-1"> Cel:. {reference.phoneNumber}</p>}
+               {/*reference.email && <p class="text-sm text-tm-text2">{reference.email}</p>*/}
+             </div>
+          
             {/* Barra visual para referencias */}
             {reference.width && (
-              <div class="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden mt-2">
-                <div
-                  class="bg-success h-2.5 rounded-full"
-                  style={{ width: reference.width }}
-                ></div>
+              <div class="w-full h-4 overflow-hidden mt-2">
+                <div class="bg-tm-se h-4"style={{ width: reference.width }}></div>
               </div>
             )}
           </div>

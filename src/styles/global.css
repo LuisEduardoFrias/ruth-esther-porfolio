@@ -5,22 +5,20 @@
 @layer base {
    :root {
       --custom-background-gradient: linear-gradient(180deg, #efe1ff 0%, #ba69ff 50%, #8a2be2 100%);
-      --color-primary: #8a2be2;
-      --color-text-primary: #333333;
-      --color-text-secondary: #666666;
-      --color-border: #000000;
-      --color-success: #ffc43b;
 
-      --tw-colors-primary: var(--color-primary);
-      --tw-colors-text-primary: var(--color-text-primary);
-      --tw-colors-text-secondary: var(--color-text-secondary);
-      --tw-colors-border: var(--color-border);
-      --tw-colors-success: var(--color-success);
+      --tm-pr: #8a2be2;
+      --tm-se: #00936e;
+      --tm-te: #3fff0f;
 
-      --tw-colors-background: var(--custom-background-gradient);
+      --tm-text: #000000;
+      --tm-inv-text: #b9b9b9;
+      --tm-text2: #2f2f2f;
 
-      --color-background: #ffffff;
+      --tm-border: #000000;
+      --tm-inv-border: #ffffff;
 
+      --tm-bg: #ffffff95;
+      --tm-inv-bg: #141414;
    }
 
    * {
@@ -30,13 +28,23 @@
    }
 
    html.dark {
-      --color-background: #131313;
-      --color-border: #ffffff;
+      --tm-pr: #a13ffb;
+      --tm-se: #ffc43b;
+
+      --tm-text: #ffffff;
+      --tm-inv-text: #000000;
+      --tm-text2: #cfcfcf;
+
+      --tm-border: #ffffff;
+      --tm-inv-border: #000000;
+
+      --tm-bg: #14141495;
+      --tm-inv-bg: #ffffff;
    }
 
    body {
       background-image: var(--custom-background-gradient);
       background-attachment: fixed;
-      color: var(--color-text-primary);
+      color: var(--tm-text);
    }
 }

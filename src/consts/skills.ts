@@ -28,6 +28,11 @@ export const SKILLS: skill[] = [
   },
   {
     id: '6',
+    name: 'git',
+    width: '36%'
+  },
+  {
+    id: '6',
     name: 'Scrum',
     width: '76%'
   },
