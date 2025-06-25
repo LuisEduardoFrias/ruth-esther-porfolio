@@ -50,9 +50,140 @@ const {
    </head>
    
    <body class="min-h-screen text-tm-text">
-      <Language />
-      <Theme />
+      <div id="head" class="z-50 transition-all duration-1000 ease-in-ou w-full flex justify-between items-center p-2" >
+         <label id="label-name" class="opacity-0 transition-opacity duration-1000 ease-in-out text-xl sm:text-4xl lg:text-5xl font-extrabold
+         text-tm-pr mb-1 leading-tight">
+            Ruth Esther Baéz Órtiz
+         </label>
+         <div class="flex gap-3">
+            <Theme />
+            <Language />
+         </div>
+      </div>
       <slot />
    </body>
    
 </html>
+
+<style>
+   #label-name {
+      /*text-shadow:1px 1px 1px var(--tm-bg);*/
+   }
+</style>
+
+<script>
+   import { $ } from '@/lib/dom-selector'
+
+   const $header = $('#head');
+   const $labelName = $('#label-name');
+
+   window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if ($header && $labelName) {
+         if (scrollTop > 0) {
+            if (scrollTop > 190) 
+               $labelName.classList.remove("opacity-0");
+            else
+               $labelName.classList.add("opacity-0");
+            
+            $header.classList.add('fixed');
+            $header.classList.add('bg-tm-translucent');
+            $header.classList.add('backdrop-blur-md');
+         } else {
+            $header.classList.remove('fixed');
+            $header.classList.remove('bg-tm-translucent');
+         }
+      }
+   });
+   
+   document.addEventListener('DOMContentLoaded', () => {
+      const langSwitcher = $('#lang-switcher');
+
+      async function loadTranslations(lang: string) {
+         try {
+            const response = await import(`../lang/${lang}.json`);
+            
+            if (!response.default) {
+               throw new Error(`Error al cargar las traducciones para "${lang}".`);
+            }
+
+            return response.default;
+            
+         } catch (error) {
+            console.error(error);
+            return {};
+         }
+      }
+
+      async function applyTranslations() {
+         const currentLang = localStorage.getItem('lang') || langSwitcher.dataset.currentLang || 'en';
+         const translations = await loadTranslations(currentLang);
+         
+         document.querySelectorAll('[data-key]').forEach(element => {
+            const key = element.dataset.key;
+            
+            if (translations[key]) {
+               element.textContent = translations[key];
+            }
+         });
+
+         document.documentElement.lang = currentLang;
+      }
+
+      langSwitcher.addEventListener('change', applyTranslations);
+
+      applyTranslations();
+   });
+
+</script>
+
+<!--
+/////////
+/////////
+/////////
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <button id="lang-switcher" data-current-lang="es">Change to English</button>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h1 data-key="hero_title">Hola, soy [Tu Nombre]</h1>
+        <p data-key="hero_subtitle">Desarrollador Web y Diseñador</p>
+    </section>
+
+    <section id="about">
+        <h2 data-key="about_title">Sobre Mí</h2>
+        <p data-key="about_paragraph1">Soy un desarrollador web apasionado con experiencia en...</p>
+        <p data-key="about_paragraph2">Mis habilidades incluyen HTML, CSS, JavaScript...</p>
+    </section>
+
+    <section id="projects">
+        <h2 data-key="projects_title">Mis Proyectos</h2>
+        <div class="project">
+            <h3 data-key="project1_name">Proyecto Alfa</h3>
+            <p data-key="project1_description">Una aplicación web para gestionar tareas.</p>
+        </div>
+        </section>
+
+    <section id="contact">
+        <h2 data-key="contact_title">Contáctame</h2>
+        <p><span data-key="contact_email">Correo Electrónico</span>: tu_email@ejemplo.com</p>
+        <button data-key="contact_message">Enviar Mensaje</button>
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+-->

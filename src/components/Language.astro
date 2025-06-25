@@ -1,35 +1,45 @@
 ---
 ---
 
-<div class="fixed top-5 right-8 z-50">
-  <select id="languageSelect" class="appearance-none bg-tm-bg border border-tm-border rounded-md py-2 px-3 text-tm-text2 cursor-pointer
-  focus:outline-none focus:border-tm-pr">
-    <option value="en" class="bg-tm-bg text-tm-pr">🇺🇸 English</option>
-    <option value="es" class="bg-tm-bg text-tm-pr">🇩🇴 Español</option>
+<div class=" top-5 right-8 z-50">
+  <select id="lang-switcher" data-current-lang="en" class="appearance-none bg-tm-bg border border-tm-border rounded-md py-2 px-3 text-tm-text2 cursor-pointer focus:outline-none focus:border-tm-pr" >
+    <option id="lang_en" value="en" selected data-key="language_english" class="bg-tm-bg text-tm-pr">🇺🇸 English</option>
+    <option id="lang_es" value="es" data-key="langusge_spanish" class="bg-tm-bg text-tm-pr">🇩🇴 Spanish</option>
   </select>
 </div>
 
 <style>
-  #languageSelect {
+  #lang-switcher {
     font-size: 0.9rem;
     transition: border-color 0.2s ease-in-out;
   }
 
-  #languageSelect:hover {
+  #lang-switcher:hover {
     border-color: var(--color-primary);
   }
-
 </style>
 
 <script>
-  const languageSelect = document.getElementById('languageSelect');
-  if (languageSelect) {
-    languageSelect.addEventListener('change', (event) => {
-      const selectedLanguage = event.target.value;
+   import { $ } from '@/lib/dom-selector'
+  
+   const langSwitcher = $('#lang-switcher');;
+   const lang_en = langSwitcher.querySelector('option[value="en"]');
+   const lang_es = langSwitcher.querySelector('option[value="es"]');
 
-      console.log('Idioma seleccionado:', selectedLanguage);
+   if(localStorage.getItem('lang') === 'en'){
+      lang_es.selected = false;
+      lang_en.selected = true;
+      langSwitcher.dataset.currentLang = 'en';
+   }else {
+      lang_en.selected = false;
+      lang_es.selected = true;
+      langSwitcher.dataset.currentLang = 'es';
+   }
 
-      // window.location.href = `/${selectedLanguage}`;
-    });
-  }
+  if (langSwitcher) {
+      langSwitcher.addEventListener('change', (event) => {
+         langSwitcher.dataset.currentLang = event.target.value;
+         localStorage.setItem('lang', event.target.value);
+      });
+   }
 </script>

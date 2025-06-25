@@ -3,9 +3,9 @@ import IconMoon from '../assets/svg/IconMoon.svg?raw';
 import IconSun from '../assets/svg/IconSun.svg?raw';
 ---
 
-<div class="fixed top-3 right-32 z-50 flex items-center justify-end py-3 pr-5"> 
+<div class=" top-3 right-32 z-50 flex items-center justify-end py-3 pr-5"> 
    <button
-      id="darkModeToggle"
+      id="theme-switcher"
       class="relative inline-flex h-5 w-16 items-center rounded-full transition-colors duration-200 ease-in-out
              bg-gray-200 border-2 border-transparent shadow-inner shadow shadow-amber-400
              data-[dark-mode='true']:bg-primary data-[dark-mode='true']:border-primary-dark-variant"
@@ -25,60 +25,61 @@ import IconSun from '../assets/svg/IconSun.svg?raw';
 </div>
 
 <script is:inline>
-  // Script Vanilla JS para la funcionalidad de Dark Mode
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggleButton = document.getElementById('darkModeToggle');
-    const toggleHandle = document.getElementById('toggle-handle');
-    const moonIcon = document.getElementById('moon-icon');
-    const sunIcon = document.getElementById('sun-icon');
+   // Script Vanilla JS para la funcionalidad de Dark Mode
+   document.addEventListener('DOMContentLoaded', () => {
+      const toggleButton = document.getElementById('theme-switcher');
+      const toggleHandle = document.getElementById('toggle-handle');
+      const moonIcon = document.getElementById('moon-icon');
+      const sunIcon = document.getElementById('sun-icon');
 
-    if (!toggleButton || !toggleHandle || !moonIcon || !sunIcon) {
-      console.error('Missing elements for dark mode toggle.');
-      return;
-    }
-
-    // Función para aplicar el tema
-    const applyTheme = (isDark) => {
-      if (isDark) {
-        document.documentElement.classList.add('dark');
-        toggleButton.setAttribute('data-dark-mode', 'true');
-        toggleHandle.setAttribute('data-dark-mode', 'true');
-        toggleButton.setAttribute('aria-checked', 'true');
-        moonIcon.classList.remove('hidden');
-        sunIcon.classList.add('hidden');
-      } else {
-        document.documentElement.classList.remove('dark');
-        toggleButton.setAttribute('data-dark-mode', 'false');
-        toggleHandle.setAttribute('data-dark-mode', 'false');
-        toggleButton.setAttribute('aria-checked', 'false');
-        moonIcon.classList.add('hidden');
-        sunIcon.classList.remove('hidden');
+      if (!toggleButton || !toggleHandle || !moonIcon || !sunIcon) {
+         console.error('Missing elements for dark mode toggle.');
+         return;
       }
-    };
 
-    // Cargar el tema desde localStorage o usar el predeterminado del sistema
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialIsDark = savedTheme === 'dark' || (savedTheme === null && prefersDark);
+      // Función para aplicar el tema
+      const applyTheme = (isDark) => {
+         if (isDark) {
+            document.documentElement.classList.add('dark');
+            toggleButton.setAttribute('data-dark-mode', 'true');
+            toggleHandle.setAttribute('data-dark-mode', 'true');
+            toggleButton.setAttribute('aria-checked', 'true');
+            moonIcon.classList.remove('hidden');
+            sunIcon.classList.add('hidden');
+         } else {
+            document.documentElement.classList.remove('dark');
+            toggleButton.setAttribute('data-dark-mode', 'false');
+            toggleHandle.setAttribute('data-dark-mode', 'false');
+            toggleButton.setAttribute('aria-checked', 'false');
+            moonIcon.classList.add('hidden');
+            sunIcon.classList.remove('hidden');
+         }
+      };
 
-    applyTheme(initialIsDark); // Aplicar el tema inicial
-
-    // Event listener para el toggle
-    toggleButton.addEventListener('click', () => {
-      const isCurrentlyDark = document.documentElement.classList.contains('dark');
-      const newMode = !isCurrentlyDark;
-      localStorage.setItem('theme', newMode ? 'dark' : 'light');
-      applyTheme(newMode);
-    });
-
-    // Opcional: Escuchar cambios en las preferencias del sistema
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+      // Cargar el tema desde localStorage o usar el predeterminado del sistema
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initialIsDark = savedTheme === 'dark' || (savedTheme === null && prefersDark);
+      
+      applyTheme(initialIsDark); // Aplicar el tema inicial
+      
+      // Event listener para el toggle
+      toggleButton.addEventListener('click', () => {
+         const isCurrentlyDark = document.documentElement.classList.contains('dark');
+         const newMode = !isCurrentlyDark;
+         localStorage.setItem('theme', newMode ? 'dark' : 'light');
+         applyTheme(newMode);
+      });
+      
+      // Opcional: Escuchar cambios en las preferencias del sistema
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
         // Solo actualiza si no hay un tema guardado explícitamente por el usuario
-        if (localStorage.getItem('theme') === null) {
+         if (localStorage.getItem('theme') === null) {
             applyTheme(event.matches);
-        }
-    });
-  });
+         }
+      });
+      
+   });
 </script>
 
 <style is:global>

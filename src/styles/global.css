@@ -19,6 +19,8 @@
 
       --tm-bg: #ffffff95;
       --tm-inv-bg: #141414;
+
+      --tm-translucent: #000000d3;
    }
 
    * {
@@ -40,6 +42,7 @@
 
       --tm-bg: #14141495;
       --tm-inv-bg: #ffffff;
+      --tm-translucent: #ffffffa8;
    }
 
    body {
