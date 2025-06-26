@@ -2,6 +2,7 @@
 import '@/styles/global.css';
 import Language from '@/components/Language.astro';
 import Theme from '@/components/Theme.astro';
+import DownloadCv from '@/components/DownloadCv.astro';
 
 interface Props {
   title?: string;
@@ -56,6 +57,7 @@ const {
             Ruth Esther Baéz Órtiz
          </label>
          <div class="flex gap-3">
+            <DownloadCv />
             <Theme />
             <Language />
          </div>
@@ -75,24 +77,32 @@ const {
    import { $ } from '@/lib/dom-selector'
 
    const $header = $('#head');
+   const $DownloadCv = $('#DownloadCv');
    const $labelName = $('#label-name');
+   const $sunIcon = $('#sun-icon');
 
    window.addEventListener('scroll', () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-      if ($header && $labelName) {
+      if ($header && $labelName && $DownloadCv) {
          if (scrollTop > 0) {
-            if (scrollTop > 190) 
+            if (scrollTop > 190) {
                $labelName.classList.remove("opacity-0");
-            else
+               $DownloadCv.classList.add("hidden");
+            }
+            else {
                $labelName.classList.add("opacity-0");
+               $DownloadCv.classList.remove("hidden");
+            }
             
             $header.classList.add('fixed');
             $header.classList.add('bg-tm-translucent');
             $header.classList.add('backdrop-blur-md');
+            $sunIcon.setAttribute('fill',"#ffffff");
          } else {
             $header.classList.remove('fixed');
             $header.classList.remove('bg-tm-translucent');
+            $sunIcon.setAttribute('fill',"#1c1c1c");
          }
       }
    });

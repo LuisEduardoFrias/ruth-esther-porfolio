@@ -4,12 +4,12 @@ export const SKILLS: skill[] = [
   {
     id: '1',
     name: 'Excel',
-    width: '72%'
+    width: '70%'
   },
   {
     id: '2',
     name: 'Sql server (T-sql)',
-    width: '100%'
+    width: '87%'
   },
   {
     id: '3',
@@ -19,12 +19,12 @@ export const SKILLS: skill[] = [
   {
     id: '4',
     name: 'C#',
-    width: '60%'
+    width: '40%'
   },
   {
     id: '5',
     name: 'Ingles B2',
-    width: '87%'
+    width: '70%'
   },
   {
     id: '6',
@@ -34,11 +34,11 @@ export const SKILLS: skill[] = [
   {
     id: '6',
     name: 'Scrum',
-    width: '76%'
+    width: '45%'
   },
   {
     id: '7',
     name: 'Python',
-    width: '50%'
+    width: '27%'
   },
 ]

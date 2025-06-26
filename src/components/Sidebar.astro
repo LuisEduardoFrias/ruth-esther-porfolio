@@ -1,46 +1,75 @@
 ---
 import { SKILLS } from '@/consts/skills';
 import { REFERENCES } from '@/consts/references';
+import { CONTACTS } from '@/consts/contact';
 import ExplanationCard from './ExplanationCard.astro';
 ---
 
 <div id="sidebar-container" class="bg-tm-bg p-4 rounded-lg shadow-sm border-b-4 border-r-4 border-tm-border flex flex-col gap-6 h-full relative">
 
-  <div class="hidden md:block ">
-    <img
-      class="w-40 h-40 object-cover rounded-full mx-auto border-4 border-tm-pr shadow-md"
-      src="/images/profile_resize.webp"
-      alt="Imagen de perfil de Ruth Esther"
-      loading="lazy"
-    />
-  </div>
+   <div class="hidden md:block ">
+      <img
+         class="w-40 h-40 object-cover rounded-full mx-auto border-4 border-tm-pr shadow-md"
+         src="/images/profile_resize.webp"
+         alt="Imagen de perfil de Ruth Esther"
+         loading="lazy"
+      />
+   </div>
 
-  <div id="skills-container" class="w-full border-l-4 border-tm-pr pb-6">
-    <h3 data-key="skills" class="text-2xl font-bold text-tm-pr mb-4  pl-3">
-      Skills
-    </h3>
-    <div class="flex flex-col gap-3">
+   <div id="skills-container" class="w-full border-l-4 border-tm-pr pb-6">
+      <h3 data-key="skills" class="text-2xl font-bold text-tm-pr mb-4  pl-3">
+         Skills
+      </h3>
+      <div class="flex flex-col gap-3">
+         {
+            SKILLS.map((skill) => (
+               <div key={skill.id} class="mb-1">
+                  <div class="flex items-center ml-2">
+                     <span class="text-base font-semibold text-tm-text">{skill.name}</span>
+                  </div>
+                  <div class="relative w-full h-4 overflow-hidden">
+                     <spn class="text-[8px] absolute right-0" >{skill.width}</spn>
+                     <div class="bg-tm-se h-4" style={{ width: skill.width }}></div>
+                  </div>
+               </div>
+            ))
+         }
+      </div>
+   </div>
+
+   <div class="w-full border-l-4 border-tm-pr pb-6">
+      <h3 data-key="contact" class="text-2xl font-bold text-tm-pr mb-4 pl-3">
+         Contact
+      </h3>
+      
+      <div class="flex flex-col gap-4">
       {
-        SKILLS.map((skill) => (
-          <div key={skill.id} class="mb-1">
-            <div class="flex items-center ml-2">
-              <span class="text-base font-semibold text-tm-text">{skill.name}</span>
-            </div>
-            <div class="w-full h-4 overflow-hidden">
-              <div
-                class="bg-tm-se h-4"
-                style={{ width: skill.width }}
-              ></div>
-            </div>
+         CONTACTS.map((contact) => (
+          <div key={contact.id} class="pb-2">
+            <div class="grid grid-cols-[auto_70px_1fr] gap-2 items-center md:flex-col pl-2">
+               <div class="h-auto"  set:html={contact.icon}></div>
+               <p class="text-base font-semibold text-tm-text leading-snug">{contact.name}</p>
+               {/*reference.title && <p class="text-sm text-tm-text2">{reference.title}</p>*/}
+               {/*reference.company && <p class="text-sm text-tm-text2">{reference.company}</p>*/}
+               {contact.data && <p class="text-sm text-tm-text2 mt-1"> {contact.data}</p>}
+               {contact.url && <a href={contact.url} target='_blank' class="text-sm text-tm-text2 mt-1"> {contact.urlName}</a>}
+               {/*reference.email && <p class="text-sm text-tm-text2">{reference.email}</p>*/}
+             </div>
+          
+            {/* Barra visual para referencias */}
+            {contact.width && (
+              <div class="w-full h-4 overflow-hidden mt-2">
+                <div class="bg-tm-se h-4"style={{ width: contact.width }}></div>
+              </div>
+            )}
           </div>
-        ))
+         ))
       }
-    </div>
-  </div>
-
+      </div>
+    <!--
   <div class="w-full border-l-4 border-tm-pr pb-6">
     <h3 data-key="references" class="text-2xl font-bold text-tm-pr mb-4 pl-3">
-      References
+      Contacto
     </h3>
     <div class="flex flex-col gap-4">
       {
@@ -64,24 +93,27 @@ import ExplanationCard from './ExplanationCard.astro';
         ))
       }
     </div>
-  </div>
+    -->
+   </div>
 
-  <ExplanationCard isVisible={true} /> {/* isVisible en false por defecto, lo controla JS */}
+   <ExplanationCard isVisible={true} /> {/* isVisible en false por defecto, lo controla JS */}
 
-  <script is:inline>
-    const skillsContainer = document.getElementById('skills-container');
-    const explanationCard = document.getElementById('explanation-card');
+   <script is:inline>
+     /*
+     const skillsContainer = document.getElementById('skills-container');
+      const explanationCard = document.getElementById('explanation-card');
         
 
-    if (skillsContainer && explanationCard) {
-      skillsContainer.addEventListener('mouseenter', () => {
-        explanationCard.setAttribute('data-visible', 'true');
-      });
+      if (skillsContainer && explanationCard) {
+         skillsContainer.addEventListener('mouseenter', () => {
+            explanationCard.setAttribute('data-visible', 'true');
+         });
 
-      skillsContainer.addEventListener('mouseleave', () => {
-        explanationCard.setAttribute('data-visible', 'false');
-      });
-    }
-  </script>
+         skillsContainer.addEventListener('mouseleave', () => {
+            explanationCard.setAttribute('data-visible', 'false');
+         });
+      }
+    */
+   </script>
 
 </div>
