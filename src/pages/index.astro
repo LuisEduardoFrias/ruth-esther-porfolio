@@ -1,39 +1,33 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import Header from '@/components/Header.astro';
-import Menubar from '@/components/Menubar.astro';
-import Content from '@/components/Content.astro';
-import Sidebar from '@/components/Sidebar.astro';
-import Footer from '@/components/Footer.astro';
+import WorkExperience from '@/components//WorkExperience.astro';
+import Education from '@/components/Education.astro';
 ---
 
-<Layout 
-   title="Análista de datos" 
-   name="Ruth Esther - Portafolio",
-  description="Portafolio profesional de Ruth Esther, Data Analyst.">
-   <div class="grid grid-cols-1 md:grid-cols-[70px_1fr] lg:grid-cols-[70px_minmax(0,2fr)_minmax(0,1fr)] grid-rows-[auto_1fr_auto] min-h-screen gap-4 p-4">
+<Layout  title="Análista de datos"  name="Ruth Esther - Portafolio", description="Portafolio profesional de Ruth Esther, Data Analyst.">
 
-      <nav class="hidden md:block col-start-1 row-start-1 row-end-4 bg-tm-bg border-r-4 border-b-4 border-tm-border rounded-lg shadow-sm p-2">
-        <Menubar />
-      </nav>
-
-      <header class="col-span-full md:col-start-2 row-start-1 bg-tm-bg border-r-4 border-b-4 border-tm-border rounded-lg shadow-sm p-4">
-        <Header />
-      </header>
-
-      <main class="col-span-full md:col-start-2 row-start-2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <section class="md:col-span-2 lg:col-span-3">
-          <Content />
-        </section>
-
-        <aside class="md:col-span-1">
-          <Sidebar />
-        </aside>
-      </main>
-
-      <footer class="col-span-full md:col-start-2 row-start-3 bg-tm-bg border-r-4 border-b-4 border-tm-border rounded-lg shadow-sm p-4 text-center text-tm-text2">
-        <Footer />
-      </footer>
-
-   </div>
+   <section>
+      <h2 data-key="regionals-sales" class="text-3xl font-bold text-tm-pr mb-6 border-l-4 border-tm-pr pl-4">
+         Análisis de Ventas Regionales
+      </h2>
+      <article>
+         <a href="/ventas-regionales" class="cursor-pointer">
+            <img src="/images/dashboardTienda-1.jpg" style="view-transition-name: dt1-image;" class="w-full h-auto" ></img>
+         </a>
+      </article>
+   </section>
+   
+   <section>
+      <h2 data-key="work_experiences" class="text-3xl font-bold text-tm-pr mb-6 border-l-4 border-tm-pr pl-4">
+         Experiencia Laboral
+      </h2>
+      <WorkExperience />
+   </section>
+  
+   <section>
+      <h2 data-key="education" class="text-3xl font-bold text-tm-pr mb-6 border-l-4 border-tm-pr pl-4">
+         Educación
+      </h2>
+      <Education />
+   </section>
 </Layout>

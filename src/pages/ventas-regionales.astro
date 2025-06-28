@@ -1,0 +1,285 @@
+---
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout title="Análisis de Ventas Regionales" description="Portafolio profesional de Ruth Esther, Data Analyst.">
+   <section class="p-6 md:p-8 lg:p-10 bg-white rounded-lg shadow-lg">
+      <h1 data-key="regionals-sales" class="text-3xl font-bold text-purple-800 mb-6 border-l-4 border-purple-600 pl-4">
+         Análisis de Ventas Regionales
+      </h1>
+
+      <p class="mb-6 text-gray-700 leading-relaxed">
+         En este proyecto, realicé un análisis exhaustivo del rendimiento de ventas por región para una empresa minorista. El objetivo principal fue
+         <strong class="text-purple-700">identificar patrones, tendencias y oportunidades de crecimiento</strong> en sus operaciones. Utilicé
+         <strong class="text-purple-700">Power BI</strong> para la ingesta, transformación y visualización de los datos.
+      </p>
+
+      <div class="mb-8">
+         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Demostración Interactiva</h2>
+         <p class="text-gray-600 mb-4">
+            Aquí puedes explorar el dashboard interactivo que desarrollé. Usa los filtros de "Categoría" y "Región" para ver cómo cambian los datos y las visualizaciones.
+         </p>
+
+         <div class="flex flex-col gap-4 mb-6 overflow-x-scroll no-scrollbar">
+            
+            <div class="flex flex-col gap-2 p-3 border border-gray-200 rounded-md bg-gray-50">
+               <label class="font-medium text-gray-700">Categoría</label>
+               <div class="flex flex-wrap gap-4">
+                  <label for="radio-elect" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <input id="radio-elect" checked name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> Electrónicos
+                  </label>
+                  <label for="radio-ropa" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <input id="radio-ropa" name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> Ropa
+                  </label>
+                  <label for="radio-hogar" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <input id="radio-hogar" name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> Hogar
+                  </label>
+               </div>
+            </div>
+
+            <div class="flex flex-col gap-2 p-3 border border-gray-200 rounded-md bg-gray-50">
+               <label class="font-medium text-gray-700">Región</label>
+               <div class="flex flex-wrap gap-4">
+                  
+                  <label for="radio-todos" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <span for="radio-todos" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
+                     <input id="radio-todos" checked name="region" class="accent-purple-700 w-4 h-4" type="radio"> Todos
+                  </label>
+                  
+                  <label for="radio-este" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <span for="radio-este" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
+                     <input id="radio-este" name="region" class="accent-purple-700 w-4 h-4" type="radio"> Este
+                  </label>
+                  <label for="radio-norte" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <span for="radio-norte" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
+                     <input id="radio-norte" name="region" class="accent-purple-700 w-4 h-4" type="radio"> Norte
+                  </label>
+                  <label for="radio-oeste" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <span for="radio-oeste" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
+                     <input id="radio-oeste" name="region" class="accent-purple-700 w-4 h-4" type="radio"> Oeste
+                  </label>
+                  <label for="radio-sur" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <span for="radio-sur" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
+                     <input id="radio-sur" name="region" class="accent-purple-700 w-4 h-4" type="radio"> Sur
+                  </label>
+               </div>
+            </div>
+         </div>
+         
+         <div class="relative min-h-[300px] flex justify-center items-center">
+            <img id="img-cat-1"    src="/images/dashboardTienda-1.jpg" class="w-full h-auto object-contain rounded-md shadow-md        transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Categoría Electrónicos" style="view-transition-name: dt1-image;" />
+            <img id="img-cat-2"    src="/images/dashboardTienda-6.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Categoría Ropa" />
+            <img id="img-cat-3"    src="/images/dashboardTienda-2.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Categoría Hogar" />
+            <img id="img-region-1" src="/images/dashboardTienda-3.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Región Este" />
+            <img id="img-region-2" src="/images/dashboardTienda-4.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Región Norte" />
+            <img id="img-region-3" src="/images/dashboardTienda-5.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Región Oeste" />
+            <img id="img-region-4" src="/images/dashboardTienda-6.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Región Sur" />
+         </div>
+      </div>
+      
+      <div class="mt-8 pt-6 border-t border-gray-200">
+         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Contexto y Requisitos del Proyecto</h2>
+         <p class="mb-4 text-gray-700 leading-relaxed">
+            Como analista de datos en una empresa minorista con tiendas en diversas regiones, mi tarea fue comprender el rendimiento de ventas por región para identificar tendencias y oportunidades de crecimiento. Los datos proporcionados incluían información detallada de ventas por `ID_Venta`, `Fecha`, `Region`, `Ciudad`, `Categoria`, `Producto`, `Cantidad` y `Precio_Unitario`.
+         </p>
+         
+         <h3 class="text-xl font-semibold text-gray-800 mb-3">Técnicas y Habilidades Demostradas:</h3>
+         <ul class="list-disc list-inside space-y-2 text-gray-700 mb-6 pl-4">
+            <li>
+               <strong class="text-purple-700">Modelado de Datos:</strong> Preparación y estructuración de los datos de ventas para un análisis eficiente en Power BI.
+            </li>
+            <li>
+               <strong class="text-purple-700">Cálculo de Medidas DAX:</strong> Creación de medidas clave como <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Ventas Totales</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Cantidad Total Vendida</code> y <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Ventas Promedio</code> para derivar métricas de negocio cruciales.
+            </li>
+            <li>
+               <strong class="text-purple-700">Diseño de Visualizaciones Interactivas:</strong> Desarrollo de un dashboard intuitivo con gráficos de barras, líneas y de pastel, junto con tablas y tarjetas para presentar la información de manera clara y accionable.
+            </li>
+            <li>
+               <strong class="text-purple-700">Implementación de Segmentación (Slicers):</strong> Integración de filtros por Región, Categoría y Fecha para permitir a los usuarios una exploración dinámica y personalizada de los datos.
+            </li>
+         </ul>
+
+         <p class="text-gray-700 leading-relaxed">
+            Este análisis proporcionó a la empresa información crucial para la toma de decisiones estratégicas, como la
+            <strong class="text-purple-700">optimización de inventarios</strong> y la <strong class="text-purple-700">identificación de mercados de alto rendimiento</strong>.
+         </p>
+      </div>
+      
+      <div class="mt-8 pt-6 border-t border-gray-200">
+         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Notas</h2>
+         <p class="mb-4 text-gray-700 leading-relaxed">
+            Este es ejercicio para demostrar mis habilidades,  las empresa y demas daots son total mente ficticios.
+         </p>
+      </div>
+
+   </section>
+</Layout>
+
+<style>
+   /* Estilos personalizados para el contenedor del scroll para ocultar la barra */
+   .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+   }
+   .no-scrollbar::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera*/
+   }
+
+   /* Estilos para los radio buttons personalizados */
+   .custom-radio input[type="radio"] {
+      /* Oculta el input de radio original*/
+      display: none;
+   }
+
+   .custom-radio span {
+      /* Estilo base para el círculo personalizado */
+      display: inline-block;
+      width: 1rem; /* Ancho del círculo */
+      height: 1rem; /* Alto del círculo */
+      border: 2px solid #ccc; /* Borde del círculo */
+      background-color: #f0f0f0; /* Color de fondo del círculo */
+      vertical-align: middle; /* Alinea el círculo con el texto */
+      margin-right: 0.3125rem; /* Espacio entre el círculo y el texto */
+      cursor: pointer; /* Indica que es clickeable */
+      position: relative; /* Necesario para el pseudo-elemento */
+      border-radius: 50%; /* Hace que sea un círculo */
+      transition: all 0.2s ease-in-out; /* Suaviza las transiciones */
+   }
+   
+   /* Estilo cuando el input de radio está seleccionado */
+   .custom-radio:has(input[type="radio"]:checked) span {
+      background-color: #6d28d9; /* Color de fondo cuando está seleccionado (morado oscuro) */
+      border-color: #6d28d9; /* Color del borde cuando está seleccionado */
+   }
+   
+   /* Marca de verificación dentro del círculo */
+   .custom-radio input[type="radio"]:checked + span::after {
+      content: ''; /* Contenido vacío para el pseudo-elemento */
+      display: block;
+      width: 0.5rem; /* Ancho de la marca */
+      height: 0.5rem; /* Alto de la marca */
+      background-color: #fff; /* Color de la marca (blanco) */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Centra la marca */
+      border-radius: 50%; /* Hace que la marca sea un círculo pequeño */
+   }
+
+   /* Efecto hover */
+   .custom-radio:hover span {
+      border-color: #6d28d9; /* Color del borde al pasar el ratón */
+   }
+</style>
+
+<script>
+   import { $ } from '@/lib/dom-selector'
+
+   const $about = $('#about_me');
+   $about.classList.add("hidden");
+   //$about.classList.add("sm:block");
+   
+   const $sidebar = $('#sidebar');
+   $sidebar.classList.add("hidden");
+   $sidebar.classList.add("sm:block");
+   
+   const $radioElect = $('#radio-elect');
+   const $radioRopa = $('#radio-ropa');
+   const $radioHogar = $('#radio-hogar');
+   
+   const $regioTodos = $('#radio-todos');
+   const $radioEste = $('#radio-este');
+   const $radioNorte = $('#radio-norte');
+   const $radioOeste = $('#radio-oeste');
+   const $radioSur = $('#radio-sur');
+   
+   const $imgCat1 = $('#img-cat-1');
+   const $imgCat2 = $('#img-cat-2');
+   const $imgCat3 = $('#img-cat-3');
+   
+   const $imgRegion1 = $('#img-region-1');
+   const $imgRegion2 = $('#img-region-2');
+   const $imgRegion3 = $('#img-region-3');
+   const $imgRegion4 = $('#img-region-4');
+   
+   function changeImage(e) {
+      function hiddenAllImages(){
+         $imgCat1.classList.add('hidden');
+         $imgCat2.classList.add('hidden');
+         $imgCat3.classList.add('hidden');
+         $imgRegion1.classList.add('hidden');
+         $imgRegion2.classList.add('hidden');
+         $imgRegion3.classList.add('hidden');
+         $imgRegion4.classList.add('hidden');
+      }
+      
+      function deselectRegionRadios() {
+         if(e.target === $radioElect || e.target === $radioRopa || e.target === $radioHogar){
+            $regioTodos.checked = true; // Set "Todos" in region to true when category changes
+         }
+      }
+
+      hiddenAllImages(); // Start by hiding all images
+
+      if($radioElect.checked) {
+         deselectRegionRadios();
+         $imgCat1.classList.remove('hidden');
+      } 
+      else if($radioRopa.checked) {
+         deselectRegionRadios();
+         $imgCat2.classList.remove('hidden');
+      } 
+      else if($radioHogar.checked) {
+         if ($regioTodos.checked) { // If Hogar is selected and Todos region is selected
+            $imgCat3.classList.remove('hidden'); // Show Hogar default image
+         } else if ($radioEste.checked) {
+            $imgRegion1.classList.remove('hidden');
+         } else if ($radioNorte.checked) {
+            $imgRegion2.classList.remove('hidden');
+         } else if ($radioOeste.checked) {
+            $imgRegion3.classList.remove('hidden');
+         } else if ($radioSur.checked) {
+            $imgRegion4.classList.remove('hidden');
+         }
+      }
+
+      // Handle region selections when category is Hogar
+      if ($radioHogar.checked) {
+         if ($radioEste.checked) {
+            $imgRegion1.classList.remove('hidden');
+         } else if ($radioNorte.checked) {
+            $imgRegion2.classList.remove('hidden');
+         } else if ($radioOeste.checked) {
+            $imgRegion3.classList.remove('hidden');
+         } else if ($radioSur.checked) {
+            $imgRegion4.classList.remove('hidden');
+         } else if ($regioTodos.checked) {
+             // If "Todos" is selected for region, show the Hogar category image
+             $imgCat3.classList.remove('hidden');
+         }
+      }
+
+      if ($regioTodos.checked && !$radioHogar.checked) {
+         // If "Todos" region is selected and it's not "Hogar" category, show the corresponding category image
+         if ($radioElect.checked) {
+             $imgCat1.classList.remove('hidden');
+         } else if ($radioRopa.checked) {
+             $imgCat2.classList.remove('hidden');
+         }
+         // No need to show $imgCat3 here as it's handled when $radioHogar.checked is true and $regioTodos.checked is true
+      }
+   };
+   
+   $radioElect.addEventListener('change',changeImage);
+   $radioRopa.addEventListener('change',changeImage);
+   $radioHogar.addEventListener('change',changeImage);
+   
+   $regioTodos.addEventListener('change',changeImage);
+   $radioEste.addEventListener('change',changeImage);
+   $radioNorte.addEventListener('change',changeImage);
+   $radioOeste.addEventListener('change',changeImage);
+   $radioSur.addEventListener('change',changeImage);
+
+    // Initial load to show the correct image based on default selections
+    changeImage({ target: $radioElect });
+</script>

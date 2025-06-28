@@ -46,15 +46,16 @@ import ExplanationCard from './ExplanationCard.astro';
       {
          CONTACTS.map((contact) => (
           <div key={contact.id} class="pb-2">
-            <div class="grid grid-cols-[auto_70px_1fr] gap-2 items-center md:flex-col pl-2">
-               <div class="h-auto"  set:html={contact.icon}></div>
-               <p class="text-base font-semibold text-tm-text leading-snug">{contact.name}</p>
+            <div class="w-full grid grid-cols-[100px_1fr] sm:grid-rows-2 gap-2">
+               <div class="h-auto flex gap-2"  set:html={contact.icon}>
+                  <p class="text-base font-semibold text-tm-text leading-snug">{contact.name}</p>
+               </div>
                {/*reference.title && <p class="text-sm text-tm-text2">{reference.title}</p>*/}
                {/*reference.company && <p class="text-sm text-tm-text2">{reference.company}</p>*/}
-               {contact.data && <p class="text-sm text-tm-text2 mt-1"> {contact.data}</p>}
-               {contact.url && <a href={contact.url} target='_blank' class="text-sm text-tm-text2 mt-1"> {contact.urlName}</a>}
+               {contact.data && <p class="sm:row-start-2 text-sm text-tm-text2 mt-1 text-nowrap"> {contact.data}</p>}
+               {contact.url && <a href={contact.url} target='_blank' class="sm:row-start-2 text-nowrap text-sm text-tm-text2 mt-1"> {contact.urlName}</a>}
                {/*reference.email && <p class="text-sm text-tm-text2">{reference.email}</p>*/}
-             </div>
+            </div>
           
             {/* Barra visual para referencias */}
             {contact.width && (

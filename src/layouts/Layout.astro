@@ -1,8 +1,14 @@
 ---
 import '@/styles/global.css';
+import { ClientRouter } from "astro:transitions";
 import Language from '@/components/Language.astro';
 import Theme from '@/components/Theme.astro';
 import DownloadCv from '@/components/DownloadCv.astro';
+
+import Header from '@/components/Header.astro';
+import Menubar from '@/components/Menubar.astro';
+import Sidebar from '@/components/Sidebar.astro';
+import Footer from '@/components/Footer.astro';
 
 interface Props {
   title?: string;
@@ -19,7 +25,7 @@ const {
 ---
 
 <!Doctype html>
-<html lang="es">
+<html lang="es" transition:persist >
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,6 +49,8 @@ const {
       
       <meta name="description" content={description} />
       <title>{title}</title>
+      
+      <ClientRouter />
    
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <link rel="preload" href={image_url}  as="image" type="image/webp" crossorigin="anonymous" />
@@ -62,15 +70,63 @@ const {
             <Language />
          </div>
       </div>
-      <slot />
+      <div class="grid grid-cols-1 md:grid-cols-[70px_1fr] lg:grid-cols-[70px_minmax(0,2fr)_minmax(0,1fr)] grid-rows-[auto_1fr_auto] min-h-screen gap-4 p-4">
+
+         <nav class="hidden md:block col-start-1 row-start-1 row-end-4 bg-tm-bg border-r-4 border-b-4 border-tm-border rounded-lg shadow-sm p-2">
+           <Menubar />
+         </nav>
+   
+         <header class="col-span-full md:col-start-2 row-start-1 bg-tm-bg border-r-4 border-b-4 border-tm-border rounded-lg shadow-sm p-4">
+           <Header />
+         </header>
+   
+         <main class="col-span-full md:col-start-2 row-start-2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <section class="md:col-span-2 lg:col-span-3">
+               <div class="bg-tm-bg p-6 rounded-lg shadow-sm border-b-4 border-r-4 border-tm-border flex flex-col gap-8">
+                  <slot />
+               </div>
+            </section>
+   
+            <aside id="sidebar" class="md:col-span-1">
+               <Sidebar />
+            </aside>
+         </main>
+   
+         <footer class="col-span-full md:col-start-2 row-start-3 bg-tm-bg border-r-4 border-b-4 border-tm-border rounded-lg shadow-sm p-4 text-center text-tm-text2">
+            <Footer />
+         </footer>
+   
+      </div>
+
    </body>
    
 </html>
 
-<style>
+<style is:global>
    #label-name {
       /*text-shadow:1px 1px 1px var(--tm-bg);*/
    }
+   
+   /* En tu archivo CSS global o dentro de un <style is:global> 
+   ::view-transition-old(root) {
+       animation: fade-out 0.1s ease-in forwards;
+   }
+   
+   ::view-transition-new(root) {
+       animation: fade-in 0.1s ease-out forwards;
+   }
+   
+   @keyframes fade-out {
+       from { opacity: 1; }
+       to { opacity: ; }
+   }
+   
+   @keyframes fade-in {
+       from { opacity: 0.9; }
+       to { opacity: 1; }
+   }
+   */
+
 </style>
 
 <script>
@@ -147,53 +203,3 @@ const {
    });
 
 </script>
-
-<!--
-/////////
-/////////
-/////////
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <button id="lang-switcher" data-current-lang="es">Change to English</button>
-        </nav>
-    </header>
-
-    <section id="hero">
-        <h1 data-key="hero_title">Hola, soy [Tu Nombre]</h1>
-        <p data-key="hero_subtitle">Desarrollador Web y Diseñador</p>
-    </section>
-
-    <section id="about">
-        <h2 data-key="about_title">Sobre Mí</h2>
-        <p data-key="about_paragraph1">Soy un desarrollador web apasionado con experiencia en...</p>
-        <p data-key="about_paragraph2">Mis habilidades incluyen HTML, CSS, JavaScript...</p>
-    </section>
-
-    <section id="projects">
-        <h2 data-key="projects_title">Mis Proyectos</h2>
-        <div class="project">
-            <h3 data-key="project1_name">Proyecto Alfa</h3>
-            <p data-key="project1_description">Una aplicación web para gestionar tareas.</p>
-        </div>
-        </section>
-
-    <section id="contact">
-        <h2 data-key="contact_title">Contáctame</h2>
-        <p><span data-key="contact_email">Correo Electrónico</span>: tu_email@ejemplo.com</p>
-        <button data-key="contact_message">Enviar Mensaje</button>
-    </section>
-
-    <script src="js/main.js"></script>
-</body>
-</html>
--->
