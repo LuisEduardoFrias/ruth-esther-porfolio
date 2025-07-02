@@ -50,4 +50,14 @@
       background-attachment: fixed;
       color: var(--tm-text);
    }
+
+}
+
+p {
+   text-wrap: pretty;
+   hyphens: auto;
+   margin-block: 1em;
+   margin-block: 1lh;
+   margin-trim: none;
+   hyphenate-limit-chars: 3 4;
 }

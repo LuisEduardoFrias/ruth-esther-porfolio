@@ -4,40 +4,45 @@ import Layout from '@/layouts/Layout.astro'
 
 <Layout title="Análisis de Ventas Regionales" description="Portafolio profesional de Ruth Esther, Data Analyst.">
    <section class="p-6 md:p-8 lg:p-10 bg-white rounded-lg shadow-lg">
-      <h1 data-key="regionals-sales" class="text-3xl font-bold text-purple-800 mb-6 border-l-4 border-purple-600 pl-4">
+      <h1 data-key="title-regionals-sales" class="text-3xl font-bold text-purple-800 mb-6 border-l-4 border-purple-600 pl-4">
          Análisis de Ventas Regionales
       </h1>
 
-      <p class="mb-6 text-gray-700 leading-relaxed">
+      <p data-key="paragraf-1" class="mb-6 text-gray-700 leading-relaxed">
          En este proyecto, realicé un análisis exhaustivo del rendimiento de ventas por región para una empresa minorista. El objetivo principal fue
          <strong class="text-purple-700">identificar patrones, tendencias y oportunidades de crecimiento</strong> en sus operaciones. Utilicé
          <strong class="text-purple-700">Power BI</strong> para la ingesta, transformación y visualización de los datos.
       </p>
 
       <div class="mb-8">
-         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Demostración Interactiva</h2>
-         <p class="text-gray-600 mb-4">
+         <h2 data-key="subtitle-1-regionals-sales" class="text-2xl font-semibold text-gray-800 mb-4">Demostración Interactiva</h2>
+         <p data-key="paragraf-2" class="text-gray-600 mb-4">
             Aquí puedes explorar el dashboard interactivo que desarrollé. Usa los filtros de "Categoría" y "Región" para ver cómo cambian los datos y las visualizaciones.
          </p>
 
          <div class="flex flex-col gap-4 mb-6 overflow-x-scroll no-scrollbar">
             
             <div class="flex flex-col gap-2 p-3 border border-gray-200 rounded-md bg-gray-50">
-               <label class="font-medium text-gray-700">Categoría</label>
+               <label data-key="label-1" class="font-medium text-gray-700">Categoría</label>
                <div class="flex flex-wrap gap-4">
-                  <label for="radio-elect" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <input id="radio-elect" checked name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> Electrónicos
+                  <label data-key="label-2" for="radio-elect" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     Electrónicos
                   </label>
-                  <label for="radio-ropa" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <input id="radio-ropa" name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> Ropa
+                  <input id="radio-elect" checked name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> 
+                
+                  <label data-key="label-3" for="radio-ropa" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     Ropa
                   </label>
-                  <label for="radio-hogar" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <input id="radio-hogar" name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> Hogar
+                  <input id="radio-ropa" name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> 
+                 
+                  <label data-key="label-4" for="radio-hogar" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     Hogar
                   </label>
+                  <input id="radio-hogar" name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> 
                </div>
             </div>
 
-            <div class="flex flex-col gap-2 p-3 border border-gray-200 rounded-md bg-gray-50">
+            <div class="hidden flex flex-col gap-2 p-3 border border-gray-200 rounded-md bg-gray-50">
                <label class="font-medium text-gray-700">Región</label>
                <div class="flex flex-wrap gap-4">
                   
@@ -68,7 +73,7 @@ import Layout from '@/layouts/Layout.astro'
          
          <div class="relative min-h-[300px] flex justify-center items-center">
             <img id="img-cat-1"    src="/images/dashboardTienda-1.jpg" class="w-full h-auto object-contain rounded-md shadow-md        transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Categoría Electrónicos" style="view-transition-name: dt1-image;" />
-            <img id="img-cat-2"    src="/images/dashboardTienda-6.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Categoría Ropa" />
+            <img id="img-cat-2"    src="/images/dashboardTienda-7.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Categoría Ropa" />
             <img id="img-cat-3"    src="/images/dashboardTienda-2.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Categoría Hogar" />
             <img id="img-region-1" src="/images/dashboardTienda-3.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Región Este" />
             <img id="img-region-2" src="/images/dashboardTienda-4.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Región Norte" />
@@ -78,37 +83,38 @@ import Layout from '@/layouts/Layout.astro'
       </div>
       
       <div class="mt-8 pt-6 border-t border-gray-200">
-         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Contexto y Requisitos del Proyecto</h2>
-         <p class="mb-4 text-gray-700 leading-relaxed">
+         <h2 data-key="subtitle-2-regionals-sales" class="text-2xl font-semibold text-gray-800 mb-4">Contexto y Requisitos del Proyecto</h2>
+         <p data-key="paragraf-3" class="mb-4 text-gray-700 leading-relaxed">
             Como analista de datos en una empresa minorista con tiendas en diversas regiones, mi tarea fue comprender el rendimiento de ventas por región para identificar tendencias y oportunidades de crecimiento. Los datos proporcionados incluían información detallada de ventas por `ID_Venta`, `Fecha`, `Region`, `Ciudad`, `Categoria`, `Producto`, `Cantidad` y `Precio_Unitario`.
          </p>
          
-         <h3 class="text-xl font-semibold text-gray-800 mb-3">Técnicas y Habilidades Demostradas:</h3>
+         <h3 data-key="subtitle-3-regionals-sales" class="text-xl font-semibold text-gray-800 mb-3">Técnicas y Habilidades Demostradas:</h3>
          <ul class="list-disc list-inside space-y-2 text-gray-700 mb-6 pl-4">
-            <li>
+            <li data-key="list-1" data-const="html">
                <strong class="text-purple-700">Modelado de Datos:</strong> Preparación y estructuración de los datos de ventas para un análisis eficiente en Power BI.
             </li>
-            <li>
+            <li data-key="list-2" data-const="html">
                <strong class="text-purple-700">Cálculo de Medidas DAX:</strong> Creación de medidas clave como <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Ventas Totales</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Cantidad Total Vendida</code> y <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Ventas Promedio</code> para derivar métricas de negocio cruciales.
             </li>
-            <li>
+            <li data-key="list-3" data-const="html">
                <strong class="text-purple-700">Diseño de Visualizaciones Interactivas:</strong> Desarrollo de un dashboard intuitivo con gráficos de barras, líneas y de pastel, junto con tablas y tarjetas para presentar la información de manera clara y accionable.
             </li>
-            <li>
+            <li data-key="list-4" data-const="html">
                <strong class="text-purple-700">Implementación de Segmentación (Slicers):</strong> Integración de filtros por Región, Categoría y Fecha para permitir a los usuarios una exploración dinámica y personalizada de los datos.
             </li>
          </ul>
 
-         <p class="text-gray-700 leading-relaxed">
+         <p data-key="paragraf-4"  data-const="html" class="text-gray-700 leading-relaxed">
             Este análisis proporcionó a la empresa información crucial para la toma de decisiones estratégicas, como la
             <strong class="text-purple-700">optimización de inventarios</strong> y la <strong class="text-purple-700">identificación de mercados de alto rendimiento</strong>.
          </p>
       </div>
       
       <div class="mt-8 pt-6 border-t border-gray-200">
-         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Notas</h2>
-         <p class="mb-4 text-gray-700 leading-relaxed">
-            Este es ejercicio para demostrar mis habilidades,  las empresa y demas daots son total mente ficticios.
+         <h2 data-key="subtitle-4-regionals-sales" class="text-2xl font-semibold text-gray-800 mb-4">Nota</h2>
+         <p data-key="paragraf-5" class="mb-4 text-gray-700 leading-relaxed">
+            Este es ejercicio para demostrar mis habilidades,  las empresa y demas daots son total mente ficticios, el deshboard solo es una imagen, por
+            ende no podra interarctuar con él.
          </p>
       </div>
 

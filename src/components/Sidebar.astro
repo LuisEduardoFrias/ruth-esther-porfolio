@@ -48,7 +48,7 @@ import ExplanationCard from './ExplanationCard.astro';
           <div key={contact.id} class="pb-2">
             <div class="w-full grid grid-cols-[100px_1fr] sm:grid-rows-2 gap-2">
                <div class="h-auto flex gap-2"  set:html={contact.icon}>
-                  <p class="text-base font-semibold text-tm-text leading-snug">{contact.name}</p>
+                  <label class="text-base font-semibold text-tm-text leading-snug">{contact.name}</label>
                </div>
                {/*reference.title && <p class="text-sm text-tm-text2">{reference.title}</p>*/}
                {/*reference.company && <p class="text-sm text-tm-text2">{reference.company}</p>*/}

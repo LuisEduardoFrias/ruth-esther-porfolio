@@ -2,7 +2,7 @@
 ---
 
 <div class=" top-5 right-8 z-50">
-  <select id="lang-switcher" data-current-lang="en" class="appearance-none bg-tm-bg border border-tm-border rounded-md py-2 px-3 text-tm-text2 cursor-pointer focus:outline-none focus:border-tm-pr" >
+  <select id="lang-switcher" class="appearance-none bg-tm-bg border border-tm-border rounded-md py-2 px-3 text-tm-text2 cursor-pointer focus:outline-none focus:border-tm-pr" >
     <option id="lang_en" value="en" selected data-key="language_english" class="bg-tm-bg text-tm-pr">🇺🇸 English</option>
     <option id="lang_es" value="es" data-key="langusge_spanish" class="bg-tm-bg text-tm-pr">🇩🇴 Spanish</option>
   </select>
@@ -20,26 +20,65 @@
 </style>
 
 <script>
-   import { $ } from '@/lib/dom-selector'
-  
-   const langSwitcher = $('#lang-switcher');;
-   const lang_en = langSwitcher.querySelector('option[value="en"]');
-   const lang_es = langSwitcher.querySelector('option[value="es"]');
+   
+   import { $ } from '@/lib/dom-selector';
+   
+   function initializeLanguage() {
+   
+      const langSwitcher = $('#lang-switcher');
+      const lang_en = langSwitcher ? langSwitcher.querySelector('option[value="en"]') : null;
+      const lang_es = langSwitcher ? langSwitcher.querySelector('option[value="es"]') : null;
+   
+      if (!langSwitcher || !lang_en || !lang_es) {
+         console.error('Missing elements for language switcher.');
+         return;
+      }
+   
+      async function loadTranslations(lang: string) {
+         try {
+            const response = await import(`../lang/${lang}.json`);
+            
+            if (!response.default) {
+               throw new Error(`Error al cargar las traducciones para "${lang}".`);
+            }
+   
+            return response.default;
+            
+         } catch (error) {
+            console.error(error);
+            return {};
+         }
+      }
+      
+      async function applyTranslations(lang: string) {
+         localStorage.setItem('lang', lang);
+   
+         lang_en.selected = (lang === 'en');
+         lang_es.selected = (lang === 'es');
+         
+         const translations = await loadTranslations(lang);
+         
+         document.querySelectorAll('[data-key]').forEach(element => {
+            const key = element.dataset.key;
 
-   if(localStorage.getItem('lang') === 'en'){
-      lang_es.selected = false;
-      lang_en.selected = true;
-      langSwitcher.dataset.currentLang = 'en';
-   }else {
-      lang_en.selected = false;
-      lang_es.selected = true;
-      langSwitcher.dataset.currentLang = 'es';
+            if (translations[key]) {
+               element.innerHTML = translations[key];
+            }
+         });
+
+         document.documentElement.lang = lang;
+      }
+      
+      function changeHandler(event) {
+         applyTranslations(event.target.value);
+      };
+      
+      applyTranslations(localStorage.getItem('lang')  || 'en');
+      
+      langSwitcher.addEventListener('change', changeHandler);
    }
 
-  if (langSwitcher) {
-      langSwitcher.addEventListener('change', (event) => {
-         langSwitcher.dataset.currentLang = event.target.value;
-         localStorage.setItem('lang', event.target.value);
-      });
-   }
+   document.addEventListener('astro:after-swap', initializeLanguage);
+   document.addEventListener('DOMContentLoaded', initializeLanguage);
+   
 </script>

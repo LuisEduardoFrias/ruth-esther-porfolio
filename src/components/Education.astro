@@ -16,10 +16,10 @@ import { EDUCATIONS } from '@/consts/educations';
     <li class="bg-tm-bg rounded-lg shadow-md p-6 border border-tm-border"> {/* Consistente con WorkExperience */}
       
       <div class="mb-2">
-        <h3 class="text-xl font-bold text-tm-text leading-tight">
+        <h3 data-key={title} class="text-xl font-bold text-tm-text leading-tight">
           {title}
         </h3>
-        <p class="text-base text-tm-text mt-1"> {/* Institución en color primario para destacarla */}
+        <p data-key={institution} class="text-base text-tm-text mt-1"> {/* Institución en color primario para destacarla */}
           {institution}
         </p>
         {date && <p class="text-sm text-tm-text2 mt-1">{date}</p>} {/* Fechas, si están disponibles */}

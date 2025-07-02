@@ -2,39 +2,39 @@ import { education } from '@/types/education'
 
 export const EDUCATIONS: education[] = [
    {
-      title: 'Técnico superior en desarrollo del software',
-      institution: 'Instituto Tecnológico Superior Comunitario (ITSC)',
+      title: 'ed-title-1',
+      institution: 'ed-institution-1',
    },
    {
-      title: 'Power BI',
-      institution: 'Basico a experto',
+      title: 'ed-title-2',
+      institution: 'ed-institution-2',
    },
    {
-      title: 'Excel',
-      institution: 'Basico intermedio',
+      title: 'ed-title-3',
+      institution: 'ed-institution-3',
    },
    {
-      title: 'SQl Server',
-      institution: 'Intermedio',
+      title: 'ed-title-4',
+      institution: 'ed-institution-4',
    },
    {
-      title: 'Scrum',
-      institution: 'La guía definitiva de scrum: las reglas del juego.',
+      title: 'ed-title-5',
+      institution: 'ed-institution-5',
    },
    {
-      title: 'C# - ASP .Net',
-      institution: '',
+      title: 'ed-title-6',
+      institution: 'ed-institution-6',
    },
    {
-      title: 'Tester',
-      institution: '',
+      title: 'ed-title-7',
+      institution: 'ed-institution-7',
    },
    {
-      title: 'ISTQB (International software Testing Qualifications Board)',
-      institution: 'Programa de estudios de probador certificado de nivel básico.',
+      title: 'ed-title-8',
+      institution: 'ed-institution-8',
    },
    {
-      title: 'Secretariado Ejecutivo',
-      institution: 'Instituto De Educación Técnico Profesional (Inetep)',
+      title: 'ed-title-9',
+      institution: 'ed-institution-9',
    },
 ];

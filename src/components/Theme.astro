@@ -37,7 +37,10 @@ import IconSun from '../assets/svg/IconSun.svg?raw';
  
 <script is:inline>
    // Script Vanilla JS para la funcionalidad de Dark Mode
-   document.addEventListener('DOMContentLoaded', () => {
+
+   // Función para inicializar y aplicar el tema
+   const initializeTheme = () => {
+      // alert("----theme----"); // Puedes quitar este alert una vez que funcione
       const toggleButton = document.getElementById('theme-switcher');
       const toggleHandle = document.getElementById('toggle-handle');
       const moonIcon = document.getElementById('moon-icon');
@@ -48,7 +51,7 @@ import IconSun from '../assets/svg/IconSun.svg?raw';
          return;
       }
 
-      // Función para aplicar el tema
+      // Función para aplicar el tema (ya la tienes, ¡perfecto!)
       const applyTheme = (isDark) => {
          if (isDark) {
             document.documentElement.classList.add('dark');
@@ -71,24 +74,39 @@ import IconSun from '../assets/svg/IconSun.svg?raw';
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
       const initialIsDark = savedTheme === 'dark' || (savedTheme === null && prefersDark);
-      
+
       applyTheme(initialIsDark); // Aplicar el tema inicial
-      
-      // Event listener para el toggle
-      toggleButton.addEventListener('click', () => {
+
+      // Event listener para el toggle (asegúrate de que solo se añada una vez)
+      // Para evitar añadir múltiples listeners en cada astro:after-swap,
+      // puedes verificar si ya tiene un listener o usar un patrón diferente.
+      // Una forma sencilla es removerlo antes de añadirlo, si sabes que puede existir.
+      const clickHandler = () => {
          const isCurrentlyDark = document.documentElement.classList.contains('dark');
          const newMode = !isCurrentlyDark;
          localStorage.setItem('theme', newMode ? 'dark' : 'light');
          applyTheme(newMode);
-      });
-      
+      };
+
+      // Remueve el listener existente antes de añadirlo para evitar duplicados
+      toggleButton.removeEventListener('click', clickHandler);
+      toggleButton.addEventListener('click', clickHandler);
+
+
       // Opcional: Escuchar cambios en las preferencias del sistema
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-        // Solo actualiza si no hay un tema guardado explícitamente por el usuario
+      // Esto también debería ser un listener que no se duplique
+      const mediaQueryListener = (event) => {
          if (localStorage.getItem('theme') === null) {
             applyTheme(event.matches);
          }
-      });
-      
-   });
+      };
+      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', mediaQueryListener);
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', mediaQueryListener);
+   };
+
+   // 1. Ejecutar en la carga inicial del DOM
+   document.addEventListener('DOMContentLoaded', initializeTheme);
+
+   // 2. Ejecutar después de cada navegación de cliente (View Transition)
+   document.addEventListener('astro:after-swap', initializeTheme);
 </script>
