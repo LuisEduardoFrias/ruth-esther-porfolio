@@ -46,15 +46,12 @@ import ExplanationCard from './ExplanationCard.astro';
       {
          CONTACTS.map((contact) => (
           <div key={contact.id} class="pb-2">
-            <div class="w-full grid grid-cols-[100px_1fr] sm:grid-rows-2 gap-2">
-               <div class="h-auto flex gap-2"  set:html={contact.icon}>
-                  <label class="text-base font-semibold text-tm-text leading-snug">{contact.name}</label>
-               </div>
-               {/*reference.title && <p class="text-sm text-tm-text2">{reference.title}</p>*/}
-               {/*reference.company && <p class="text-sm text-tm-text2">{reference.company}</p>*/}
-               {contact.data && <p class="sm:row-start-2 text-sm text-tm-text2 mt-1 text-nowrap"> {contact.data}</p>}
+            <div class="w-full grid grid-cols-[20px_60px_1fr] sm:grid-cols-[20px_1fr] sm:grid-rows-2 gap-2 sm:gap-y-0 items-center pl-2">
+               <div set:html={contact.icon}></div>
+               <label class="text-base font-semibold text-tm-text leading-snug">{contact.name}</label>
+               
+               {contact.data && <span class="sm:row-start-2 text-sm text-tm-text2 mt-1 text-nowrap"> {contact.data}</span>}
                {contact.url && <a href={contact.url} target='_blank' class="sm:row-start-2 text-nowrap text-sm text-tm-text2 mt-1"> {contact.urlName}</a>}
-               {/*reference.email && <p class="text-sm text-tm-text2">{reference.email}</p>*/}
             </div>
           
             {/* Barra visual para referencias */}

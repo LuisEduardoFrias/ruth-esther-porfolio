@@ -1,36 +1,198 @@
 ---
-// src/components/Education.astro
-// Asegúrate de que tu constante EDUCATIONS tenga un formato como este:
-// {
-//   title: string;
-//   institution: string;
-//   date?: string; // Ejemplo: '2020 - 2022' o 'Octubre 2023'
-//   details?: string; // Opcional, para una descripción corta o logros
-// }
 import { EDUCATIONS } from '@/consts/educations';
+import { IconLink } from '@/assets/svg/IconLink.svg?raw';
 ---
 
-<ul class="space-y-6"> {/* Mayor espacio entre cada entrada de educación */}
+<ul class="space-y-6">
   
-  {EDUCATIONS.map(({ title, institution, date, details }) => (
-    <li class="bg-tm-bg rounded-lg shadow-md p-6 border border-tm-border"> {/* Consistente con WorkExperience */}
-      
-      <div class="mb-2">
-        <h3 data-key={title} class="text-xl font-bold text-tm-text leading-tight">
-          {title}
-        </h3>
-        <p data-key={institution} class="text-base text-tm-text mt-1"> {/* Institución en color primario para destacarla */}
-          {institution}
-        </p>
-        {date && <p class="text-sm text-tm-text2 mt-1">{date}</p>} {/* Fechas, si están disponibles */}
-      </div>
+   {EDUCATIONS.map(({ title, institution, url, linkText, img, alt, date, details },index) => {
+      const image = '/images/'+img+'.webp';
+     const modalIndex = "modal"+index;
+     const modalBtnIndex = "modalBtn"+index;
+     const zoomableImage = "imgZoomable"+index;
+     
+      return (
+         <li class="bg-tm-bg rounded-lg shadow-md p-6 border border-tm-border"> 
+            <div class="mb-2">
+               <h3 data-key={title} class="text-xl font-bold text-tm-text leading-tight">
+                  {title}
+               </h3>
+               
+               { !(!img && url) && <p data-key={institution} class="text-base text-tm-text mt-1">
+                  {institution}
+               </p>
+               }
+               {(!img && url) && (<div class="flex items-center gap-3">
+               <div class="border-2 border-amber-300">
+                  <div class="w-10 h-10 p-0" set:html={IconLink}></div>
+               </div> 
+               <a href={url} target="_blank" data-key={institution}  >{institution}</a></div>) }
+               
+               <dialog id={modalIndex} closedby="any" class="p-0 rounded-lg shadow-2xl backdrop:bg-black backdrop:bg-opacity-70 backdrop:backdrop-blur-sm max-w-full max-h-full bg-transparent overflow-hidden relative">
+                   <form method="dialog" class="absolute top-4 right-4 z-10">
+                       <button id={modalBtnIndex} type="submit" class="bg-black bg-opacity-60 text-white rounded-full w-9 h-9 flex items-center justify-center text-lg font-bold hover:bg-opacity-80 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75" aria-label="Cerrar diálogo">
+                           X
+                       </button>
+                   </form>
+                  <img id={zoomableImage} src={"image"} alt={alt} class="block w-full h-full transform-gpu transition-transform duration-100 ease-out cursor-grab" />
+               </dialog>
+               
+               {img && (url ?
+               <a target="_blank" href={url} class="w-full flex justify-center">
+                  <img src={image} alt={alt} class="cursor-pointer max-w-full h-auto  rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" />
+               </a> : 
+                  <img data-index={index}  src={image} alt={alt} class="openDialogImage cursor-pointer max-w-full h-auto rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" />
+               )}
+              
+               {date && <p class="text-sm text-tm-text2 mt-1">{date}</p>}
+             </div>
 
-      {details && (
-        <p class="text-sm text-tm-text mt-3 leading-relaxed"> {/* Detalles, con buen espaciado y legibilidad */}
-          {details}
-        </p>
+            {details && (
+               <p class="text-sm text-tm-text mt-3 leading-relaxed">
+                  {details}
+               </p>
+            )}
+         </li>
       )}
-    </li>
-  ))}
+   )}
   
 </ul>
+
+
+<script>
+
+   document.addEventListener('DOMContentLoaded', () => {
+      const openDialogImage = document.querySelectorAll('.openDialogImage');
+      
+      if(openDialogImage) {
+         
+         openDialogImage.forEach((ele)=>{
+            const index = ele.dataset.index;
+            const myModernDialog = document.getElementById('modal'+index);
+            const myBtnDialog = document.getElementById('modalBtn'+index);
+            const zoomableImage = document.getElementById('imgZoomable'+index);
+            
+            if (myModernDialog && myModernDialog && zoomableImage) {
+               ele.addEventListener('click', () => {
+                  myModernDialog.showModal();
+                  
+                  document.body.style.overflow='hidden';
+                  myBtnDialog.addEventListener('click', ()=> document.body.style.overflow='scroll');
+                  
+                  if (zoomableImage) {
+                     currentScale = 1;
+                     applyTransform(zoomableImage, currentScale, 0, 0);
+                     zoomableImage.style.cursor = 'zoom-in';
+                  }
+               });
+            }
+            
+             // --- Funcionalidad de Zoom y Arrastre para la Imagen (requiere JS) ---
+            let currentScale = 1;
+            const scaleFactor = 0.1;
+            let isDragging = false;
+            let startX, startY;
+            let currentTranslateX = 0;
+            let currentTranslateY = 0;
+            
+            if (zoomableImage) {
+               // Función auxiliar para aplicar transformaciones CSS
+               function applyTransform(element, scale, translateX, translateY) {
+                  element.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+               }
+               
+               // Zoom con la rueda del ratón
+               zoomableImage.addEventListener('wheel', (event) => {
+                  event.preventDefault(); // Evita el scroll de la página
+            
+                  const rect = zoomableImage.getBoundingClientRect();
+                  const mouseX = event.clientX - rect.left; // Posición del mouse relativa a la imagen
+                  const mouseY = event.clientY - rect.top;
+            
+                  const oldScale = currentScale;
+            
+                  if (event.deltaY < 0) { // Rueda hacia arriba: zoom in
+                      currentScale = Math.min(currentScale + scaleFactor, 5); // Límite de zoom a 5x
+                  } else { // Rueda hacia abajo: zoom out
+                      currentScale = Math.max(currentScale - scaleFactor, 1); // Mínimo 1x (tamaño original)
+                  }
+            
+                  // Ajustar el desplazamiento para hacer zoom hacia el puntero del ratón
+                  if (currentScale !== oldScale) {
+                      const scaleRatio = currentScale / oldScale;
+                      currentTranslateX = mouseX - (mouseX * scaleRatio) + (currentTranslateX * scaleRatio);
+                      currentTranslateY = mouseY - (mouseY * scaleRatio) + (currentTranslateY * scaleRatio);
+                  }
+            
+                  // Asegurarse de que no nos salgamos del límite al hacer zoom out (opcional, puede requerir límites más complejos)
+                  if (currentScale === 1) {
+                      currentTranslateX = 0;
+                      currentTranslateY = 0;
+                  }
+            
+                  applyTransform(zoomableImage, currentScale, currentTranslateX, currentTranslateY);
+            
+                  // Cambiar cursor
+                  if (currentScale > 1) {
+                      zoomableImage.style.cursor = 'grab';
+                  } else {
+                      zoomableImage.style.cursor = 'zoom-in';
+                  }
+               });
+               
+               // Arrastrar la imagen cuando está ampliada
+               zoomableImage.addEventListener('mousedown', (e) => {
+                  if (currentScale > 1) { // Solo arrastrar si hay zoom
+                      isDragging = true;
+                      zoomableImage.style.cursor = 'grabbing';
+                      startX = e.clientX - currentTranslateX; // Calcula el inicio del arrastre
+                      startY = e.clientY - currentTranslateY;
+                  }
+               });
+               
+               zoomableImage.addEventListener('mousemove', (e) => {
+                  if (!isDragging) return;
+                  e.preventDefault(); // Previene la selección de texto al arrastrar
+                  
+                  currentTranslateX = e.clientX - startX;
+                  currentTranslateY = e.clientY - startY;
+                  
+                  applyTransform(zoomableImage, currentScale, currentTranslateX, currentTranslateY);
+               });
+               
+               zoomableImage.addEventListener('mouseup', () => {
+                  isDragging = false;
+                  if (currentScale > 1) {
+                     zoomableImage.style.cursor = 'grab';
+                  } else {
+                     zoomableImage.style.cursor = 'zoom-in';
+                  }
+               });
+               
+               zoomableImage.addEventListener('mouseleave', () => {
+                  isDragging = false; // Detener arrastre si el mouse sale del área
+                  if (currentScale > 1) {
+                     zoomableImage.style.cursor = 'grab';
+                  } else {
+                     zoomableImage.style.cursor = 'zoom-in';
+                  }
+               });
+               
+               // Restablecer el zoom y posición cuando el diálogo se cierra
+               if (myModernDialog) {
+                  myModernDialog.addEventListener('close', () => {
+                      currentScale = 1;
+                      currentTranslateX = 0;
+                      currentTranslateY = 0;
+                      applyTransform(zoomableImage, currentScale, currentTranslateX, currentTranslateY);
+                      zoomableImage.style.cursor = 'zoom-in';
+                  });
+               }
+            } else {
+              console.warn('One or more elements for the dialog or zoom functionality were not found.');
+            }
+         });
+      }
+   });
+
+</script>

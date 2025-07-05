@@ -2,55 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-   :root {
-      --custom-background-gradient: linear-gradient(180deg, #efe1ff 0%, #ba69ff 50%, #8a2be2 100%);
+:root {
+   --custom-background-gradient: linear-gradient(180deg, #efe1ff 0%, #ba69ff 50%, #8a2be2 100%);
 
-      --tm-pr: #8a2be2;
-      --tm-se: #00936e;
-      --tm-te: #3fff0f;
+   --tm-pr: #8a2be2;
+   --tm-se: #00936e;
+   --tm-te: #3fff0f;
 
-      --tm-text: #000000;
-      --tm-inv-text: #b9b9b9;
-      --tm-text2: #2f2f2f;
+   --tm-text: #000000;
+   --tm-inv-text: #b9b9b9;
+   --tm-text2: #2f2f2f;
 
-      --tm-border: #000000;
-      --tm-inv-border: #ffffff;
+   --tm-border: #000000;
+   --tm-inv-border: #ffffff;
 
-      --tm-bg: #ffffff95;
-      --tm-inv-bg: #141414;
+   --tm-bg: #ffffff95;
+   --tm-inv-bg: #141414;
 
-      --tm-translucent: #000000d3;
-   }
+   --tm-translucent: #000000d3;
+}
 
-   * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-   }
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
 
-   html.dark {
-      --tm-pr: #b769ff;
-      --tm-se: #ffc43b;
+html.dark {
+   --tm-pr: #b769ff;
+   --tm-se: #ffc43b;
 
-      --tm-text: #ffffff;
-      --tm-inv-text: #000000;
-      --tm-text2: #cfcfcf;
+   --tm-text: #ffffff;
+   --tm-inv-text: #000000;
+   --tm-text2: #cfcfcf;
 
-      --tm-border: #ffffff;
-      --tm-inv-border: #000000;
+   --tm-border: #ffffff;
+   --tm-inv-border: #000000;
 
-      --tm-bg: #14141495;
-      --tm-inv-bg: #ffffff;
-      --tm-translucent: #ffffffa8;
-   }
+   --tm-bg: #14141495;
+   --tm-inv-bg: #ffffff;
+   --tm-translucent: #ffffffa8;
+}
 
-   body {
-      background-image: var(--custom-background-gradient);
-      background-attachment: fixed;
-      color: var(--tm-text);
-   }
-
+body {
+   background-image: var(--custom-background-gradient);
+   
+   color: var(--tm-text);
 }
 
 p {
