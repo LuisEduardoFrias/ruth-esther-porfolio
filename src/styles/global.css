@@ -46,7 +46,7 @@ html.dark {
 
 body {
    background-image: var(--custom-background-gradient);
-   
+
    color: var(--tm-text);
 }
 
@@ -57,4 +57,11 @@ p {
    margin-block: 1lh;
    margin-trim: none;
    hyphenate-limit-chars: 3 4;
+}
+
+.svg-icon {
+   stroke: var(--tm-text);
+}
+.svg-inv-icon {
+   fill: var(--tm-text);
 }

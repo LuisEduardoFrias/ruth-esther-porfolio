@@ -136,13 +136,18 @@ const {
    function handleScrollLogic() {
       
       const $header = $('#head');
+      const iconsMenu = $('.icons-menu');
       const $DownloadCv = $('#DownloadCv');
       const $labelName = $('#label-name');
       const $sunIcon = $('#sun-icon');
    
       window.addEventListener('scroll', () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
+      
+      if (iconsMenu) {
+         iconsMenu.style.top = `${scrollTop + 180}px`;
+      }
+      
       if ($header && $labelName && $DownloadCv) {
          if (scrollTop > 0) {
             if (scrollTop > 190) {
