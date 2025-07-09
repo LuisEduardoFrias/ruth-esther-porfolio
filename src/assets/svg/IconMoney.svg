@@ -1,9 +1,6 @@
 <svg class="svg-inv-icon" fill="#000000" width="48px" height="48px" viewBox="2 2 35 35">
-   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-   <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-   <g id="SVGRepo_iconCarrier">
+   <g>
       <defs><style>.cls-1{fill:none;}</style></defs>
-      <title>dashboard</title>
       <rect x="24" y="21" width="2" height="5"></rect>
       <rect x="20" y="16" width="2" height="10"></rect>
       <path d="M11,26a5.0059,5.0059,0,0,1-5-5H8a3,3,0,1,0,3-3V16a5,5,0,0,1,0,10Z"></path>

@@ -1,0 +1,185 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Nota from '@/components/Nota.astro'
+---
+
+<Layout title="Análisis Integral de E-commerce" description="Portafolio profesional de Ruth Esther, Data Analyst.">
+   <section class="p-6 md:p-8 lg:p-10 bg-white rounded-lg shadow-lg">
+      <h1 data-key="ecommerce-analysis" class="text-3xl font-bold text-purple-800 mb-6 border-l-4 border-purple-600 pl-4">
+         Análisis Integral de Operaciones de E-commerce
+      </h1>
+
+      <p class="mb-6 text-gray-700 leading-relaxed">
+         Este proyecto representa un <strong class="text-purple-700">análisis 360 grados</strong> de las operaciones de una gran plataforma de comercio electrónico.
+         Mi rol fue construir un informe integral para comprender el rendimiento general del negocio,
+         desde la <strong class="text-purple-700">rentabilidad de productos</strong> hasta la <strong class="text-purple-700">satisfacción del cliente</strong>
+         y la <strong class="text-purple-700">eficiencia de la cadena de suministro</strong>.
+         El proyecto integra <strong class="text-purple-700">SQL Server</strong> para la gestión de la base de datos y
+         <strong class="text-purple-700">Power BI</strong> para el modelado, el análisis y la visualización.
+      </p>
+
+      <div class="mb-8">
+         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Demostración Interactiva</h2>
+         <p class="text-gray-600 mb-4">
+            Aquí puedes explorar un vistazo de las diferentes secciones del dashboard que desarrollé. Usa los botones para navegar entre las vistas de "Ejecutivo", "Productos" y "Clientes/Geografía".
+         </p>
+
+         <div class="flex justify-center gap-4 mb-6">
+            <button id="btn-exec-dashboard"      class="px-6 py-2 rounded-md font-semibold text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-75 transition-colors duration-200">
+               Ejecutivo
+            </button>
+            <button id="btn-prod-dashboard"       class="px-6 py-2 rounded-md font-semibold text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-75 transition-colors duration-200">
+               Productos
+            </button>
+            <button id="btn-client-geo-dashboard" class="px-6 py-2 rounded-md font-semibold text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-75 transition-colors duration-200">
+               Clientes & Geografía
+            </button>
+         </div>
+         
+         <div class="relative min-h-[400px] flex justify-center items-center">
+            <div id="img-dash-exec" >
+               <div class="flex flex-col gap-2 p-3 border border-gray-200 rounded-md bg-gray-50">
+                  <label data-key="eje4-label-1" class="font-medium text-gray-700">Metodos de pago</label>
+                
+                  <div class="flex flex-wrap gap-4">
+                     <label data-key="eje4-label-2" for="radio-general" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                        General
+                     </label>
+                     <input id="radio-general" data-img="dash-1" checked name="metodo_pago" class="accent-purple-700 w-4 h-4" type="radio"> 
+                   
+                     <label data-key="eje4-label-3" for="radio-tarjeta" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                        Tarjeta
+                     </label>
+                     <input id="radio-tarjeta" data-img="dash-2" name="metodo_pago" class="accent-purple-700 w-4 h-4" type="radio"> 
+                   
+                     <label data-key="eje4-label-4" for="radio-paypal" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                        PayPal
+                     </label>
+                     <input id="radio-paypal" data-img="dash-3" name="metodo_pago" class="accent-purple-700 w-4 h-4" type="radio"> 
+                    
+                     <label data-key="eje4-label-5" for="radio-transferencia" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                        Transferencia
+                     </label>
+                     <input id="radio-transferencia" data-img="dash-4" name="metodo_pago" class="accent-purple-700 w-4 h-4" type="radio"> 
+                  </div>
+                  
+               </div>
+            
+               <img id="img-dash-1" src="/images/e-commerce-ejecutivo-1.jpg" class="w-full h-auto object-contain rounded-md shadow-md transition-opacity duration-300 ease-in-out" alt="Dashboard Ejecutivo de E-commerce" />
+               <img id="img-dash-2" src="/images/e-commerce-ejecutivo-2.jpg" class="hidden w-full h-auto object-contain rounded-md shadow-md transition-opacity duration-300 ease-in-out" alt="Dashboard Ejecutivo de E-commerce" />
+               <img id="img-dash-3" src="/images/e-commerce-ejecutivo-3.jpg" class="hidden w-full h-auto object-contain rounded-md shadow-md transition-opacity duration-300 ease-in-out" alt="Dashboard Ejecutivo de E-commerce" />
+               <img id="img-dash-4" src="/images/e-commerce-ejecutivo-4.jpg" class="hidden w-full h-auto object-contain rounded-md shadow-md transition-opacity duration-300 ease-in-out" alt="Dashboard Ejecutivo de E-commerce" />
+            </div>
+            <img id="img-dash-prod" src="/images/e-commerce-productos_rentavilidad.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Análisis de Productos de E-commerce" />
+            <img id="img-dash-client-geo" src="/images/e-commerce-geografia_clientes.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Clientes y Geografía de E-commerce" />
+         </div>
+      </div>
+      
+      <div class="mt-8 pt-6 border-t border-gray-200">
+         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Contexto y Requisitos del Proyecto</h2>
+         <p class="mb-4 text-gray-700 leading-relaxed">
+            Como parte del equipo de análisis de datos de una gran plataforma de comercio electrónico, el objetivo fue proporcionar una visión 360 grados del negocio, abarcando rendimiento, satisfacción del cliente, eficiencia de la cadena de suministro y rentabilidad de productos.
+         </p>
+         
+         <h3 class="text-xl font-semibold text-gray-800 mb-3">Técnicas y Habilidades Demostradas:</h3>
+         <ul class="list-disc list-inside space-y-2 text-gray-700 mb-6 pl-4">
+            <li>
+               <strong class="text-purple-700">Diseño y Gestión de Base de Datos (SQL Server):</strong> Creación de la base de datos `EcommerceDB` y definición de esquemas de tablas (`Clientes`, `Productos`, `Pedidos`, `Detalle_Pedido`) con claves primarias y foráneas, asegurando la integridad referencial.
+            </li>
+            <li>
+               <strong class="text-purple-700">Optimización con Vistas SQL:</strong> Desarrollo de vistas como `Vista_Ventas_Detalladas` para simplificar consultas complejas y optimizar el rendimiento al combinar información de múltiples tablas para el análisis en Power BI.
+            </li>
+            <li>
+               <strong class="text-purple-700">Transformación de Datos (Power Query):</strong> Procesamiento de datos para asegurar calidad y formato adecuado, incluyendo la adición de columnas temporales para análisis por períodos.
+            </li>
+            <li>
+               <strong class="text-purple-700">Creación de Columnas Calculadas y Medidas DAX Avanzadas:</strong> Implementación de métricas complejas para evaluar ingresos, costos, márgenes de beneficio a nivel de artículo y pedido, así como métricas operacionales (Cantidad Total de Unidades Vendidas, Número Total de Pedidos, Valor Promedio de Pedido, Tasa de Cancelación de Pedidos) y de clientes (Total de Clientes Únicos, Clientes Nuevos por Mes/Año).
+            </li>
+            <li>
+               <strong class="text-purple-700">Diseño de Dashboards Multi-Página en Power BI:</strong> Creación de un informe interactivo con múltiples páginas (Ejecutivo, Productos y Clientes/Geografía) para una visión holística del negocio, con tarjetas de métricas clave, gráficos de tendencias, distribuciones y tablas detalladas.
+            </li>
+            <li>
+               <strong class="text-purple-700">Segmentación e Interacciones Dinámicas:</strong> Configuración de segmentadores globales (Fecha, Categoría de Producto, Marca, País de Envío, Segmento de Cliente, Estado de Pedido) y ajuste de interacciones entre visualizaciones para un análisis dinámico.
+            </li>
+         </ul>
+
+         <p class="text-gray-700 leading-relaxed">
+            Este informe es una herramienta estratégica vital que permite a la gerencia obtener <strong class="text-purple-700">insights accionables</strong> sobre el rendimiento del e-commerce, facilitando decisiones basadas en datos para optimizar la rentabilidad, la eficiencia operativa y la satisfacción del cliente.
+         </p>
+      </div>
+      
+      <Nota />
+
+   </section>
+</Layout>
+
+<style>
+
+</style>
+
+<script>
+   import { $ } from '@/lib/dom-selector';
+
+   const $btnExec = $('#btn-exec-dashboard');
+   const $btnProd = $('#btn-prod-dashboard');
+   const $btnClientGeo = $('#btn-client-geo-dashboard');
+   
+   const $btnGeneral = $('#radio-general');
+   const $btnTarjeta = $('#radio-tarjeta');
+   const $btnPaypal = $('#radio-paypal');
+   const $btnTransferencia = $('#radio-transferencia');
+
+   const $imgDashExec = $('#img-dash-exec');
+   const $imgDashProd = $('#img-dash-prod');
+   const $imgDashClientGeo = $('#img-dash-client-geo');
+
+   const allImages = [$imgDashExec, $imgDashProd, $imgDashClientGeo];
+   const allButtons = [$btnExec, $btnProd, $btnClientGeo];
+   const allRadioButtons = [$btnGeneral, $btnTarjeta, $btnPaypal, $btnTransferencia];
+
+   function selectedRadio(event){
+      allRadioButtons.forEach(btn => {
+         const id = `img-${btn.dataset.img}`;
+         const $img = $(`#${id}`);
+         $img.classList.add("hidden");
+      });
+      
+      const id = `img-${event.target.dataset.img}`;
+      const $img = $(`#${id}`);
+      $img.classList.remove("hidden");
+   }
+   
+   $btnGeneral.addEventListener('change',selectedRadio);
+   $btnTarjeta.addEventListener('change',selectedRadio);
+   $btnPaypal.addEventListener('change',selectedRadio);
+   $btnTransferencia.addEventListener('change',selectedRadio);
+   
+   function showDashboard(dashboardType) {
+      allImages.forEach(img => img.classList.add('hidden'));
+      allButtons.forEach(btn => {
+         btn.classList.remove('bg-purple-600', 'text-white');
+         btn.classList.add('bg-purple-100', 'text-purple-800');
+      });
+      
+      if (dashboardType === 'exec') {
+         $imgDashExec.classList.remove('hidden');
+         $btnExec.classList.remove('bg-purple-100', 'text-purple-800');
+         $btnExec.classList.add('bg-purple-600', 'text-white');
+      } else if (dashboardType === 'prod') {
+         $imgDashProd.classList.remove('hidden');
+         $btnProd.classList.remove('bg-purple-100', 'text-purple-800');
+         $btnProd.classList.add('bg-purple-600', 'text-white');
+      } else if (dashboardType === 'client-geo') {
+         $imgDashClientGeo.classList.remove('hidden');
+         $btnClientGeo.classList.remove('bg-purple-100', 'text-purple-800');
+         $btnClientGeo.classList.add('bg-purple-600', 'text-white');
+      }
+   }
+
+   $btnExec.addEventListener('click', () => showDashboard('exec'));
+   $btnProd.addEventListener('click', () => showDashboard('prod'));
+   $btnClientGeo.addEventListener('click', () => showDashboard('client-geo'));
+
+   // Show Executive dashboard by default on page load
+   showDashboard('exec');
+</script>

@@ -19,7 +19,7 @@ interface Props {
 const {
   title = "Portafolio de Ruth Esther",
   name = "Ruth Esther - Portafolio",
-  image_url= "/images/profile-resize.webp",
+  image_url= "/images/img-web-profile.webp",
   description = "Portafolio profesional de Ruth Esther, Data Analyst.",
 } = Astro.props;
 ---
@@ -32,30 +32,45 @@ const {
       
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
-      <meta property="og:site_name" content={name} />
-      <meta property="og:description" content={description} />
       <meta property="og:image" content={image_url} />
-      <meta property="og:locale" content="es_ES" />
-    <!--  <meta property="og:url" content={page_url} /> -->
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content="https://ruth-esther-porfolio.vercel.app/" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@yourtwitterhandle" />
+      <meta name="twitter:creator" content="@yourtwitterhandle" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image_url} />
-      <meta name="twitter:site" content="@yourtwitterhandle" /> 
-      <meta name="twitter:creator" content="@yourtwitterhandle" /> 
       
-      <meta name="description" content={description} />
+      <meta name="description" content="Portafolio profesional de Ruth Esther, Data Analyst." />
       <title>{title}</title>
       
-      <ClientRouter />
-   
+      <link rel="canonical" href="https://ruth-esther-porfolio.vercel.app/" />
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <link rel="preload" href={image_url}  as="image" type="image/webp" crossorigin="anonymous" />
-      <link rel="preload" href="/fonts/YourFontName.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
-   
+     
+      <script type="application/ld+json">
+      {
+         "@context": "https://schema.org",
+         "@type": "Article",
+         "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https://ruth-esther-porfolio.vercel.app/"
+         },
+         "headline": "Portafolio de Ruth Esther",
+         "description": "Profile image of my portfolio.",
+         "image": {
+           "@type": "ImageObject",
+           "url": "https://ruth-esther-porfolio.vercel.app/images/img-web-profile.webp",
+           "width": 1200,
+           "height": 630
+         }
+      }
+      </script>
+    
    </head>
    
    <body class="min-h-screen text-tm-text">
@@ -132,6 +147,41 @@ const {
 <script>
    import { $ } from '@/lib/dom-selector'
 
+   function projectScrollHover(scrollTop) {
+      const proj1 = $('#project-1');
+      const proj2 = $('#project-2');
+      const proj3 = $('#project-3');
+      const proj4 = $('#project-4');
+      
+      if( Math.floor((proj1.style.height/2) + proj1.getBoundingClientRect().y) === Math.floor(window.screen.height / 2)){
+         proj2.blur();
+         proj3.blur();
+         proj4.blur();
+         proj1.focus();
+         console.log('------ p 1')
+      }
+      if( Math.floor((proj2.style.height/2) + proj3.getBoundingClientRect().y) === Math.floor(window.screen.height / 2)){
+         proj1.blur();
+         proj3.blur();
+         proj4.blur();
+         proj2.focus();
+         console.log('------ p 2')
+      }
+      if( Math.floor((proj3.style.height/2) + proj3.getBoundingClientRect().y) === Math.floor(window.screen.height / 2)){
+         proj1.blur();
+         proj2.blur();
+         proj4.blur();
+         proj3.focus();
+         console.log('------ p 3')
+      }
+      if( Math.floor((proj4.style.height/2) + proj4.getBoundingClientRect().y) === Math.floor(window.screen.height / 2)){
+         proj1.blur();
+         proj2.blur();
+         proj3.blur();
+         proj4.focus();
+         console.log('------ p 4')
+      }
+   }
    
    function handleScrollLogic() {
       
@@ -143,6 +193,8 @@ const {
    
       window.addEventListener('scroll', () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      projectScrollHover(scrollTop);
       
       if (iconsMenu) {
          iconsMenu.style.top = `${scrollTop + 180}px`;

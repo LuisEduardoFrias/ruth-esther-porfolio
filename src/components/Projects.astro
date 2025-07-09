@@ -1,0 +1,114 @@
+---
+const PROJECTS = [
+   {
+      key: "project-1",
+      title:'Análisis de Ventas Regionales',
+      href:'/ventas-regionales',
+      img:'dashboardTienda-0.jpg',
+      alt:'imagen del dashboard: análisis de ventss regionales',
+      p:'En este proyecto, realicé un análisis exhaustivo del rendimiento de ventas por región para una empresa minorista. El objetivo principal fue identificar...',
+   },
+   {
+      key: "project-2",
+      title:'Análisis de Desempeño de Productos',
+      href:'/desempeño-productos',
+      img:'e-commerce-ejecutivo-1.jpg',
+      alt:'imagen del dashboard: análisis de desempeño de productos',
+      p:'Este proyecto se enfoca en el análisis del rendimiento individual de los productos de una empresa, evaluando sus ventas, márgenes de beneficio...',
+   },
+   {
+      key: "project-3",
+      title:'Análisis de Satisfacción del Cliente',
+      href:'/satisfaccion-cliente',
+      img:'e-commerce-ejecutivo-1.jpg',
+      alt:'imagen del dashboard: análisis de satisfacción del cliente',
+      p:'Este proyecto representa un análisis 360 grados de las operaciones de una gran plataforma de comercio electrónico. Mi rol fue construir un informe integral para comprender el rendimiento...',
+   },
+   {
+      key: "project-4",
+      title:'Análisis Integral de Operaciones de E-commerce',
+      href:'/operaciones-e-commerce',
+      img:'e-commerce-ejecutivo-1.jpg',
+      alt:'imagen del dashboard: análisis integral de operaciones de e-commerce',
+      p:'Este proyecto se centra en el análisis de la satisfacción del cliente a través de datos de encuestas. El objetivo es identificar los factores...',
+   }
+];
+---
+
+<div class="space-y-6">
+   {
+      PROJECTS.map(({key, title, href, img, alt, p}) =>
+         <article  id={key} class="card-1 relative cursor-pointer">
+            <div class="card-2 bg-tm-bg border border-tm-border p-6">
+               <a href={href} class="cursor-pointer">
+                  <h3 data-key={title} class="text-xl flex flex-col font-bold text-tm-text leading-tight">
+                     {title}
+                  </h3>
+                  
+                  <p data-key={p} >
+                     {p}
+                  </p>
+                  
+                  <img src={"/images/"+img} alt={alt} style="view-transition-name: dt1-image;" class="w-full h-auto" ></img>
+               </a>
+            </div>
+         </article>
+      )
+   }
+</div>
+
+<style>
+.card-2 {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+}
+
+.card-2::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 30%, 
+    rgba(0,255,255,0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.card-2:hover {
+  background: #111;
+  border: none;
+  transform: scale(1.01);
+}
+
+.card-2:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+
+.card-1::before {
+  content: '';
+  position: absolute;
+  border-radius: 15px;
+  height: 102.5%;
+  width: 102.5%;
+  background: linear-gradient(45deg, var(--tm-pr) 50%, var(--tm-se) 50%);
+  bottom: -5px;
+  left: -5px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-out;
+}
+
+.card-1:hover::before {
+  transform: scaleX(1);
+}
+</style>

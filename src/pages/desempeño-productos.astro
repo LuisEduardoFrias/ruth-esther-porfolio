@@ -1,0 +1,262 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Nota from '@/components/Nota.astro'
+---
+
+<Layout title="Análisis de Desempeño de Productos" description="Portafolio profesional de Ruth Esther, Data Analyst.">
+   <section class="p-6 md:p-8 lg:p-10 bg-white rounded-lg shadow-lg">
+      <h1 data-key="product-performance" class="text-3xl font-bold text-purple-800 mb-6 border-l-4 border-purple-600 pl-4">
+         Análisis de Desempeño de Productos
+      </h1>
+
+      <p class="mb-6 text-gray-700 leading-relaxed">
+         Este proyecto se enfoca en el <strong class="text-purple-700">análisis del rendimiento individual de los productos</strong> de una empresa,
+         evaluando sus <strong class="text-purple-700">ventas, márgenes de beneficio y contribución a los ingresos totales</strong>.
+         El objetivo es proporcionar una visión clara sobre qué productos son más rentables y cuáles necesitan atención,
+         utilizando <strong class="text-purple-700">Power BI</strong> para un análisis detallado.
+      </p>
+
+      <div class="mb-8">
+         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Demostración Interactiva</h2>
+         <p class="text-gray-600 mb-4">
+            Aquí puedes explorar el dashboard interactivo que desarrollé. Usa los filtros de "Producto" y "Fecha" para segmentar los datos y obtener insights específicos.
+         </p>
+
+         <div class="flex flex-col gap-4 mb-6 overflow-x-scroll no-scrollbar">
+            
+            <div class="flex flex-col gap-2 p-3 border border-gray-200 rounded-md bg-gray-50">
+               <label class="font-medium text-gray-700">Producto</label>
+               <div class="flex flex-wrap gap-4">
+                  <label for="prod-camiseta" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <input id="prod-camiseta" checked name="producto" class="accent-purple-700 w-4 h-4" type="radio"> Camiseta
+                  </label>
+                  <label for="prod-pantalon" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <input id="prod-pantalon" name="producto" class="accent-purple-700 w-4 h-4" type="radio"> Pantalón
+                  </label>
+                  <label for="prod-zapatos" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <input id="prod-zapatos" name="producto" class="accent-purple-700 w-4 h-4" type="radio"> Zapatos
+                  </label>
+                  <label for="prod-gorra" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <input id="prod-gorra" name="producto" class="accent-purple-700 w-4 h-4" type="radio"> Gorra
+                  </label>
+               </div>
+            </div>
+
+            <div class="flex flex-col gap-2 p-3 border border-gray-200 rounded-md bg-gray-50">
+               <label class="font-medium text-gray-700">Período de Fecha</label>
+               <div class="flex flex-wrap gap-4">
+                  
+                  <label for="date-todos" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <span for="date-todos" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
+                     <input id="date-todos" checked name="fecha" class="accent-purple-700 w-4 h-4" type="radio"> Todos
+                  </label>
+                  
+                  <label for="date-q1" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <span for="date-q1" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
+                     <input id="date-q1" name="fecha" class="accent-purple-700 w-4 h-4" type="radio"> Ene-Mar
+                  </label>
+                  <label for="date-q2" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <span for="date-q2" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
+                     <input id="date-q2" name="fecha" class="accent-purple-700 w-4 h-4" type="radio"> Abr-Jun
+                  </label>
+                  <label for="date-q3" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <span for="date-q3" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
+                     <input id="date-q3" name="fecha" class="accent-purple-700 w-4 h-4" type="radio"> Jul-Sep
+                  </label>
+               </div>
+            </div>
+         </div>
+         
+         <div class="relative min-h-[300px] flex justify-center items-center">
+            <img id="img-prod-default" src="/images/dashboardProductos-1.jpg" class="w-full h-auto object-contain rounded-md shadow-md transition-opacity duration-300 ease-in-out" alt="Dashboard de Desempeño de Productos - General" />
+            <img id="img-prod-camiseta" src="/images/dashboardProductos-2.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Desempeño de Productos - Camiseta" />
+            <img id="img-prod-pantalon" src="/images/dashboardProductos-3.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Desempeño de Productos - Pantalón" />
+            <img id="img-prod-zapatos" src="/images/dashboardProductos-4.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Desempeño de Productos - Zapatos" />
+            <img id="img-prod-gorra" src="/images/dashboardProductos-5.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Desempeño de Productos - Gorra" />
+            <img id="img-prod-q1" src="/images/dashboardProductos-6.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Desempeño de Productos - Ene-Mar" />
+            <img id="img-prod-q2" src="/images/dashboardProductos-7.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Desempeño de Productos - Abr-Jun" />
+            <img id="img-prod-q3" src="/images/dashboardProductos-8.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Desempeño de Productos - Jul-Sep" />
+         </div>
+      </div>
+      
+      <div class="mt-8 pt-6 border-t border-gray-200">
+         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Contexto y Requisitos del Proyecto</h2>
+         <p class="mb-4 text-gray-700 leading-relaxed">
+            Como analista de datos, mi objetivo fue analizar el rendimiento de los productos en términos de ventas, margen de beneficio y contribución a los ingresos totales. Se utilizaron dos tablas: <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Productos</code> (con <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">ID_Producto</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Nombre_Producto</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Costo_Unitario</code>) y <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">VentasProductos</code> (con <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">ID_Venta</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Fecha</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">ID_Producto</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Cantidad</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Precio_Venta</code>).
+         </p>
+         
+         <h3 class="text-xl font-semibold text-gray-800 mb-3">Técnicas y Habilidades Demostradas:</h3>
+         <ul class="list-disc list-inside space-y-2 text-gray-700 mb-6 pl-4">
+            <li>
+               <strong class="text-purple-700">Modelado y Relacionamiento de Datos:</strong> Establecimiento de relaciones entre tablas para un análisis cohesionado.
+            </li>
+            <li>
+               <strong class="text-purple-700">Creación de Columnas Calculadas:</strong> Desarrollo de métricas a nivel de fila como <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Ingreso Total</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Costo Total</code> y <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Margen de Beneficio</code>.
+            </li>
+            <li>
+               <strong class="text-purple-700">Cálculo de Medidas DAX Agregadas:</strong> Implementación de <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Ingresos Totales</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Margen de Beneficio Total</code> y <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Porcentaje de Margen</code> para resúmenes de rendimiento.
+            </li>
+            <li>
+               <strong class="text-purple-700">Diseño de Visualizaciones Clave:</strong> Creación de gráficos de barras para ingresos y margen por producto, gráficos de dispersión para comparar métricas, y tablas detalladas con formato condicional para resaltar el desempeño.
+            </li>
+            <li>
+               <strong class="text-purple-700">Implementación de Segmentadores:</strong> Añadido de filtros por Nombre de Producto y Fecha para una exploración dinámica del rendimiento.
+            </li>
+         </ul>
+
+         <p class="text-gray-700 leading-relaxed">
+            Este análisis permite a la empresa <strong class="text-purple-700">identificar productos de alto y bajo rendimiento</strong>, facilitando decisiones estratégicas sobre precios, promociones e inventario.
+         </p>
+      </div>
+      
+      <Nota />
+
+   </section>
+</Layout>
+
+<style>
+   /* Estilos personalizados para el contenedor del scroll para ocultar la barra */
+   .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+   }
+   .no-scrollbar::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera*/
+   }
+
+   /* Estilos para los radio buttons personalizados */
+   .custom-radio input[type="radio"] {
+      /* Oculta el input de radio original*/
+      display: none;
+   }
+
+   .custom-radio span {
+      /* Estilo base para el círculo personalizado */
+      display: inline-block;
+      width: 1rem; /* Ancho del círculo */
+      height: 1rem; /* Alto del círculo */
+      border: 2px solid #ccc; /* Borde del círculo */
+      background-color: #f0f0f0; /* Color de fondo del círculo */
+      vertical-align: middle; /* Alinea el círculo con el texto */
+      margin-right: 0.3125rem; /* Espacio entre el círculo y el texto */
+      cursor: pointer; /* Indica que es clickeable */
+      position: relative; /* Necesario para el pseudo-elemento */
+      border-radius: 50%; /* Hace que sea un círculo */
+      transition: all 0.2s ease-in-out; /* Suaviza las transiciones */
+   }
+   
+   /* Estilo cuando el input de radio está seleccionado */
+   .custom-radio:has(input[type="radio"]:checked) span {
+      background-color: #6d28d9; /* Color de fondo cuando está seleccionado (morado oscuro) */
+      border-color: #6d28d9; /* Color del borde cuando está seleccionado */
+   }
+   
+   /* Marca de verificación dentro del círculo */
+   .custom-radio input[type="radio"]:checked + span::after {
+      content: ''; /* Contenido vacío para el pseudo-elemento */
+      display: block;
+      width: 0.5rem; /* Ancho de la marca */
+      height: 0.5rem; /* Alto de la marca */
+      background-color: #fff; /* Color de la marca (blanco) */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Centra la marca */
+      border-radius: 50%; /* Hace que la marca sea un círculo pequeño */
+   }
+
+   /* Efecto hover */
+   .custom-radio:hover span {
+      border-color: #6d28d9; /* Color del borde al pasar el ratón */
+   }
+</style>
+
+<script>
+   import { $ } from '@/lib/dom-selector'
+
+   const $prodCamiseta = $('#prod-camiseta');
+   const $prodPantalon = $('#prod-pantalon');
+   const $prodZapatos = $('#prod-zapatos');
+   const $prodGorra = $('#prod-gorra');
+   
+   const $dateTodos = $('#date-todos');
+   const $dateQ1 = $('#date-q1');
+   const $dateQ2 = $('#date-q2');
+   const $dateQ3 = $('#date-q3');
+   
+   const $imgProdDefault = $('#img-prod-default');
+   const $imgProdCamiseta = $('#img-prod-camiseta');
+   const $imgProdPantalon = $('#img-prod-pantalon');
+   const $imgProdZapatos = $('#img-prod-zapatos');
+   const $imgProdGorra = $('#img-prod-gorra');
+   const $imgProdQ1 = $('#img-prod-q1');
+   const $imgProdQ2 = $('#img-prod-q2');
+   const $imgProdQ3 = $('#img-prod-q3');
+
+   function updateProductImage() {
+      const selectedProduct = document.querySelector('input[name="producto"]:checked').id;
+      const selectedDate = document.querySelector('input[name="fecha"]:checked').id;
+
+      // Hide all images first
+      [$imgProdDefault, $imgProdCamiseta, $imgProdPantalon, $imgProdZapatos, $imgProdGorra, $imgProdQ1, $imgProdQ2, $imgProdQ3].forEach(img => img.classList.add('hidden'));
+
+      // Logic to show the correct image
+      if (selectedDate !== 'date-todos') {
+          // If a specific date range is selected, show that image
+          if (selectedDate === 'date-q1') $imgProdQ1.classList.remove('hidden');
+          if (selectedDate === 'date-q2') $imgProdQ2.classList.remove('hidden');
+          if (selectedDate === 'date-q3') $imgProdQ3.classList.remove('hidden');
+      } else if (selectedProduct !== 'prod-camiseta') { // 'prod-camiseta' is the default
+          // If no specific date range is selected, show product-specific images
+          if (selectedProduct === 'prod-pantalon') $imgProdPantalon.classList.remove('hidden');
+          if (selectedProduct === 'prod-zapatos') $imgProdZapatos.classList.remove('hidden');
+          if (selectedProduct === 'prod-gorra') $imgProdGorra.classList.remove('hidden');
+      } else {
+          // Default: show the default image or the "Camiseta" image if no other filter applies
+          if (selectedProduct === 'prod-camiseta' && selectedDate === 'date-todos') {
+            $imgProdDefault.classList.remove('hidden');
+          }
+      }
+      
+      // Override for specific product-date combinations if needed, otherwise rely on above
+      // For this example, we assume product-specific images are general, and date images are general
+      // If you had "camiseta-Q1.jpg", you'd add specific logic here.
+      // For now, the date filter takes precedence, then product, then default.
+      if (selectedProduct === 'prod-camiseta' && selectedDate === 'date-todos') {
+          $imgProdDefault.classList.remove('hidden');
+      } else if (selectedProduct === 'prod-camiseta' && selectedDate === 'date-q1') {
+          // This would be for a specific "Camiseta Q1" image. Using general Q1 for now.
+          $imgProdQ1.classList.remove('hidden'); // Or a specific $imgProdCamisetaQ1
+      }
+      // ... and so on for other product-date combinations.
+      // Given your current images, the logic needs to decide which type of image takes priority.
+      // I'll make an assumption: if a date is selected, show the date image. Otherwise, show product image.
+      // If no product is selected (Todos) AND no date selected (Todos), show a general default.
+
+      if (selectedDate === 'date-q1') {
+          $imgProdQ1.classList.remove('hidden');
+      } else if (selectedDate === 'date-q2') {
+          $imgProdQ2.classList.remove('hidden');
+      } else if (selectedDate === 'date-q3') {
+          $imgProdQ3.classList.remove('hidden');
+      } else { // selectedDate is 'date-todos'
+          if (selectedProduct === 'prod-camiseta') {
+              $imgProdDefault.classList.remove('hidden'); // Assuming default is general for camiseta
+          } else if (selectedProduct === 'prod-pantalon') {
+              $imgProdPantalon.classList.remove('hidden');
+          } else if (selectedProduct === 'prod-zapatos') {
+              $imgProdZapatos.classList.remove('hidden');
+          } else if (selectedProduct === 'prod-gorra') {
+              $imgProdGorra.classList.remove('hidden');
+          }
+      }
+   }
+
+   // Attach event listeners
+   [$prodCamiseta, $prodPantalon, $prodZapatos, $prodGorra, $dateTodos, $dateQ1, $dateQ2, $dateQ3].forEach(radio => {
+       radio.addEventListener('change', updateProductImage);
+   });
+
+   // Initial image display based on default checked radios
+   updateProductImage();
+</script>

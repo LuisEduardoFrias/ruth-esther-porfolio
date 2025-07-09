@@ -12,19 +12,19 @@
 import { WORKEXPERIENCES } from '@/consts/workExperiences';
 ---
 
-<ul class="space-y-6"> {/* Mayor espacio entre cada experiencia laboral */}
+<ul class="space-y-6">
   
   {WORKEXPERIENCES.map(({ company, cargo, area, tasks }) => (
     <li class="bg-tm-bg rounded-lg shadow-md p-6 border border-tm-border"> {/* Ajustado padding y shadow, usando border sutil */}
       
       <div class="flex flex-col gap-3 mb-2">
-        <h3 data-key={company} class="text-xl flex flex-col font-bold text-tm-text leading-tight">
-          {company} 
-          <span data-key={cargo} class="text-lg font-normal text-tm-text2">{cargo}</span>
-        </h3>
-        <p class="text-sm text-tm-text2 mt-1">
-          {area && <span data-key={area} class="ml-2">Área: {area}</span>} {/* Área integrada en la misma línea o con un salto de línea sutil */}
-        </p>
+         <h3 data-key={company} class="text-xl flex flex-col font-bold text-tm-text leading-tight">
+            {company}
+         </h3>
+         <span data-key={cargo} class="text-lg font-normal text-tm-text2"> ---- {cargo} </span>
+         <p class="text-sm text-tm-text2 mt-1">
+            {area && <span data-key={area} class="ml-2">Área: {area}</span>} {/* Área integrada en la misma línea o con un salto de línea sutil */}
+         </p>
       </div>
 
       {tasks && tasks.length > 0 && (

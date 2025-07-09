@@ -11,11 +11,11 @@ export const WORKEXPERIENCES: workExperience[] = [
       company: 'we-2-company',
       cargo: 'we-2-cargo',
       area: 'we-2-area',
-      tasks: [],
+      tasks: ["we-2-tasks-1", "we-2-tasks-2", "we-2-tasks-3"],
    },
    {
       company: 'we-3-company',
       cargo: 'we-3-cargo',
-      tasks: []
+      tasks: ["we-3-tasks-1"]
    },
 ];

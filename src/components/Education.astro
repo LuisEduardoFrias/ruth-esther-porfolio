@@ -1,15 +1,15 @@
 ---
 import { EDUCATIONS } from '@/consts/educations';
-import { IconLink } from '@/assets/svg/IconLink.svg?raw';
+//import { IconLink } from '@/assets/svg/IconLink.svg?raw';
 ---
 
 <ul class="space-y-6">
   
    {EDUCATIONS.map(({ title, institution, url, linkText, img, alt, date, details },index) => {
       const image = '/images/'+img+'.webp';
-     const modalIndex = "modal"+index;
-     const modalBtnIndex = "modalBtn"+index;
-     const zoomableImage = "imgZoomable"+index;
+      const modalIndex = "modal"+index;
+      const modalBtnIndex = "modalBtn"+index;
+      const zoomableImage = "imgZoomable"+index;
      
       return (
          <li class="bg-tm-bg rounded-lg shadow-md p-6 border border-tm-border"> 
@@ -24,7 +24,7 @@ import { IconLink } from '@/assets/svg/IconLink.svg?raw';
                }
                {(!img && url) && (<div class="flex items-center gap-3">
                <div class="border-2 border-amber-300">
-                  <div class="w-10 h-10 p-0" set:html={IconLink}></div>
+                  {/*<div class="w-10 h-10 p-0" set:html={IconLink}></div>*/}
                </div> 
                <a href={url} target="_blank" data-key={institution}  >{institution}</a></div>) }
                

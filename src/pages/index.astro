@@ -2,19 +2,16 @@
 import Layout from '@/layouts/Layout.astro'
 import WorkExperience from '@/components//WorkExperience.astro';
 import Education from '@/components/Education.astro';
+import Projects from '@/components/Projects.astro';
 ---
 
 <Layout  title="Análista de datos"  name="Ruth Esther - Portafolio", description="Portafolio profesional de Ruth Esther, Data Analyst.">
 
    <section>
-      <h2 data-key="regionals-sales" class="text-3xl font-bold text-tm-pr mb-6 border-l-4 border-tm-pr pl-4">
-         Análisis de Ventas Regionales
+      <h2 data-key="projects" class="text-3xl font-bold text-tm-pr mb-6 border-l-4 border-tm-pr pl-4">
+         Proyectos
       </h2>
-      <article>
-         <a href="/ventas-regionales" class="cursor-pointer">
-            <img src="/images/dashboardTienda-0.jpg" style="view-transition-name: dt1-image;" class="w-full h-auto" ></img>
-         </a>
-      </article>
+      <Projects />
    </section>
    
    <section>
