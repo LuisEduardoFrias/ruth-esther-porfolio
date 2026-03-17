@@ -31,6 +31,7 @@ export default {
             "tm-inv-border": 'var(--tm-inv-border)',
 
             "tm-bg": 'var(--tm-bg)',
+            "tm-bg-50": 'var(--tm-bg-50)',
             "tm-translucent": 'var(--tm-translucent)',
             "tm-inv-bg": 'var(--tm-inv-bg)',
          }

@@ -4,8 +4,10 @@ import { ClientRouter } from "astro:transitions";
 import Language from '@/components/Language.astro';
 import Theme from '@/components/Theme.astro';
 import DownloadCv from '@/components/DownloadCv.astro';
+import Dock from '@/components/Dock.astro';
 
 import Header from '@/components/Header.astro';
+import Body from '@/components/Body.astro';
 import Menubar from '@/components/Menubar.astro';
 import Sidebar from '@/components/Sidebar.astro';
 import Footer from '@/components/Footer.astro';
@@ -25,55 +27,78 @@ const {
 ---
 
 <!Doctype html>
-<html lang="es" transition:persist >
    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={title} />
-      <meta property="og:image" content={image_url} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content="https://ruth-esther-porfolio.vercel.app/" />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@yourtwitterhandle" />
-      <meta name="twitter:creator" content="@yourtwitterhandle" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image_url} />
-      
-      <meta name="description" content="Portafolio profesional de Ruth Esther, Data Analyst." />
-      <title>{title}</title>
-      
-      <link rel="canonical" href="https://ruth-esther-porfolio.vercel.app/" />
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-      <link rel="preload" href={image_url}  as="image" type="image/webp" crossorigin="anonymous" />
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      
-      <script type="application/ld+json">
-      {
-         "@context": "https://schema.org",
-         "@type": "Article",
-         "mainEntityOfPage": {
-           "@type": "WebPage",
-           "@id": "https://ruth-esther-porfolio.vercel.app/"
-         },
-         "headline": "Portafolio de Ruth Esther",
-         "description": "Profile image of my portfolio.",
-         "image": {
-           "@type": "ImageObject",
-           "url": "https://ruth-esther-porfolio.vercel.app/images/img-web-profile.webp",
-           "width": 1200,
-           "height": 630
-         }
-      }
-      </script>
-    
+     <title>{title}</title>
+     <meta name="description" content={description} />
+     <link rel="canonical" href="https://ruth-esther-porfolio.vercel.app/" />
+     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+   
+     <meta property="og:type" content="website" />
+     <meta property="og:url" content="https://ruth-esther-porfolio.vercel.app/" />
+     <meta property="og:title" content={title} />
+     <meta property="og:description" content={description} />
+     <meta property="og:image" content={"https://ruth-esther-porfolio.vercel.app" + image_url} />
+     <meta property="og:image:secure_url" content={"https://ruth-esther-porfolio.vercel.app" + image_url} />
+     <meta property="og:image:type" content="image/webp" />
+     <meta property="og:image:width" content="1200" />
+     <meta property="og:image:height" content="630" />
+     <meta property="og:site_name" content={name} />
+     <meta property="og:locale" content="es_DO" />
+   
+     <meta property="og:image:alt" content="Portafolio Profesional de Ruth Esther" />
+   
+     <meta property="al:ios:url" content="https://ruth-esther-porfolio.vercel.app/" />
+     <meta property="al:android:url" content="https://ruth-esther-porfolio.vercel.app/" />
+     <meta property="al:web:url" content="https://ruth-esther-porfolio.vercel.app/" />
+   
+     <meta name="twitter:card" content="summary_large_image" />
+     <meta name="twitter:title" content={title} />
+     <meta name="twitter:description" content={description} />
+     <meta name="twitter:image" content={"https://ruth-esther-porfolio.vercel.app" + image_url} />
+   
+     <link rel="preload" href={image_url} as="image" type="image/webp" crossorigin="anonymous" />
+     
+     <ClientRouter />
+   
+     <script type="application/ld+json">
+     {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ruth Esther Baez Ortiz",
+        "jobTitle": "Analista de Datos",
+        "url": "https://ruth-esther-porfolio.vercel.app/",
+        "image": "https://ruth-esther-porfolio.vercel.app/images/img-web-profile.webp",
+        "description": "Portafolio profesional de análisis de datos y aseguramiento de calidad."
+     }
+     </script>
    </head>
    
-   <body class="min-h-screen text-tm-text">
+   <body class="min-h-screen text-tm-text flex flex-col gap-8 justify-start">
+      <!-- HEADER -->
+      <div class="md:flex md:justify-center">
+         <Header />
+      </div>
+      <!-- DOGK -->
+      <div class="h-12 flex justify-center items-center">
+         <Dock />
+      </div>
+      <!-- BODY -->
+      <div class="content">
+         <main>
+            <section class="md:col-span-2 lg:col-span-3">
+               <div class="p-6 border-r-4 border-tm-border flex flex-col gap-8">
+                  <slot />
+               </div>
+            </section>
+         </main>
+         <footer class="backdrop-blur-3xl bg-[#E0D4F3] col-span-full md:col-start-2 row-start-3 border-r-4 border-b-4 border-tm-border p-4 text-center text-tm-text2">
+            <Footer />
+         </footer>
+      </div>
+      <!--
       <div id="head" class="z-50 transition-all duration-1000 ease-in-ou w-full flex justify-between items-center p-2" >
          <label id="label-name" class="opacity-0 transition-opacity duration-1000 ease-in-out text-xl sm:text-4xl lg:text-5xl font-extrabold
          text-tm-pr mb-1 leading-tight">
@@ -112,10 +137,10 @@ const {
          </footer>
    
       </div>
-
+-->
    </body>
    
-</html>
+</head>
 
 <style is:global>
    #label-name {
@@ -157,7 +182,7 @@ const {
          proj2.blur();
          proj3.blur();
          proj4.blur();
-         proj1.focus();
+         proj1.classList.add();
          console.log('------ p 1')
       }
       if( Math.floor((proj2.style.height/2) + proj3.getBoundingClientRect().y) === Math.floor(window.screen.height / 2)){
@@ -194,7 +219,7 @@ const {
       window.addEventListener('scroll', () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       
-      projectScrollHover(scrollTop);
+      
       
       if (iconsMenu) {
          iconsMenu.style.top = `${scrollTop + 180}px`;

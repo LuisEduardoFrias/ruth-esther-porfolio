@@ -8,23 +8,51 @@ import Projects from '@/components/Projects.astro';
 <Layout  title="Análista de datos"  name="Ruth Esther - Portafolio", description="Portafolio profesional de Ruth Esther, Data Analyst.">
 
    <section>
-      <h2 data-key="projects" class="text-3xl font-bold text-tm-pr mb-6 border-l-4 border-tm-pr pl-4">
-         Proyectos
-      </h2>
-      <Projects />
+      <div class="flex ">
+         <h2 data-key="projects" class="text-3xl font-bold text-tm-pr mb-6 border-l-4 border-tm-pr pl-4">
+            Proyectos
+         </h2>
+         
+         <button class="ml-16 flex items-center hover:border-tm-se hover:text-tm-se border border-2 border-tm-pr rounded px-2 h-10 font-extrabold text-tm-pr ">
+            <a href="/projects/project-1">
+               <span>Destalles</span>
+            </a>
+         </button>
+      </div>
+      <div class="mb-6 border-l-4 border-tm-pr pl-4">
+         <Projects />
+      </div>
    </section>
    
    <section>
-      <h2 data-key="work_experiences" class="text-3xl font-bold text-tm-pr mb-6 border-l-4 border-tm-pr pl-4">
-         Experiencia Laboral
-      </h2>
-      <WorkExperience />
+      <div class="flex">
+         <h2 data-key="work_experiences" class="text-3xl font-bold text-tm-pr mb-6 border-l-4 border-tm-pr pl-4">
+            Experiencia Laboral
+         </h2>
+         <button class="ml-16 flex items-center hover:border-tm-se hover:text-tm-se border border-2 border-tm-pr rounded px-2 h-10 font-extrabold text-tm-pr ">
+            <a href="/experience/people-group">
+               <span>Destalles</span>
+            </a>
+         </button>
+      </div>
+      <div class="mb-6 border-l-4 border-tm-pr pl-4">
+         <WorkExperience />
+      </div>
    </section>
   
    <section>
-      <h2 data-key="education" class="text-3xl font-bold text-tm-pr mb-6 border-l-4 border-tm-pr pl-4">
-         Educación
-      </h2>
-      <Education />
+      <div class="flex">
+         <h2 data-key="education" class="text-3xl font-bold text-tm-pr mb-6 border-l-4 border-tm-pr pl-4">
+            Educación
+         </h2>
+         <button class="ml-16 hidden flex items-center hover:border-tm-se hover:text-tm-se border border-2 border-tm-pr rounded px-2 h-10 font-extrabold text-tm-pr ">
+            <a href="">
+               <span>Destalles</span>
+            </a>
+         </button>
+      </div>
+      <div class="mb-6 border-l-4 border-tm-pr pl-4">
+         <Education />
+      </div>
    </section>
 </Layout>

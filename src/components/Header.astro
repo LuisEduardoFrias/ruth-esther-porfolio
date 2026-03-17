@@ -1,24 +1,147 @@
 ---
-
+import IconMenu from '../assets/svg/IconMenu.svg?raw';
+import IconHouse from '../assets/svg/IconHouse.svg?raw'
+import Language from '@/components/Language.astro';
+import Theme from '@/components/Theme.astro';
+import DownloadCv from '@/components/DownloadCv.astro';
 ---
 
-<div class="bg-tm-bg p-4 sm:p-6 rounded-lg shadow-sm border border-tm-border text-center">
-   <div class="block md:hidden w-full flex flex-col items-center justify-center p-2">
-      <img
-         class="w-40 h-40 md:w-40 md:h-40 object-cover rounded-full border-4 border-tm-pr shadow-md"
-         src="/images/profile_resize.webp"
-         alt="Imagen de perfil de Ruth Esther"
-         loading="lazy"
-      />
+<div transition:persist class="flex flex-col md:card md:mt-10 md:w-5/6">
+   <div class="flex md:bg-tm-bg-50 items-center h-14 justify-between relative">
+      <div class="flex items-center h-full w-full ">      
+         <div class="md:hidden">
+            <button id="btn-open-menu" class="w-10 h-10 p-0" set:html={IconMenu} ></button>
+         </div>
+         
+         <div class="hidden md:flex h-full w-full gap-1">
+            <button class="btn-house hidden btn-menu flex justify-center items-center transition-all duration-500 ease-in-out opacity-0 -translate-x-2">
+               <a href="/">
+                  <div class="p-0" set:html={IconHouse}></div>
+               </a>
+            </button>
+            <button class="btn-menu">
+               <a href="/about_me">Sobre mi</a>
+            </button>
+            <button class="btn-menu">
+               <a href="/projects/project-1">Proyectos</a>
+            </button>
+            <button class="btn-menu">
+               <a href="/experience/people-group">Experiencias</a>
+            </button>
+            <button class="btn-menu">
+               <a href="/contacts">Contactos</a>
+            </button>
+         </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden absolute top-14 left-0 w-full bg-tm-bg-50 flex-col p-4 shadow-lg z-50 md:hidden border-b border-tm-pr transition-all duration-300 ease-in-out opacity-0 -translate-y-2">
+         <a href="/" class="btn-house w-full hidden btn-menu flex items-center gap-2 py-2 border-b border-tm-pr/20">
+            <button class="flex items-center gap-2">
+               <div class="w-6 h-6" set:html={IconHouse}></div>
+               <span>Inicio</span>
+            </button>
+         </a>
+         
+         <a href="/about_me" class="btn-menu w-full py-2 text-left" class="=w-full"><button class="=w-full">Sobre mi</button></a>
+         <a href="/projects/project-1" class="btn-menu w-full py-2 text-left" class="=w-full"><button class="=w-full">Proyectos</button></a>
+         <a href="/experience/people-group" class="btn-menu w-full py-2 text-left" class="=w-full"><button class="=w-full">Experiencias</button></a>
+         <a href="/contacts" class="btn-menu w-full py-2 text-left"><button class="=w-full">Contactos</button></a>
+      </div>
+
+      <div class="flex justify-center items-center w-2/6 px-2">
+         <Theme />
+         <Language />
+      </div>
    </div>
-   <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-tm-pr mb-1 leading-tight">
-      Ruth Esther Baéz Órtiz
-   </h1>
-   <h2 data-key="Subtitle" class="text-xl sm:text-2xl lg:text-3xl font-bold text-tm-se mb-4 leading-snug">
-      Data Analyst
-   </h2>
-   <p data-key="about_me" id="about_me" class="text-sm sm:text-base text-tm-text2 max-w-2xl mx-auto">
-      Orientada a la acción, transformando datos complejos en insights estratégicos y soluciones impactantes.
-      Mi capacidad para modelado predictivo y visualización efectiva y mi compromiso con la excelencia analítica le seran de gran interes.
-   </p>
-</p>
+   
+   <div class="p-[24px] pt-0">
+      <div class="block w-full flex flex-col md:flex-row-reverse items-center justify-center p-2"> 
+         <div class="block w-full max-w-xs flex flex-col items-center justify-center p-2">
+            <img
+               class="w-40 h-40 md:w-40 md:h-40 object-cover rounded-full border-4 border-tm-pr shadow-md"
+               src="/images/profile_resize.webp"
+               alt="Imagen de perfil de Ruth Esther"
+               loading="lazy"
+            />
+         </div>
+         <div class="flex flex-col max-w-xs w-full">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-tm-pr mb-1 leading-tight">
+               Hola, soy Ruth.
+            </h1>
+            <h2 data-key="Subtitle" class="text-xl sm:text-2xl lg:text-3xl font-bold text-tm-se mb-4 leading-snug">
+               Data Analyst
+            </h2>
+            <p data-key="about_me_" id="about_me" class="text-xl font-medium sm:text-base text-tm-text2 max-w-2xl mx-auto">
+              Transformo datos complejos en decisiones estratégicas
+            </p>
+            <div class="h-12 flex justify-center items-center gap-5 flex-row w-full">
+               <DownloadCv />
+               <div class="border border-2 border-tm-pr p-1 px-2 rounded-full w-[0.50rm] h-3/4 font-medium transition-opacity duration-1000 ease-in-out text-tm-inv-text left-2 pr-2">
+                  <a href="/projects/project-1">
+                     <button class="h-full w-full hover:text-pr" >
+                        <span class="h-full w-full text-nowrap font-bold text-tm-pr text-sm">Ver Proyectos</span>
+                     </button>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<style>
+  .house-visible {
+    display: flex !important;
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  }
+
+  .menu-active {
+    display: flex !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+</style>
+
+<script>
+  import { $ } from '@/lib/dom-selector'
+
+  const setupHeader = () => {
+    const $btns_house = document.querySelectorAll('.btn-house');
+    const $btn_open_menu = $('#btn-open-menu');
+    const $mobile_menu = $('#mobile-menu');
+
+    const pathname = window.location.pathname;
+    const isRoot = pathname === '/' || pathname === '/index.html';
+
+    $btns_house.forEach($btn => {
+      if (isRoot) {
+        $btn.classList.remove('house-visible');
+        setTimeout(() => { if(window.location.pathname === '/') $btn.classList.add('hidden') }, 500);
+      } else {
+        $btn.classList.remove('hidden');
+        setTimeout(() => $btn.classList.add('house-visible'), 10);
+      }
+    });
+
+    if ($mobile_menu) {
+      $mobile_menu.classList.remove('menu-active');
+      $mobile_menu.classList.add('hidden');
+    }
+
+    if ($btn_open_menu && $mobile_menu) {
+      $btn_open_menu.onclick = (e) => {
+        e.stopPropagation();
+        if ($mobile_menu.classList.contains('hidden')) {
+          $mobile_menu.classList.remove('hidden');
+          setTimeout(() => $mobile_menu.classList.add('menu-active'), 10);
+        } else {
+          $mobile_menu.classList.remove('menu-active');
+          setTimeout(() => $mobile_menu.classList.add('hidden'), 300);
+        }
+      };
+    }
+  };
+
+  document.addEventListener('astro:page-load', setupHeader);
+</script>

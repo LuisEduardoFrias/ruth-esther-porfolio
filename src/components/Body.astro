@@ -1,0 +1,15 @@
+---
+import Footer from '@/components/Footer.astro';
+---
+
+<div>
+   <section class="md:col-span-2 lg:col-span-3">
+      <div class="bg-tm-bg p-6 rounded-lg shadow-sm border-b-4 border-r-4 border-tm-border flex flex-col gap-8">
+         <slot />
+      </div>
+   </section>
+
+   <footer class="col-span-full md:col-start-2 row-start-3 bg-tm-bg border-r-4 border-b-4 border-tm-border rounded-lg shadow-sm p-4 text-center text-tm-text2">
+      <Footer />
+   </footer>
+</div>

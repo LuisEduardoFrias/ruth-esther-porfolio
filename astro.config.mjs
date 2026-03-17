@@ -23,6 +23,5 @@ export default defineConfig({
    }),
 
    integrations: [sitemap()],
-
-   //site: 'https://www.ruth-esther-porfolio.com/',
+   site: 'https://ruth-esther-porfolio.vercel.app'
 })

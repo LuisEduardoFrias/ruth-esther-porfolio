@@ -3,8 +3,7 @@ import Layout from '@/layouts/Layout.astro'
 import Nota from '@/components/Nota.astro'
 ---
 
-<Layout title="Análisis de Satisfacción del Cliente" description="Portafolio profesional de Ruth Esther, Data Analyst.">
-   <section class="p-6 md:p-8 lg:p-10 bg-white rounded-lg shadow-lg">
+<section class="p-6 md:p-8 lg:p-10 bg-white rounded-lg shadow-lg">
       <h1 data-key="customer-satisfaction" class="text-3xl font-bold text-purple-800 mb-6 border-l-4 border-purple-600 pl-4">
          Análisis de Satisfacción del Cliente
       </h1>
@@ -14,7 +13,8 @@ import Nota from '@/components/Nota.astro'
          El objetivo es <strong class="text-purple-700">identificar los factores clave que influyen en la satisfacción</strong>
          y proporcionar información para mejorar la calidad del servicio, utilizando <strong class="text-purple-700">Power BI</strong> para la exploración y visualización de los datos.
       </p>
-
+      
+      <!--
       <div class="mb-8">
          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Demostración Interactiva</h2>
          <p class="text-gray-600 mb-4">
@@ -79,8 +79,13 @@ import Nota from '@/components/Nota.astro'
             <img id="img-sat-no" src="/images/dashboardSatisfaccion-7.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Satisfacción del Cliente - Problema Resuelto: No" />
             <img id="img-sat-parcial" src="/images/dashboardSatisfaccion-8.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Satisfacción del Cliente - Problema Resuelto: Parcialmente" />
          </div>
+         </div>
       </div>
-      
+      -->
+      <div class="relative min-h-[300px] flex justify-center items-center">
+         <img src="/images/satisfaccion_cliente.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0  transition-opacity duration-300 ease-in-out" alt="Dashboard de Satisfacción del Cliente - Problema Resuelto: Parcialmente" />
+      </div>
+     
       <div class="mt-8 pt-6 border-t border-gray-200">
          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Contexto y Requisitos del Proyecto</h2>
          <p class="mb-4 text-gray-700 leading-relaxed">
@@ -114,7 +119,7 @@ import Nota from '@/components/Nota.astro'
       <Nota />
 
    </section>
-</Layout>
+
 
 <style>
    /* Estilos personalizados para el contenedor del scroll para ocultar la barra */

@@ -1,0 +1,208 @@
+
+---
+import Layout from '@/layouts/Layout.astro'
+import { ClientRouter } from 'astro:transitions';
+export const prerender = true;
+
+export function getStaticPaths() {
+  return [
+    { params: { id: 'people-group' } },
+    { params: { id: 'camara-qa' } },
+    { params: { id: 'camara-secretaria' } },
+    { params: { id: 'ministerio-protocolo' } },
+  ];
+}
+
+const { id } = Astro.params;
+
+const EXPERIENCE_NAV = [
+   { id: "people-group", name: "Analista de Datos", href: "/experience/people-group" },
+   { id: "camara-qa", name: "Analista QA", href: "/experience/camara-qa" },
+   { id: "camara-secretaria", name: "Secretaria", href: "/experience/camara-secretaria" },
+   { id: "ministerio-protocolo", name: "Oficial de Protocolo", href: "/experience/ministerio-protocolo" },
+];
+---
+
+<Layout title="Detalles de Experiencia">
+  <ClientRouter />
+
+  <div class="max-w-6xl mx-auto p-4 md:p-6">
+    
+    <nav 
+      id="nav-container"
+      class="flex w-full overflow-x-auto no-scrollbar gap-3 mb-8 p-3 bg-white/50 backdrop-blur-md rounded-2xl border border-purple-100 scroll-smooth shadow-sm"
+    >
+      {EXPERIENCE_NAV.map((exp) => (
+        <a 
+          href={exp.href}
+          class={id === exp.id 
+            ? "active-exp flex-none px-5 py-2.5 rounded-xl font-semibold whitespace-nowrap transition-all duration-300 bg-purple-600 text-white shadow-lg scale-105" 
+            : "flex-none px-5 py-2.5 rounded-xl font-semibold whitespace-nowrap transition-all duration-300 bg-white text-purple-800 hover:bg-purple-50 border border-purple-100"
+          }
+        >
+          {exp.name}
+        </a>
+      ))}
+    </nav>
+
+    <div class="experience-content">
+      {id === 'people-group' && (
+         <section class="p-6 md:p-10 bg-white rounded-3xl shadow-xl border border-gray-100 animate-fade-in">
+            <h1 class="text-3xl font-bold text-purple-800 mb-2 border-l-4 border-purple-600 pl-4">Analista de datos</h1>
+            <h2 class="text-xl text-gray-600 mb-6 pl-5">People Group Dominicana</h2>
+            <div class="text-sm bg-purple-50 text-purple-700 px-4 py-2 rounded-lg inline-block mb-6 ml-5 font-medium">
+               Área: Operaciones / Comercial
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-4">
+               Especializada en la gestión de KPIs y la transformación de datos para la toma de decisiones estratégicas:
+            </p>
+            <ul class="list-disc pl-8 space-y-2 text-gray-700">
+               <li>Gestión y monitoreo de indicadores clave de desempeño (KPIs) y reportes ejecutivos.</li>
+               <li>Procesos exhaustivos de limpieza y preparación de datos (Data Wrangling).</li>
+               <li>Creación de dashboards dinámicos para la visualización de métricas comerciales.</li>
+            </ul>
+         </section>
+      )}
+
+      {id === 'camara-qa' && (
+         <section class="p-6 md:p-10 bg-white rounded-3xl shadow-xl border border-gray-100 animate-fade-in">
+            <h1 class="text-3xl font-bold text-purple-800 mb-2 border-l-4 border-purple-600 pl-4">Analista de calidad del software</h1>
+            <h2 class="text-xl text-gray-600 mb-6 pl-5">La cámara de cuentas</h2>
+            <div class="text-sm bg-purple-50 text-purple-700 px-4 py-2 rounded-lg inline-block mb-6 ml-5 font-medium">
+               Departamento: Tecnología
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-4">
+               Responsable de asegurar la calidad y el correcto funcionamiento de las plataformas tecnológicas institucionales:
+            </p>
+            <ul class="list-disc pl-8 space-y-2 text-gray-700">
+               <li>Ejecución de pruebas manuales exhaustivas para verificar la integridad de los sistemas.</li>
+               <li>Validación de requerimientos de software y detección de errores en etapas tempranas.</li>
+               <li>Documentación detallada de casos de prueba y manuales técnicos de los sistemas internos.</li>
+            </ul>
+         </section>
+      )}
+
+      {id === 'camara-secretaria' && (
+         <section class="p-6 md:p-10 bg-white rounded-3xl shadow-xl border border-gray-100 animate-fade-in">
+            <h1 class="text-3xl font-bold text-purple-800 mb-2 border-l-4 border-purple-600 pl-4">Secretaria</h1>
+            <h2 class="text-xl text-gray-600 mb-6 pl-5">La cámara de cuentas</h2>
+            <div class="text-sm bg-purple-50 text-purple-700 px-4 py-2 rounded-lg inline-block mb-6 ml-5 font-medium">
+               Dirección de comunicación
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-4">
+               Soporte administrativo clave para la gestión y flujo de trabajo del departamento de comunicación:
+            </p>
+            <ul class="list-disc pl-8 space-y-2 text-gray-700">
+               <li>Gestión de la agenda administrativa del gerente del departamento.</li>
+               <li>Control de correspondencia institucional y redacción de documentos oficiales.</li>
+               <li>Apoyo en la organización de minutas y registros de actividades departamentales.</li>
+            </ul>
+         </section>
+      )}
+
+      {id === 'ministerio-protocolo' && (
+         <section class="p-6 md:p-10 bg-white rounded-3xl shadow-xl border border-gray-100 animate-fade-in">
+            <h1 class="text-3xl font-bold text-purple-800 mb-2 border-l-4 border-purple-600 pl-4">Oficial de protocolo</h1>
+            <h2 class="text-xl text-gray-600 mb-6 pl-5">El Ministerio de Interior y Policía</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+               Coordinación y gestión de los estándares de protocolo en eventos y actividades institucionales:
+            </p>
+            <ul class="list-disc pl-8 space-y-2 text-gray-700">
+               <li>Organización y supervisión de la logística protocolar en ceremonias oficiales.</li>
+               <li>Atención y recepción de autoridades y delegaciones especiales.</li>
+               <li>Asistencia en la planificación de eventos de carácter ministerial asegurando el cumplimiento de normas de cortesía.</li>
+            </ul>
+         </section>
+      )}
+    </div>
+
+    <div class="flex justify-between items-center mt-10 px-2 pb-10">
+        <a 
+          id="prevBtn" 
+          class="flex items-center gap-2 px-6 py-3 border-2 border-purple-600 text-purple-600 rounded-full hover:bg-purple-600 hover:text-white transition-all cursor-pointer font-medium"
+        >
+            <span>←</span> Anterior
+        </a>
+        <a 
+          id="nextBtn" 
+          class="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-700 shadow-md transition-all cursor-pointer font-medium"
+        >
+            Siguiente <span>→</span>
+        </a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  #nav-container {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .no-scrollbar::-webkit-scrollbar { 
+    display: none; 
+  }
+  
+  .no-scrollbar { 
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  function setupExperienceNav() {
+    const experiences = ["people-group", "camara-qa", "camara-secretaria", "ministerio-protocolo"];
+    const pathParts = window.location.pathname.split('/');
+    const currentId = pathParts[pathParts.length - 1];
+    const currentIndex = experiences.indexOf(currentId);
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (prevBtn) {
+      if (currentIndex > 0) {
+        prevBtn.setAttribute('href', "/experience/" + experiences[currentIndex - 1]);
+        prevBtn.style.opacity = "1";
+        prevBtn.style.pointerEvents = "auto";
+      } else {
+        prevBtn.style.opacity = "0.3";
+        prevBtn.style.pointerEvents = "none";
+      }
+    }
+
+    if (nextBtn) {
+      if (currentIndex < experiences.length - 1) {
+        nextBtn.setAttribute('href', "/experience/" + experiences[currentIndex + 1]);
+        nextBtn.style.opacity = "1";
+        nextBtn.style.pointerEvents = "auto";
+      } else {
+        nextBtn.style.opacity = "0.3";
+        nextBtn.style.pointerEvents = "none";
+      }
+    }
+
+    setTimeout(function() {
+      const activeLink = document.querySelector('.active-exp');
+      if (activeLink) {
+        activeLink.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    }, 100);
+  }
+
+  document.addEventListener('astro:page-load', setupExperienceNav);
+</script>

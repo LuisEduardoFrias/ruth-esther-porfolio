@@ -1,4 +1,4 @@
-import { education } from '@/types/education'
+import type { education } from '@/types/education.ts'
 
 export const EDUCATIONS: education[] = [
    {
@@ -9,6 +9,8 @@ export const EDUCATIONS: education[] = [
       url: undefined,
       linkText: undefined,
    },
+   ]
+   /*
    {
       title: 'ed-title-2',
       institution: 'ed-institution-2',
@@ -82,3 +84,4 @@ export const EDUCATIONS: education[] = [
       linkText: undefined,
    },
 ];
+*/

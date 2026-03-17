@@ -2,54 +2,56 @@
 const PROJECTS = [
    {
       key: "project-1",
-      title:'Análisis de Ventas Regionales',
-      href:'/ventas-regionales',
+      title:'proj-title-1',
+      href:'/projects/project-1', ///ventas-regionales',
       img:'dashboardTienda-0.jpg',
       alt:'imagen del dashboard: análisis de ventss regionales',
-      p:'En este proyecto, realicé un análisis exhaustivo del rendimiento de ventas por región para una empresa minorista. El objetivo principal fue identificar...',
+      tech: "Power BI, Dax",
+      p:'proj-p-1',
    },
    {
       key: "project-2",
-      title:'Análisis de Desempeño de Productos',
-      href:'/desempeño-productos',
-      img:'e-commerce-ejecutivo-1.jpg',
+      title:'proj-title-2',
+      href:'/projects/project-2', ///desempeño-productos',
+      img:'desempeno_de_producto.jpg',
       alt:'imagen del dashboard: análisis de desempeño de productos',
-      p:'Este proyecto se enfoca en el análisis del rendimiento individual de los productos de una empresa, evaluando sus ventas, márgenes de beneficio...',
+      tech: "Power BI, Dax",
+      p:'proj-p-2',
    },
    {
       key: "project-3",
-      title:'Análisis de Satisfacción del Cliente',
-      href:'/satisfaccion-cliente',
-      img:'e-commerce-ejecutivo-1.jpg',
+      title:'proj-title-3',
+      href:'/projects/project-3', ///satisfaccion-cliente',
+      img:'satisfaccion_cliente.jpg',
       alt:'imagen del dashboard: análisis de satisfacción del cliente',
-      p:'Este proyecto representa un análisis 360 grados de las operaciones de una gran plataforma de comercio electrónico. Mi rol fue construir un informe integral para comprender el rendimiento...',
+      tech: "Power BI, Dax, Excel",
+      p:'proj-p-3',
    },
    {
       key: "project-4",
-      title:'Análisis Integral de Operaciones de E-commerce',
+      title:'/projects/project-4', //proj-title-4',
       href:'/operaciones-e-commerce',
       img:'e-commerce-ejecutivo-1.jpg',
       alt:'imagen del dashboard: análisis integral de operaciones de e-commerce',
-      p:'Este proyecto se centra en el análisis de la satisfacción del cliente a través de datos de encuestas. El objetivo es identificar los factores...',
+      tech: "Power BI, Dax,",
+      p:'proj-p-4',
    }
 ];
 ---
 
-<div class="space-y-6">
+<div class="py-3">
    {
-      PROJECTS.map(({key, title, href, img, alt, p}) =>
-         <article  id={key} class="card-1 relative cursor-pointer">
-            <div class="card-2 bg-tm-bg border border-tm-border p-6">
-               <a href={href} class="cursor-pointer">
-                  <h3 data-key={title} class="text-xl flex flex-col font-bold text-tm-text leading-tight">
-                     {title}
-                  </h3>
-                  
-                  <p data-key={p} >
-                     {p}
-                  </p>
-                  
+      PROJECTS.slice(0).map(({key, title, href, img, alt, tech, p}) =>
+         <article  id={key} class="card card-1 inline-block h-full md:w-[48%] md:m-[1%]  cursor-pointer">
+            <div class="card-2 pb-6">
+               <a href={href} class="cursor-pointe">
                   <img src={"/images/"+img} alt={alt} style="view-transition-name: dt1-image;" class="w-full h-auto" ></img>
+                  <div class=" px-2 pt-1 ">
+                     <h3 data-key={title} class="text-xl flex flex-col font-bold text-tm-text leading-tight">
+                        {title}
+                     </h3>
+                     <p>{tech}</p>
+                  </div>
                </a>
             </div>
          </article>
@@ -61,7 +63,7 @@ const PROJECTS = [
 .card-2 {
   position: relative;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: var(--tm-radius);
   transition: all 0.5s ease;
 }
 
@@ -85,8 +87,13 @@ const PROJECTS = [
 
 .card-2:hover {
   background: #111;
+  color: white;
   border: none;
   transform: scale(1.01);
+}
+
+.card-2:hover h3 {
+  color: white;
 }
 
 .card-2:hover::before {
@@ -97,10 +104,9 @@ const PROJECTS = [
 .card-1::before {
   content: '';
   position: absolute;
-  border-radius: 15px;
+  border-radius: var(--tm-radius);
   height: 102.5%;
-  width: 102.5%;
-  background: linear-gradient(45deg, var(--tm-pr) 50%, var(--tm-se) 50%);
+  background: linear-gradient(45deg, var(--tm-bg) 50%, var(--tm-bg) 60%);
   bottom: -5px;
   left: -5px;
   transform: scaleX(0);
@@ -111,4 +117,6 @@ const PROJECTS = [
 .card-1:hover::before {
   transform: scaleX(1);
 }
+
+
 </style>

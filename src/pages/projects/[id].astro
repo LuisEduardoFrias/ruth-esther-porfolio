@@ -1,0 +1,157 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { ClientRouter } from 'astro:transitions';
+import OperacionesCommerce from '@/components/projects/operaciones-e-commerce.astro';
+import SatisfaccionCliente from '@/components/projects/satisfaccion-cliente.astro';
+import VentasRegionales from '@/components/projects/ventas-regionales.astro';
+import DesempenoProductos from '@/components/projects/desempeño-productos.astro';
+export const prerender = true;
+
+export function getStaticPaths() {
+  return [
+    { params: { id: 'project-1' } },
+    { params: { id: 'project-2' } },
+    { params: { id: 'project-3' } },
+    { params: { id: 'project-4' } },
+  ];
+}
+
+const { id } = Astro.params;
+
+const PROJECTS_NAV = [
+   { id: "project-1", name: "Ventas Regionales", href: "/projects/project-1" },
+   { id: "project-2", name: "Desempeño Productos", href: "/projects/project-2" },
+   { id: "project-3", name: "Satisfacción Cliente", href: "/projects/project-3" },
+   { id: "project-4", name: "E-commerce", href: "/projects/project-4" },
+];
+---
+
+<Layout title="Detalles del Proyecto">
+  <ClientRouter />
+
+  <div class="w-full max-w-6xl mx-auto ">
+    
+    <nav 
+      id="nav-container"
+      class="flex overflow-x-scroll no-scrollbar gap-3 mb-8 p-3 card backdrop-blur-md rounded-2xl border border-purple-100 scroll-smooth shadow-sm"
+    >
+      {PROJECTS_NAV.map((proj) => (
+        <a 
+          href={proj.href}
+          class={id === proj.id 
+            ? "active-project flex-none px-5 py-2.5 rounded-xl font-semibold whitespace-nowrap transition-all duration-300 bg-purple-600 text-white shadow-lg scale-105" 
+            : "flex-none px-5 py-2.5 rounded-xl font-semibold whitespace-nowrap transition-all duration-300 bg-white text-purple-800 hover:bg-purple-100 border-2 border-purple-300"
+          }
+        >
+          {proj.name}
+        </a>
+      ))}
+    </nav>
+
+    <div class="project-content min-h-[60vh]">
+      {id === 'project-1' && (
+         <section class="p-6 md:p-10 bg-white rounded-3xl shadow-xl border border-gray-100 animate-fade-in">
+            <VentasRegionales />
+         </section>
+      )}
+
+      {id === 'project-2' && (
+         <section class="p-6 md:p-10 bg-white rounded-3xl shadow-xl border border-gray-100 animate-fade-in">
+            <DesempenoProductos />
+         </section>
+      )}
+
+      {id === 'project-3' && (
+         <section class="p-6 md:p-10 bg-white rounded-3xl shadow-xl border border-gray-100 animate-fade-in">
+            <SatisfaccionCliente />
+         </section>
+      )}
+
+      {id === 'project-4' && (
+         <section class="p-6 md:p-10 bg-white rounded-3xl shadow-xl border border-gray-100 animate-fade-in">
+            <OperacionesCommerce />
+         </section>
+      )}
+    </div>
+
+    <div class="flex justify-between items-center mt-12 px-2">
+        <a 
+          id="prevBtn" 
+          class="flex items-center gap-2 px-6 py-3 border-2 border-purple-600 text-purple-600 rounded-full hover:bg-purple-600 hover:text-white transition-all cursor-pointer font-medium"
+        >
+            <span>←</span> Anterior
+        </a>
+        <a 
+          id="nextBtn" 
+          class="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-700 shadow-md transition-all cursor-pointer font-medium"
+        >
+            Siguiente <span>→</span>
+        </a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  #nav-container {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .no-scrollbar::-webkit-scrollbar { 
+    display: none; 
+  }
+  
+  .no-scrollbar { 
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+</style>
+
+<script>
+  function setupNavigation() {
+    const projects = ["project-1", "project-2", "project-3", "project-4"];
+    const pathParts = window.location.pathname.split('/');
+    const currentId = pathParts[pathParts.length - 1];
+    const currentIndex = projects.indexOf(currentId);
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (prevBtn) {
+      if (currentIndex > 0) {
+        prevBtn.setAttribute('href', "/projects/" + projects[currentIndex - 1]);
+        prevBtn.style.opacity = "1";
+        prevBtn.style.pointerEvents = "auto";
+      } else {
+        prevBtn.style.opacity = "0.3";
+        prevBtn.style.pointerEvents = "none";
+      }
+    }
+
+    if (nextBtn) {
+      if (currentIndex < projects.length - 1) {
+        nextBtn.setAttribute('href', "/projects/" + projects[currentIndex + 1]);
+        nextBtn.style.opacity = "1";
+        nextBtn.style.pointerEvents = "auto";
+      } else {
+        nextBtn.style.opacity = "0.3";
+        nextBtn.style.pointerEvents = "none";
+      }
+    }
+
+    setTimeout(function() {
+      const activeLink = document.querySelector('.active-project');
+      if (activeLink) {
+        activeLink.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    }, 100);
+  }
+
+  document.addEventListener('astro:page-load', setupNavigation);
+</script>

@@ -1,21 +1,32 @@
 {
    "language_english": "🇺🇸 Inglés",
    "langusge_spanish": "🇩🇴 Español",
-   "skills": "Abilidades",
+   "skills": "Habilidades",
    "contact": "Contacto",
    "footer_porfolio": "Portafolio. Todos los derechos reservados.",
    "work_experiences": "Experiencias de trabajo",
    "education": "Educación",
    "about_me": "Me especializo en transformar datos complejos en información estratégica y soluciones impactantes. Descubrirás que mis habilidades en modelado, visualización efectiva y compromiso inquebrantable con la excelencia analítica son un activo valioso.",
    "Subtitle": "Analista de Datos",
-   "we": "Responsabilidades:",
-   "projects": "Proyectos",
    
+   
+   "projects": "Proyectos",
+   "proj-title-1":"Análisis de Ventas Regionales",
+   "proj-p-1":"En este proyecto, realicé un análisis exhaustivo del rendimiento de ventas por región para una empresa minorista. El objetivo principal fue identificar...",
+   "proj-title-2":"Análisis de Desempeño de Productos",
+   "proj-p-2":"Este proyecto se enfoca en el análisis del rendimiento individual de los productos de una empresa, evaluando sus ventas, márgenes de beneficio...",
+   "proj-title-3":"Análisis de Satisfacción del Cliente",
+   "proj-p-3":"Este proyecto representa un análisis 360 grados de las operaciones de una gran plataforma de comercio electrónico. Mi rol fue construir un informe integral para comprender el rendimiento...",
+   "proj-title-4":"Análisis Integral de Operaciones de E-commerce",
+   "proj-p-4":"Este proyecto se centra en el análisis de la satisfacción del cliente a través de datos de encuestas. El objetivo es identificar los factores...",
+   
+   
+   "we": "Responsabilidades:",
    "we-1-company": "La cámara de cuentas",
-   "we-1-cargo": "Analista",
+   "we-1-cargo": "Analista de calidad del software",
    "we-1-area": "Departamento tecnoligia",
    "we-1-tasks-1": "Testing",
-   "we-1-tasks-2": "Documentacion",
+   "we-1-tasks-2": "Documentación",
    "we-1-tasks-3": "Levantamiento de requeriemiento",
    
    "we-2-company": "La cámara de cuentas",
@@ -24,10 +35,13 @@
    "we-2-tasks-1": "Secretaria y asistente del director",
    "we-2-tasks-2": "Manejor de agenda",
    "we-2-tasks-3": "Planifiación de prensa",
+   
    "we-3-company": "El Ministerio de Interior y Policía",
    "we-3-cargo": "Oficial de protocolo",
    "we-3-area": "-",
    "we-3-tasks-1": "Oficial de protocolo",
+   
+   
    "ed-title-1": "Técnico superior en desarrollo del software",
    "ed-institution-1": "Instituto Tecnológico Superior Comunitario (ITSC)",
    "ed-title-2": "Power BI Avanzado",

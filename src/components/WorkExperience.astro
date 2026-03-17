@@ -9,36 +9,46 @@
 //   endDate: string;   // Ejemplo: 'Actual' o 'Noviembre 2023'
 //   tasks: string[];
 // }
+import IconDetail from '../assets/svg/IconDetail.svg?raw';
 import { WORKEXPERIENCES } from '@/consts/workExperiences';
 ---
 
-<ul class="space-y-6">
+<ul class="py-3 flex gap-y-2 flex-wrap">
   
-  {WORKEXPERIENCES.map(({ company, cargo, area, tasks }) => (
-    <li class="bg-tm-bg rounded-lg shadow-md p-6 border border-tm-border"> {/* Ajustado padding y shadow, usando border sutil */}
+  {WORKEXPERIENCES.map(({ company, cargo, area, tasks, link }) => (
+    <li class="card card-1 flex justify-between flex-col p-6 inline-block w-full h-52 md:w-[47%] md:m-[1.5%]  cursor-pointer">
       
       <div class="flex flex-col gap-3 mb-2">
-         <h3 data-key={company} class="text-xl flex flex-col font-bold text-tm-text leading-tight">
-            {company}
+         <h3 data-key={cargo} class="text-xl flex flex-col font-bold text-tm-text leading-tight">
+            {cargo}
          </h3>
-         <span data-key={cargo} class="text-lg font-normal text-tm-text2"> ---- {cargo} </span>
+         <span data-key={company} class="text-lg font-normal text-tm-text2">
+            {company}
+         </span>
          <p class="text-sm text-tm-text2 mt-1">
             {area && <span data-key={area} class="ml-2">Área: {area}</span>} {/* Área integrada en la misma línea o con un salto de línea sutil */}
          </p>
       </div>
-
+      <a href=`/experience/${link}` >
+         <button class="flex gap-2 h-10 w-36 items-center text-tm-pr font-medium border border-1 border-tm-pr rounded px-2 ">
+            <div class="w-5 h-5 p-0" set:html={IconDetail}></div>
+            Ver detalles
+         </button>
+      </a>
+     {/*
       {tasks && tasks.length > 0 && (
         <div class="mt-4">
           <h4 data-key="we" class="text-base font-semibold text-text-primary mb-2">Responsabilidades:</h4>
-          <ul class="list-disc list-inside space-y-1 text-text-primary text-sm pl-4"> {/* Lista con viñetas y espaciado */}
-            {tasks.map((task, index) => (
+          <ul class="list-disc list-inside space-y-1 text-text-primary text-sm pl-4">
+           {tasks.map((task, index) => (
               <li data-key={task} key={index}>
                 {task}
               </li>
             ))}
           </ul>
         </div>
-      )}
+      )} 
+      */}
     </li>
   ))}
   

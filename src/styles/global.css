@@ -3,23 +3,66 @@
 @tailwind utilities;
 
 :root {
-   --custom-background-gradient: linear-gradient(180deg, #efe1ff 0%, #ba69ff 50%, #8a2be2 100%);
+   --bg-g: linear-gradient(180deg, #faf0ffff 0%, #efe1ff 100%);
 
+   /* Paleta Principal - Tema Claro */
    --tm-pr: #8a2be2;
+   /* Morado principal */
    --tm-se: #00936e;
-   --tm-te: #3fff0f;
+   /* Verde para acentos de éxito/datos */
+   --tm-bg: #f8f9fe;
+   --tm-bg-50: #f8f8f8;
 
-   --tm-text: #000000;
-   --tm-inv-text: #b9b9b9;
-   --tm-text2: #2f2f2f;
+   /* Fondo suave tipo aplicación moderna */
+   --tm-card-bg: #ffffff;
+   /* Fondo de las tarjetas (blanco puro) */
 
-   --tm-border: #000000;
-   --tm-inv-border: #ffffff;
+   /* Textos */
+   --tm-text: #2d2e32;
+   /* Texto principal (casi negro, más legible) */
+   --tm-text-muted: #676767;
+   /* Texto secundario (gris) */
+   --tm-inv-text: #ffffff;
+   /* Texto para fondos oscuros */
 
-   --tm-bg: #ffffff95;
-   --tm-inv-bg: #141414;
+   /* Bordes y Sombras */
+   --tm-border: rgba(0, 0, 0, 0.08);
+   --tm-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+   --tm-radius: 12px;
 
-   --tm-translucent: #000000d3;
+   /* Iconos */
+   --tm-icon-stroke: #2d2e32;
+}
+
+.content {
+   background-image: var(--bg-g);
+}
+
+html.dark {
+   /* Paleta Principal - Tema Oscuro */
+   --tm-pr: #bb86fc;
+   /* Morado claro para mejor contraste */
+   --tm-se: #03dac6;
+   /* Verde neón suave */
+   --tm-bg: #121214;
+   --tm-bg-50: #171717;
+   /* Fondo oscuro profundo */
+   --tm-card-bg: #1e1e22;
+   /* Tarjetas ligeramente más claras */
+
+   /* Textos */
+   --tm-text: #e1e1e6;
+   /* Blanco hueso */
+   --tm-text-muted: #a8a8b3;
+   /* Gris claro */
+   --tm-inv-text: #121214;
+
+   /* Bordes y Sombras */
+   --tm-border: #29292e;
+   --tm-shadow: 0 4px 20px rgba(250, 250, 250, 0.2);
+
+   /* Iconos */
+   --tm-icon-stroke: #e1e1e6;
 }
 
 * {
@@ -28,40 +71,46 @@
    box-sizing: border-box;
 }
 
-html.dark {
-   --tm-pr: #b769ff;
-   --tm-se: #ffc43b;
-
-   --tm-text: #ffffff;
-   --tm-inv-text: #000000;
-   --tm-text2: #cfcfcf;
-
-   --tm-border: #ffffff;
-   --tm-inv-border: #000000;
-
-   --tm-bg: #14141495;
-   --tm-inv-bg: #ffffff;
-   --tm-translucent: #ffffffa8;
-}
-
 body {
-   background-image: var(--custom-background-gradient);
-
+   background-color: var(--tm-bg);
+   /* Cambiado de imagen a color sólido */
    color: var(--tm-text);
+   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+   line-height: 1.6;
+   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* Estructura de Tarjetas (Cards) */
 
 p {
+   color: var(--tm-text-muted);
    text-wrap: pretty;
    hyphens: auto;
    margin-block: 1em;
-   margin-block: 1lh;
-   margin-trim: none;
-   hyphenate-limit-chars: 3 4;
 }
 
+/* Manejo de Iconos mejorado */
 .svg-icon {
-   stroke: var(--tm-text);
+   stroke: var(--tm-icon-stroke);
+   fill: none;
 }
+
 .svg-inv-icon {
-   fill: var(--tm-text);
+   fill: var(--tm-icon-stroke);
+}
+
+/* En tu archivo CSS */
+@layer components {
+   .card {
+      align-self: stretch;
+      align-items: stretch;
+      background-color: var(--tm-card-bg);
+      border: 1px solid var(--tm-border);
+      border-radius: var(--tm-radius);
+      box-shadow: var(--tm-shadow);
+   }
+
+   .btn-menu {
+      @apply bg-[var(--tm-bg)] w-full h-full bg-transparent;
+   }
 }
