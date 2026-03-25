@@ -2,30 +2,34 @@ import type { workExperience } from '@/types/workExperience.ts'
 
 export const WORKEXPERIENCES: workExperience[] = [
    {
+      key: 'pgd',
       company: 'People Group Dominicana',
-      cargo: 'Analista de datos',
-      area: 'Operaciones / Comercial',
-      tasks: ['Gestión de KPIs y Reportes', 'Limpieza y Preparación (Data Wrangling)', 'we-4-tasks-3'],
+      cargo: 'Data analitic',
+      area: 'Operations / Commercial',
+      tasks: ['KPI Management','Reporting', 'Cleaning and Preparation (Data Wrangling)'],
       link: 'people-group'
    },
    {
-      company: 'we-2-company',
-      cargo: 'we-1-cargo',
-      area: 'we-1-area',
-      tasks: ['we-1-tasks-1', 'we-1-tasks-2', 'we-1-tasks-3'],
-      link: 'camara-qa'
+      key: 'ca_2',
+      company: 'The Chamber of Accounts',
+      cargo: 'Analyst',
+      area: 'Technology Department',
+      tasks: ['Testing', 'Documentation', 'Requirements Gathering'],
+      link: 'camera-qa'
    },
    {
-      company: 'we-2-company',
-      cargo: 'we-2-cargo',
-      area: 'we-2-area',
-      tasks: ["we-2-tasks-1", "we-2-tasks-2", "we-2-tasks-3"],
-      link: 'camara-secretaria'
+      key: 'ca_1',
+      company: 'The Chamber of Accounts',
+      cargo: 'Secretary',
+      area: 'Communications Directorate',
+      tasks: ["Secretary and Assistant to the Director", "Agenda Management", "Press Planning"],
+      link: 'camera-secretary'
    },
    {
-      company: 'we-3-company',
-      cargo: 'we-3-cargo',
-      tasks: ["we-3-tasks-1"],
-      link: 'ministerio-protocolo'
+      key: 'mip',
+      company: 'The Ministry of Interior and Police',
+      cargo: 'Protocol Officer',
+      tasks: ["-"],
+      link: 'protocol-officer'
    },
 ];

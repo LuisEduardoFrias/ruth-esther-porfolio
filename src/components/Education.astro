@@ -3,7 +3,7 @@ import { EDUCATIONS } from '@/consts/educations';
 ---
 
 <ul class="grid grid-cols-1 gap-8">
-  {EDUCATIONS.map(({ title, institution, url, img, alt, date, details }, index) => {
+  {EDUCATIONS.map(({ key, title, institution, url, img, alt, date, details }, index) => {
     const imagePath = '/images/'+img+'.webp';
     const modalId = "modal-"+index;
    
@@ -37,7 +37,7 @@ import { EDUCATIONS } from '@/consts/educations';
 
         {/* 2. Contenido (Debajo) */}
         <div class="p-6 flex-grow">
-          <h3 data-key={title} class="text-xl font-bold text-gray-900 leading-tight">
+          <h3 data-translate_key={key + "_title"} class="text-xl font-bold text-gray-900 leading-tight">
             {title}
           </h3>
 
@@ -47,7 +47,7 @@ import { EDUCATIONS } from '@/consts/educations';
                 {institution}
               </a>
             ) : (
-              <span data-key={institution} class="text-gray-600">{institution}</span>
+              <span data-translate_key={key + "_detail"} class="text-gray-600">{institution}</span>
             )}
           </div>
 

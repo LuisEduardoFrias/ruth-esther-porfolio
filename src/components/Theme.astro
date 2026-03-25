@@ -74,7 +74,10 @@ import IconSun from '../assets/svg/IconSun.svg?raw';
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
       const initialIsDark = savedTheme === 'dark' || (savedTheme === null && prefersDark);
-
+     
+     //////////   OJO AQUI ESTOY CETEA EL TEMA CLARO SINNOPORTUNIDAD DE CAMBIAE
+      initialIsDark = false // Ojo
+      
       applyTheme(initialIsDark); // Aplicar el tema inicial
 
       // Event listener para el toggle (asegúrate de que solo se añada una vez)

@@ -19,14 +19,14 @@ export function getStaticPaths() {
 const { id } = Astro.params;
 
 const PROJECTS_NAV = [
-   { id: "project-1", name: "Ventas Regionales", href: "/projects/project-1" },
-   { id: "project-2", name: "Desempeño Productos", href: "/projects/project-2" },
-   { id: "project-3", name: "Satisfacción Cliente", href: "/projects/project-3" },
-   { id: "project-4", name: "E-commerce", href: "/projects/project-4" },
+   { id: "project-1", name: "Regional Sales", href: "/projects/project-1" },
+   { id: "project-2", name: "Product Performance", href: "/projects/project-2" },
+   { id: "project-3", name: "Customer Satisfaction", href: "/projects/project-3" },
+   { id: "project-4", name: "E-commerce Operations", href: "/projects/project-4" },
 ];
 ---
 
-<Layout title="Detalles del Proyecto">
+<Layout title="Project Details">
   <ClientRouter />
 
   <div class="w-full max-w-6xl mx-auto ">
@@ -37,6 +37,7 @@ const PROJECTS_NAV = [
     >
       {PROJECTS_NAV.map((proj) => (
         <a 
+          data-translate_key={proj.id}
           href={proj.href}
           class={id === proj.id 
             ? "active-project flex-none px-5 py-2.5 rounded-xl font-semibold whitespace-nowrap transition-all duration-300 bg-purple-600 text-white shadow-lg scale-105" 
@@ -76,16 +77,18 @@ const PROJECTS_NAV = [
 
     <div class="flex justify-between items-center mt-12 px-2">
         <a 
+          data-translate_key="project_btn_prev"
           id="prevBtn" 
           class="flex items-center gap-2 px-6 py-3 border-2 border-purple-600 text-purple-600 rounded-full hover:bg-purple-600 hover:text-white transition-all cursor-pointer font-medium"
         >
-            <span>←</span> Anterior
+            <span>←</span> Previous
         </a>
         <a 
+          data-translate_key="project_btn_next"
           id="nextBtn" 
           class="flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-700 shadow-md transition-all cursor-pointer font-medium"
         >
-            Siguiente <span>→</span>
+            Next <span>→</span>
         </a>
     </div>
   </div>

@@ -4,115 +4,47 @@ import Nota from '@/components/Nota.astro'
 ---
 
 <section class="p-6 md:p-8 lg:p-10 bg-white rounded-lg shadow-lg">
-      <h1 data-key="customer-satisfaction" class="text-3xl font-bold text-purple-800 mb-6 border-l-4 border-purple-600 pl-4">
-         Análisis de Satisfacción del Cliente
+      <h1 data-translate_key="csat_title" class="text-3xl font-bold text-purple-800 mb-6 border-l-4 border-purple-600 pl-4">
+         Customer Satisfaction Analysis
       </h1>
 
-      <p class="mb-6 text-gray-700 leading-relaxed">
-         Este proyecto se centra en el <strong class="text-purple-700">análisis de la satisfacción del cliente</strong> a través de datos de encuestas.
-         El objetivo es <strong class="text-purple-700">identificar los factores clave que influyen en la satisfacción</strong>
-         y proporcionar información para mejorar la calidad del servicio, utilizando <strong class="text-purple-700">Power BI</strong> para la exploración y visualización de los datos.
+      <p data-translate_key="csat_intro" class="mb-6 text-gray-700 leading-relaxed">
+         This project focuses on the <strong class="text-purple-700">analysis of customer satisfaction</strong> through survey data. 
+         The goal is to <strong class="text-purple-700">identify key factors influencing satisfaction</strong> 
+         and provide insights to improve service quality, using <strong class="text-purple-700">Power BI</strong> for data exploration and visualization.
       </p>
       
-      <!--
-      <div class="mb-8">
-         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Demostración Interactiva</h2>
-         <p class="text-gray-600 mb-4">
-            Aquí puedes explorar el dashboard interactivo que desarrollé. Usa los filtros para segmentar las respuestas de los clientes por Región, Edad, Género, Tiempo de Respuesta y Resolución del Problema.
-         </p>
-
-         <div class="flex flex-col gap-4 mb-6 overflow-x-scroll no-scrollbar">
-            
-            <div class="flex flex-col gap-2 p-3 border border-gray-200 rounded-md bg-gray-50">
-               <label class="font-medium text-gray-700">Región</label>
-               <div class="flex flex-wrap gap-4">
-                  <label for="region-sat-all" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <input id="region-sat-all" checked name="region-sat" class="accent-purple-700 w-4 h-4" type="radio"> Todas
-                  </label>
-                  <label for="region-sat-norte" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <input id="region-sat-norte" name="region-sat" class="accent-purple-700 w-4 h-4" type="radio"> Norte
-                  </label>
-                  <label for="region-sat-sur" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <input id="region-sat-sur" name="region-sat" class="accent-purple-700 w-4 h-4" type="radio"> Sur
-                  </label>
-                  <label for="region-sat-este" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <input id="region-sat-este" name="region-sat" class="accent-purple-700 w-4 h-4" type="radio"> Este
-                  </label>
-                  <label for="region-sat-oeste" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <input id="region-sat-oeste" name="region-sat" class="accent-purple-700 w-4 h-4" type="radio"> Oeste
-                  </label>
-               </div>
-            </div>
-
-            <div class="flex flex-col gap-2 p-3 border border-gray-200 rounded-md bg-gray-50">
-               <label class="font-medium text-gray-700">Resolución del Problema</label>
-               <div class="flex flex-wrap gap-4">
-                  
-                  <label for="res-all" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <span for="res-all" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
-                     <input id="res-all" checked name="resolucion" class="accent-purple-700 w-4 h-4" type="radio"> Todos
-                  </label>
-                  
-                  <label for="res-si" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <span for="res-si" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
-                     <input id="res-si" name="resolucion" class="accent-purple-700 w-4 h-4" type="radio"> Sí
-                  </label>
-                  <label for="res-no" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <span for="res-no" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
-                     <input id="res-no" name="resolucion" class="accent-purple-700 w-4 h-4" type="radio"> No
-                  </label>
-                  <label for="res-parcial" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <span for="res-parcial" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
-                     <input id="res-parcial" name="resolucion" class="accent-purple-700 w-4 h-4" type="radio"> Parcialmente
-                  </label>
-               </div>
-            </div>
-         </div>
-         
-         <div class="relative min-h-[300px] flex justify-center items-center">
-            <img id="img-sat-default" src="/images/dashboardSatisfaccion-1.jpg" class="w-full h-auto object-contain rounded-md shadow-md transition-opacity duration-300 ease-in-out" alt="Dashboard de Satisfacción del Cliente - General" />
-            <img id="img-sat-norte" src="/images/dashboardSatisfaccion-2.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Satisfacción del Cliente - Región Norte" />
-            <img id="img-sat-sur" src="/images/dashboardSatisfaccion-3.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Satisfacción del Cliente - Región Sur" />
-            <img id="img-sat-este" src="/images/dashboardSatisfaccion-4.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Satisfacción del Cliente - Región Este" />
-            <img id="img-sat-oeste" src="/images/dashboardSatisfaccion-5.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Satisfacción del Cliente - Región Oeste" />
-            <img id="img-sat-si" src="/images/dashboardSatisfaccion-6.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Satisfacción del Cliente - Problema Resuelto: Sí" />
-            <img id="img-sat-no" src="/images/dashboardSatisfaccion-7.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Satisfacción del Cliente - Problema Resuelto: No" />
-            <img id="img-sat-parcial" src="/images/dashboardSatisfaccion-8.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Satisfacción del Cliente - Problema Resuelto: Parcialmente" />
-         </div>
-         </div>
-      </div>
-      -->
       <div class="relative min-h-[300px] flex justify-center items-center">
-         <img src="/images/satisfaccion_cliente.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0  transition-opacity duration-300 ease-in-out" alt="Dashboard de Satisfacción del Cliente - Problema Resuelto: Parcialmente" />
+         <img src="/images/satisfaccion_cliente.jpg" class="w-full h-auto object-contain rounded-md shadow-md absolute top-0 left-0 transition-opacity duration-300 ease-in-out" alt="Customer Satisfaction Dashboard" />
       </div>
      
       <div class="mt-8 pt-6 border-t border-gray-200">
-         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Contexto y Requisitos del Proyecto</h2>
-         <p class="mb-4 text-gray-700 leading-relaxed">
-            Como analista de datos, mi objetivo fue analizar las encuestas de satisfacción del cliente para identificar los principales factores que influyen en su satisfacción. Los datos provienen de la tabla <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">SatisfaccionCliente</code>, incluyendo <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">ID_Encuesta</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Fecha_Encuesta</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Region</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Edad</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Genero</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Calificacion_Servicio</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Tiempo_Respuesta</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Resolucion_Problema</code> y <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Comentarios</code>.
+         <h2 data-translate_key="csat_context_title" class="text-2xl font-semibold text-gray-800 mb-4">Project Context and Requirements</h2>
+         <p data-translate_key="csat_context_text" class="mb-4 text-gray-700 leading-relaxed">
+            As a data analyst, my goal was to analyze customer satisfaction surveys to identify the main factors influencing their experience. The data comes from the <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">CustomerSatisfaction</code> table, including <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Survey_ID</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Survey_Date</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Region</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Age</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Gender</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Service_Rating</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Response_Time</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Problem_Resolution</code>, and <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Comments</code>.
          </p>
          
-         <h3 class="text-xl font-semibold text-gray-800 mb-3">Técnicas y Habilidades Demostradas:</h3>
+         <h3 data-translate_key="csat_skills_title" class="text-xl font-semibold text-gray-800 mb-3">Techniques and Demonstrated Skills:</h3>
          <ul class="list-disc list-inside space-y-2 text-gray-700 mb-6 pl-4">
-            <li>
-               <strong class="text-purple-700">Exploración y Preparación de Datos:</strong> Análisis inicial de la estructura de datos y distribución de calificaciones para identificar patrones.
+            <li data-translate_key="csat_skill_1">
+               <strong class="text-purple-700">Data Exploration and Preparation:</strong> Initial analysis of data structure and rating distribution to identify patterns.
             </li>
-            <li>
-               <strong class="text-purple-700">Creación de Columnas Calculadas:</strong> Definición de <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Satisfaccion_Alto</code> para categorizar los niveles de satisfacción.
+            <li data-translate_key="csat_skill_2">
+               <strong class="text-purple-700">Calculated Column Creation:</strong> Definition of <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">High_Satisfaction</code> to categorize satisfaction levels.
             </li>
-            <li>
-               <strong class="text-purple-700">Cálculo de Medidas DAX Clave:</strong> Implementación de <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Promedio Calificacion</code> y <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Porcentaje Satisfaccion Alto</code> para cuantificar la satisfacción general.
+            <li data-translate_key="csat_skill_3">
+               <strong class="text-purple-700">Key DAX Measure Calculation:</strong> Implementation of <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Average Rating</code> and <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">High Satisfaction Percentage</code> to quantify overall satisfaction.
             </li>
-            <li>
-               <strong class="text-purple-700">Diseño de Visualizaciones Informadoras:</strong> Creación de gráficos de barras para distribución de calificaciones y comparación por región, gráficos de pastel para distribución de satisfacción, y tablas para analizar el impacto del tiempo de respuesta y la resolución del problema.
+            <li data-translate_key="csat_skill_4">
+               <strong class="text-purple-700">Informative Visualization Design:</strong> Creation of bar charts for rating distribution and regional comparison, pie charts for satisfaction distribution, and tables to analyze the impact of response time and problem resolution.
             </li>
-            <li>
-               <strong class="text-purple-700">Implementación de Segmentadores Detallados:</strong> Añadido de filtros por Región, Edad, Género, Tiempo de Respuesta y Resolución del Problema para un análisis multifacético.
+            <li data-translate_key="csat_skill_5">
+               <strong class="text-purple-700">Detailed Slicer Implementation:</strong> Addition of filters by Region, Age, Gender, Response Time, and Problem Resolution for multifaceted analysis.
             </li>
          </ul>
 
-         <p class="text-gray-700 leading-relaxed">
-            Este análisis proporciona a la empresa insights valiosos para <strong class="text-purple-700">mejorar la experiencia del cliente</strong>, optimizar procesos de servicio y dirigir esfuerzos hacia áreas de mayor impacto en la satisfacción.
+         <p data-translate_key="csat_footer" class="text-gray-700 leading-relaxed">
+            This analysis provides the company with valuable insights to <strong class="text-purple-700">improve customer experience</strong>, optimize service processes, and direct efforts toward areas with the highest impact on satisfaction.
          </p>
       </div>
       

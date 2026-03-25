@@ -8,57 +8,57 @@ import IconPowerbi from '../assets/svg/IconPowerbi.svg?raw'
 ---
 
 <Layout title="Sobre Mí | Ruth Esther" description="Portafolio profesional de Ruth Esther, Data Analyst.">
-   <section id="sobre-mi" class="p-6 md:p-10 max-w-6xl mx-auto bg-transparent">
+    <section id="sobre-mi" class="p-6 md:p-10 max-w-6xl mx-auto bg-transparent">
      <div class="flex flex-col gap-8">
        
        <div class="flex flex-col gap-4">
-         <h3 class="text-2xl font-bold text-tm-pr border-b-2 border-tm-pr w-fit pb-1">
-           Mi Perfil
+         <h3 data-translate_key="about_me_profile_title" class="text-2xl font-bold text-tm-pr border-b-2 border-tm-pr w-fit pb-1">
+           My profile
          </h3>
-         <p class="text-lg card p-4 text-tm-text2 leading-relaxed animate-fade-in">
-            Analista de Datos con sólida experiencia en procesos <b class="text-tm-pr">ETL</b>, creación de <b class="text-tm-pr">dashboards dinámicos</b> y gestión de bases de datos mediante
-            <b class="text-tm-pr">DDL</b> y <b class="text-tm-pr">DML</b> diseño de <b class="text-tm-pr">KPIs de rendimiento</b> para evaluar el desempeño operativo. Mi enfoque se centra en transformar datos complejos 
-            en información estratégica que impulse el crecimiento organizacional.
-            Con formación en <b class="text-tm-pr">Desarrollo de Software</b>, combino la lógica de programación con el análisis estadístico para ofrecer soluciones
-            precisas y escalables.
+         <p data-translate_key="about_me_profile_text" class="text-lg card p-4 text-tm-text2 leading-relaxed animate-fade-in">
+            Data Analyst with solid experience in <b class="text-tm-pr">ETL</b> processes, <b class="text-tm-pr">dynamic dashboard</b> creation, and database management using
+            <b class="text-tm-pr">DDL</b> and <b class="text-tm-pr">DML</b>, as well as designing <b class="text-tm-pr">performance KPIs</b> to evaluate operational efficiency. My focus is on transforming complex data 
+            into strategic information that drives organizational growth.
+            With a background in <b class="text-tm-pr">Software Development</b>, I combine programming logic with statistical analysis to deliver
+            precise and scalable solutions.
          </p>
        </div>
    
        <div class="flex flex-col gap-4">
-         <h3 class="text-2xl font-bold text-tm-pr border-b-2 border-tm-pr w-fit pb-1">
-           Herramientas y Expertise
+         <h3 data-translate_key="about_me_tools_title" class="text-2xl font-bold text-tm-pr border-b-2 border-tm-pr w-fit pb-1">
+           Tools and expertise
          </h3>
          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
            
            <div class="flex items-start gap-3 p-4 rounded-xl bg-tm-bg-50 border border-tm-pr/10 hover:border-tm-pr transition-all animate-fade-in">
              <div class="w-8 h-8 text-tm-pr shrink-0" set:html={IconExcel} />
              <div>
-               <h4 class="font-bold text-tm-se leading-none mb-1">Excel Avanzado</h4>
-               <p class="text-xs text-tm-text2">Macros, Tablas Dinámicas, Análisis complejo de datos y Modelado financiero.</p>
+               <h4 data-translate_key="about_me_excel" class="font-bold text-tm-se leading-none mb-1">Advanced Excel</h4>
+               <p data-translate_key="about_me_excel_text" class="text-xs text-tm-text2">Macros, Pivot Tables, Dashboards, Visual Basic, Complex Data Analysis, and Financial Modeling.</p>
              </div>
            </div>
    
             <div class="flex items-start gap-3 p-4 rounded-xl bg-tm-bg-50 border border-tm-pr/10 hover:border-tm-pr transition-all min-h-[100px] animate-fade-in">
                 <div class="w-8 h-8 text-tm-pr shrink-0" set:html={IconMssql} />
                 <div class="overflow-hidden">
-                  <h4 class="font-bold text-tm-se leading-tight mb-1">SQL Server</h4>
-                  <p class="text-xs text-tm-text2">Gestión de DML/DDL, consultas optimizadas y arquitectura de datos.</p>
+                  <h4 data-translate_key="about_me_sql" class="font-bold text-tm-se leading-tight mb-1">SQL Server</h4>
+                  <p data-translate_key="about_me_sql_text" class="text-xs text-tm-text2">DML/DDL management, optimized queries, and data architecture.</p>
                 </div>
             </div>
    
            <div class="flex items-start gap-3 p-4 rounded-xl bg-tm-bg-50 border border-tm-pr/10 hover:border-tm-pr transition-all animate-fade-in">
              <div class="w-8 h-8 text-tm-pr shrink-0" set:html={IconPowerbi} />
              <div>
-               <h4 class="font-bold text-tm-se leading-none mb-1">Power BI</h4>
-               <p class="text-xs text-tm-text2">Dashboards de KPIs en tiempo real, visualización de datos, creación de reportes interactivos.</p> <!--y storytelling de datos-->
+               <h4 data-translate_key="about_me_powerbi" class="font-bold text-tm-se leading-none mb-1">Power BI</h4>
+               <p data-translate_key="about_me_powerbi_text" class="text-xs text-tm-text2">Real-time KPI dashboards, data visualization, and interactive report creation.</p>
              </div>
            </div>
    
            <div class="flex items-start gap-3 p-4 rounded-xl bg-tm-bg-50 border border-tm-pr/10 hover:border-tm-pr transition-all animate-fade-in">
              <div class="w-8 h-8 text-tm-pr shrink-0" set:html={IconPython} />
              <div>
-               <h4 class="font-bold text-tm-se leading-none mb-1">Python (Pandas)</h4>
-               <p class="text-xs text-tm-text2">Limpieza de datos a gran escala, automatización de tareas y desarrollo de lógica</p>
+               <h4 data-translate_key="about_me_python" class="font-bold text-tm-se leading-none mb-1">Python (Pandas)</h4>
+               <p data-translate_key="about_me_python_text" class="text-xs text-tm-text2">Large-scale data cleaning, task automation, and logic development.</p>
              </div>
            </div>
          </div>
@@ -66,27 +66,27 @@ import IconPowerbi from '../assets/svg/IconPowerbi.svg?raw'
    
        <div class="flex flex-col md:flex-row gap-8">
          <div class="flex-1">
-           <h3 class="text-2xl font-bold text-tm-pr border-b-2 border-tm-pr w-fit pb-1 mb-4">
-             Idiomas
+           <h3 data-translate_key="about_me_language_title" class="text-2xl font-bold text-tm-pr border-b-2 border-tm-pr w-fit pb-1 mb-4">
+             Languages
            </h3>
             <div class="flex items-center gap-2">
-             <span class="font-bold text-tm-se uppercase">Español:</span>
-             <span class="px-3 py-1 bg-tm-pr/10 text-tm-pr rounded-full text-sm font-medium">Nativo</span>
+             <span data-translate_key="about_me_spanish" class="font-bold text-tm-se uppercase">Spanish:</span>
+             <span data-translate_key="about_me_spanish_val" class="px-3 py-1 bg-tm-pr/10 text-tm-pr rounded-full text-sm font-medium">Native</span>
            </div>
            <div class="flex items-center gap-2">
-             <span class="font-bold text-tm-se uppercase">Inglés:</span>
-             <span class="px-3 py-1 bg-tm-pr/10 text-tm-pr rounded-full text-sm font-medium">Nivel Intermedio</span>
+             <span data-translate_key="about_me_english" class="font-bold text-tm-se uppercase">English:</span>
+             <span data-translate_key="about_me_english_val" class="px-3 py-1 bg-tm-pr/10 text-tm-pr rounded-full text-sm font-medium">Intermediate Level</span>
            </div>
          </div>
    
          <div class="flex-1">
-           <h3 class="text-2xl font-bold text-tm-pr border-b-2 border-tm-pr w-fit pb-1 mb-4">
-             Visión y Propósito
+           <h3 data-translate_key="about_me_vision" class="text-2xl font-bold text-tm-pr border-b-2 border-tm-pr w-fit pb-1 mb-4">
+               Vision and Purpose
            </h3>
-           <p class="card p-4 text-tm-text2 leading-relaxed animate-fade-in">
-             Mi motor es la <b class="text-tm-pr">evolución constante</b>. No solo busco analizar datos, sino dominar nuevas tecnologías que me permitan predecir el
-             futuro de los negocios. Me apasiona el aprendizaje autodidacta y mi meta es convertirme en una referente del <b class="text-tm-pr">Data Science</b>, aportando soluciones
-             disruptivas que rompan con lo convencional en entornos de alto rendimiento.
+           <p data-translate_key="about_me_vision_text" class="card p-4 text-tm-text2 leading-relaxed animate-fade-in">
+             My driving force is <b class="text-tm-pr">constant evolution</b>. I don't just seek to analyze data, but to master new technologies that allow me to predict the
+             future of business. I am passionate about self-taught learning and my goal is to become a leader in <b class="text-tm-pr">Data Science</b>, providing disruptive solutions
+             that break with the conventional in high-performance environments.
            </p>
          </div>
        </div>

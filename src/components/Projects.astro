@@ -2,39 +2,39 @@
 const PROJECTS = [
    {
       key: "project-1",
-      title:'proj-title-1',
+      title:'Regional Sales Analysis',
       href:'/projects/project-1', ///ventas-regionales',
       img:'dashboardTienda-0.jpg',
       alt:'imagen del dashboard: análisis de ventss regionales',
       tech: "Power BI, Dax",
-      p:'proj-p-1',
+      p:'In this project, I conducted an exhaustive analysis of sales performance by region for a retail company. The main objective was to identify...',
    },
    {
       key: "project-2",
-      title:'proj-title-2',
+      title:'Product Performance Analysis',
       href:'/projects/project-2', ///desempeño-productos',
       img:'desempeno_de_producto.jpg',
       alt:'imagen del dashboard: análisis de desempeño de productos',
       tech: "Power BI, Dax",
-      p:'proj-p-2',
+      p:'This project focuses on the analysis of the individual performance of a company\'s products, evaluating their sales, profit margins...',
    },
    {
       key: "project-3",
-      title:'proj-title-3',
+      title:'Customer Satisfaction Analysis',
       href:'/projects/project-3', ///satisfaccion-cliente',
       img:'satisfaccion_cliente.jpg',
       alt:'imagen del dashboard: análisis de satisfacción del cliente',
       tech: "Power BI, Dax, Excel",
-      p:'proj-p-3',
+      p:'This project represents a 360-degree analysis of the operations of a large e-commerce platform. My role was to build a comprehensive report to understand performance...',
    },
    {
       key: "project-4",
-      title:'/projects/project-4', //proj-title-4',
-      href:'/operaciones-e-commerce',
+      title:'Comprehensive E-commerce Operations Analysis',
+      href:'/projects/project-4', //proj-title-4',
       img:'e-commerce-ejecutivo-1.jpg',
       alt:'imagen del dashboard: análisis integral de operaciones de e-commerce',
       tech: "Power BI, Dax,",
-      p:'proj-p-4',
+      p:'This project focuses on analyzing customer satisfaction through survey data. The goal is to identify factors...',
    }
 ];
 ---
@@ -47,7 +47,7 @@ const PROJECTS = [
                <a href={href} class="cursor-pointe">
                   <img src={"/images/"+img} alt={alt} style="view-transition-name: dt1-image;" class="w-full h-auto" ></img>
                   <div class=" px-2 pt-1 ">
-                     <h3 data-key={title} class="text-xl flex flex-col font-bold text-tm-text leading-tight">
+                     <h3 data-translate_key={key} class="text-xl flex flex-col font-bold text-tm-text leading-tight">
                         {title}
                      </h3>
                      <p>{tech}</p>
@@ -117,6 +117,5 @@ const PROJECTS = [
 .card-1:hover::before {
   transform: scaleX(1);
 }
-
 
 </style>

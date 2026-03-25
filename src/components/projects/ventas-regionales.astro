@@ -4,282 +4,158 @@ import Nota from '@/components/Nota.astro'
 ---
 
 <section class="p-6 md:p-8 lg:p-10 bg-white rounded-lg shadow-lg">
-      <h1 data-key="title-regionals-sales" class="text-3xl font-bold text-purple-800 mb-6 border-l-4 border-purple-600 pl-4">
-         Análisis de Ventas Regionales
+      <h1 data-translate_key="reg_sales_title" class="text-3xl font-bold text-purple-800 mb-6 border-l-4 border-purple-600 pl-4">
+         Regional Sales Analysis
       </h1>
 
-      <p data-key="paragraf-1" class="mb-6 text-gray-700 leading-relaxed">
-         En este proyecto, realicé un análisis exhaustivo del rendimiento de ventas por región para una empresa minorista. El objetivo principal fue
-         <strong class="text-purple-700">identificar patrones, tendencias y oportunidades de crecimiento</strong> en sus operaciones. Utilicé
-         <strong class="text-purple-700">Power BI</strong> para la ingesta, transformación y visualización de los datos.
+      <p data-translate_key="reg_sales_parag_1" class="mb-6 text-gray-700 leading-relaxed">
+         In this project, I performed a comprehensive analysis of sales performance by region for a retail company. The main objective was to 
+         <strong class="text-purple-700">identify patterns, trends, and growth opportunities</strong> in their operations. I used 
+         <strong class="text-purple-700">Power BI</strong> for data ingestion, transformation, and visualization.
       </p>
 
       <div class="mb-8">
-         <h2 data-key="subtitle-1-regionals-sales" class="text-2xl font-semibold text-gray-800 mb-4">Demostración Interactiva</h2>
-         <p data-key="paragraf-2" class="text-gray-600 mb-4">
-            Aquí puedes explorar el dashboard interactivo que desarrollé. Usa los filtros de "Categoría" y "Región" para ver cómo cambian los datos y las visualizaciones.
+         <h2 data-translate_key="reg_sales_demo_title" class="text-2xl font-semibold text-gray-800 mb-4">Interactive Demonstration</h2>
+         <p data-translate_key="reg_sales_demo_text" class="text-gray-600 mb-4">
+            Here you can explore the interactive dashboard I developed. Use the "Category" and "Region" filters to see how the data and visualizations change.
          </p>
 
          <div class="flex flex-col gap-4 mb-6 overflow-x-scroll no-scrollbar">
             
             <div class="flex flex-col gap-2 p-3 border border-gray-200 rounded-md bg-gray-50">
-               <label data-key="label-1" class="font-medium text-gray-700">Categoría</label>
+               <label data-translate_key="reg_sales_label_cat" class="font-medium text-gray-700">Category</label>
                <div class="flex flex-wrap gap-4">
-                  <label data-key="label-2" for="radio-elect" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     Electrónicos
+                  <label for="radio-elect" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <input id="radio-elect" checked name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> 
+                     <span data-translate_key="reg_sales_cat_elect">Electronics</span>
                   </label>
-                  <input id="radio-elect" checked name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> 
                 
-                  <label data-key="label-3" for="radio-ropa" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     Ropa
+                  <label for="radio-ropa" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <input id="radio-ropa" name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> 
+                     <span data-translate_key="reg_sales_cat_cloth">Clothing</span>
                   </label>
-                  <input id="radio-ropa" name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> 
                  
-                  <label data-key="label-4" for="radio-hogar" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     Hogar
+                  <label for="radio-hogar" class="flex items-center gap-2 text-sm text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
+                     <input id="radio-hogar" name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> 
+                     <span data-translate_key="reg_sales_cat_home">Home</span>
                   </label>
-                  <input id="radio-hogar" name="categoria" class="accent-purple-700 w-4 h-4" type="radio"> 
                </div>
             </div>
 
-            <div class="hidden flex flex-col gap-2 p-3 border border-gray-200 rounded-md bg-gray-50">
-               <label class="font-medium text-gray-700">Región</label>
+            <div id="region-container" class="hidden flex flex-col gap-2 p-3 border border-gray-200 rounded-md bg-gray-50">
+               <label data-translate_key="reg_sales_label_reg" class="font-medium text-gray-700">Region</label>
                <div class="flex flex-wrap gap-4">
-                  
-                  <label for="radio-todos" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <span for="radio-todos" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
-                     <input id="radio-todos" checked name="region" class="accent-purple-700 w-4 h-4" type="radio"> Todos
+                  <label for="radio-todos" class="text-sm flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700">
+                     <input id="radio-todos" checked name="region" class="accent-purple-700 w-4 h-4" type="radio"> 
+                     <span data-translate_key="reg_sales_reg_all">All</span>
                   </label>
-                  
-                  <label for="radio-este" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <span for="radio-este" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
-                     <input id="radio-este" name="region" class="accent-purple-700 w-4 h-4" type="radio"> Este
+                  <label for="radio-este" class="text-sm flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700">
+                     <input id="radio-este" name="region" class="accent-purple-700 w-4 h-4" type="radio"> 
+                     <span data-translate_key="reg_sales_reg_east">East</span>
                   </label>
-                  <label for="radio-norte" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <span for="radio-norte" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
-                     <input id="radio-norte" name="region" class="accent-purple-700 w-4 h-4" type="radio"> Norte
+                  <label for="radio-norte" class="text-sm flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700">
+                     <input id="radio-norte" name="region" class="accent-purple-700 w-4 h-4" type="radio"> 
+                     <span data-translate_key="reg_sales_reg_north">North</span>
                   </label>
-                  <label for="radio-oeste" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <span for="radio-oeste" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
-                     <input id="radio-oeste" name="region" class="accent-purple-700 w-4 h-4" type="radio"> Oeste
+                  <label for="radio-oeste" class="text-sm flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700">
+                     <input id="radio-oeste" name="region" class="accent-purple-700 w-4 h-4" type="radio"> 
+                     <span data-translate_key="reg_sales_reg_west">West</span>
                   </label>
-                  <label for="radio-sur" class="text-sm custom-radio flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700 transition-colors duration-200">
-                     <span for="radio-sur" class="w-4 h-4 border-2 border-gray-300 rounded-full flex items-center justify-center transition-all duration-200"></span>
-                     <input id="radio-sur" name="region" class="accent-purple-700 w-4 h-4" type="radio"> Sur
+                  <label for="radio-sur" class="text-sm flex items-center gap-2 text-gray-800 cursor-pointer hover:text-purple-700">
+                     <input id="radio-sur" name="region" class="accent-purple-700 w-4 h-4" type="radio"> 
+                     <span data-translate_key="reg_sales_reg_south">South</span>
                   </label>
                </div>
             </div>
          </div>
          
-         <div class="relative min-h-[300px] flex justify-center items-center">
-            <img id="img-cat-1"    src="/images/dashboardTienda-1.jpg" class="w-full h-auto object-contain rounded-md shadow-md        transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Categoría Electrónicos" style="view-transition-name: dt1-image;" />
-            <img id="img-cat-2"    src="/images/dashboardTienda-7.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Categoría Ropa" />
-            <img id="img-cat-3"    src="/images/dashboardTienda-2.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Categoría Hogar" />
-            <img id="img-region-1" src="/images/dashboardTienda-3.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Región Este" />
-            <img id="img-region-2" src="/images/dashboardTienda-4.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Región Norte" />
-            <img id="img-region-3" src="/images/dashboardTienda-5.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Región Oeste" />
-            <img id="img-region-4" src="/images/dashboardTienda-6.jpg" class="w-full h-auto object-contain rounded-md shadow-md hidden transition-opacity duration-300 ease-in-out" alt="Dashboard de Ventas - Región Sur" />
+         <div class="w-full rounded-md shadow-md bg-gray-100 overflow-hidden min-h-[300px]">
+            <img id="img-cat-1" src="/images/dashboardTienda-1.jpg" class="w-full h-auto object-contain block" alt="Electronics" />
+            <img id="img-cat-2" src="/images/dashboardTienda-7.jpg" class="w-full h-auto object-contain hidden" alt="Clothing" />
+            <img id="img-cat-3" src="/images/dashboardTienda-2.jpg" class="w-full h-auto object-contain hidden" alt="Home" />
+            <img id="img-region-1" src="/images/dashboardTienda-3.jpg" class="w-full h-auto object-contain hidden" alt="East" />
+            <img id="img-region-2" src="/images/dashboardTienda-4.jpg" class="w-full h-auto object-contain hidden" alt="North" />
+            <img id="img-region-3" src="/images/dashboardTienda-5.jpg" class="w-full h-auto object-contain hidden" alt="West" />
+            <img id="img-region-4" src="/images/dashboardTienda-6.jpg" class="w-full h-auto object-contain hidden" alt="South" />
          </div>
       </div>
       
       <div class="mt-8 pt-6 border-t border-gray-200">
-         <h2 data-key="subtitle-2-regionals-sales" class="text-2xl font-semibold text-gray-800 mb-4">Contexto y Requisitos del Proyecto</h2>
-         <p data-key="paragraf-3" class="mb-4 text-gray-700 leading-relaxed">
-            Como analista de datos en una empresa minorista con tiendas en diversas regiones, mi tarea fue comprender el rendimiento de ventas por región para identificar tendencias y oportunidades de crecimiento. Los datos proporcionados incluían información detallada de ventas por `ID_Venta`, `Fecha`, `Region`, `Ciudad`, `Categoria`, `Producto`, `Cantidad` y `Precio_Unitario`.
+         <h2 data-translate_key="reg_sales_context_title" class="text-2xl font-semibold text-gray-800 mb-4">Project Context and Requirements</h2>
+         <p data-translate_key="reg_sales_context_text" class="mb-4 text-gray-700 leading-relaxed">
+            As a data analyst at a retail company with stores in various regions, my task was to understand sales performance by region to identify trends and growth opportunities. The provided data included detailed sales information by `Sale_ID`, `Date`, `Region`, `City`, `Category`, `Product`, `Quantity`, and `Unit_Price`.
          </p>
          
-         <h3 data-key="subtitle-3-regionals-sales" class="text-xl font-semibold text-gray-800 mb-3">Técnicas y Habilidades Demostradas:</h3>
+         <h3 data-translate_key="reg_sales_skills_title" class="text-xl font-semibold text-gray-800 mb-3">Demonstrated Techniques and Skills:</h3>
          <ul class="list-disc list-inside space-y-2 text-gray-700 mb-6 pl-4">
-            <li data-key="list-1" data-const="html">
-               <strong class="text-purple-700">Modelado de Datos:</strong> Preparación y estructuración de los datos de ventas para un análisis eficiente en Power BI.
-            </li>
-            <li data-key="list-2" data-const="html">
-               <strong class="text-purple-700">Cálculo de Medidas DAX:</strong> Creación de medidas clave como <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Ventas Totales</code>, <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Cantidad Total Vendida</code> y <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Ventas Promedio</code> para derivar métricas de negocio cruciales.
-            </li>
-            <li data-key="list-3" data-const="html">
-               <strong class="text-purple-700">Diseño de Visualizaciones Interactivas:</strong> Desarrollo de un dashboard intuitivo con gráficos de barras, líneas y de pastel, junto con tablas y tarjetas para presentar la información de manera clara y accionable.
-            </li>
-            <li data-key="list-4" data-const="html">
-               <strong class="text-purple-700">Implementación de Segmentación (Slicers):</strong> Integración de filtros por Región, Categoría y Fecha para permitir a los usuarios una exploración dinámica y personalizada de los datos.
-            </li>
+            <li data-translate_key="reg_sales_skill_1"><strong class="text-purple-700">Data Modeling:</strong> Preparation and structuring of sales data for efficient analysis in Power BI.</li>
+            <li data-translate_key="reg_sales_skill_2"><strong class="text-purple-700">DAX Measures Calculation:</strong> Creation of key measures such as <code class="bg-gray-100 text-purple-800 px-1 py-0.5 rounded text-sm">Total Sales</code>.</li>
+            <li data-translate_key="reg_sales_skill_3"><strong class="text-purple-700">Interactive Visualization Design:</strong> Development of an intuitive dashboard with bar, line, and pie charts.</li>
+            <li data-translate_key="reg_sales_skill_4"><strong class="text-purple-700">Slicers Implementation:</strong> Integration of filters by Region, Category, and Date.</li>
          </ul>
 
-         <p data-key="paragraf-4"  data-const="html" class="text-gray-700 leading-relaxed">
-            Este análisis proporcionó a la empresa información crucial para la toma de decisiones estratégicas, como la
-            <strong class="text-purple-700">optimización de inventarios</strong> y la <strong class="text-purple-700">identificación de mercados de alto rendimiento</strong>.
+         <p data-translate_key="reg_sales_footer" class="text-gray-700 leading-relaxed">
+            This analysis provided the company with crucial information for strategic decision-making.
          </p>
       </div>
       
       <Nota />
-
    </section>
 
-
-<style>
-   /* Estilos personalizados para el contenedor del scroll para ocultar la barra */
-   .no-scrollbar {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-   }
-   .no-scrollbar::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera*/
-   }
-
-   /* Estilos para los radio buttons personalizados */
-   .custom-radio input[type="radio"] {
-      /* Oculta el input de radio original*/
-      display: none;
-   }
-
-   .custom-radio span {
-      /* Estilo base para el círculo personalizado */
-      display: inline-block;
-      width: 1rem; /* Ancho del círculo */
-      height: 1rem; /* Alto del círculo */
-      border: 2px solid #ccc; /* Borde del círculo */
-      background-color: #f0f0f0; /* Color de fondo del círculo */
-      vertical-align: middle; /* Alinea el círculo con el texto */
-      margin-right: 0.3125rem; /* Espacio entre el círculo y el texto */
-      cursor: pointer; /* Indica que es clickeable */
-      position: relative; /* Necesario para el pseudo-elemento */
-      border-radius: 50%; /* Hace que sea un círculo */
-      transition: all 0.2s ease-in-out; /* Suaviza las transiciones */
-   }
-   
-   /* Estilo cuando el input de radio está seleccionado */
-   .custom-radio:has(input[type="radio"]:checked) span {
-      background-color: #6d28d9; /* Color de fondo cuando está seleccionado (morado oscuro) */
-      border-color: #6d28d9; /* Color del borde cuando está seleccionado */
-   }
-   
-   /* Marca de verificación dentro del círculo */
-   .custom-radio input[type="radio"]:checked + span::after {
-      content: ''; /* Contenido vacío para el pseudo-elemento */
-      display: block;
-      width: 0.5rem; /* Ancho de la marca */
-      height: 0.5rem; /* Alto de la marca */
-      background-color: #fff; /* Color de la marca (blanco) */
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%); /* Centra la marca */
-      border-radius: 50%; /* Hace que la marca sea un círculo pequeño */
-   }
-
-   /* Efecto hover */
-   .custom-radio:hover span {
-      border-color: #6d28d9; /* Color del borde al pasar el ratón */
-   }
-</style>
-
 <script>
-   import { $ } from '@/lib/dom-selector'
-
-   const $about = $('#about_me');
-   $about.classList.add("hidden");
-   //$about.classList.add("sm:block");
-   
-   const $sidebar = $('#sidebar');
-   $sidebar.classList.add("hidden");
-   $sidebar.classList.add("sm:block");
-   
-   const $radioElect = $('#radio-elect');
-   const $radioRopa = $('#radio-ropa');
-   const $radioHogar = $('#radio-hogar');
-   
-   const $regioTodos = $('#radio-todos');
-   const $radioEste = $('#radio-este');
-   const $radioNorte = $('#radio-norte');
-   const $radioOeste = $('#radio-oeste');
-   const $radioSur = $('#radio-sur');
-   
-   const $imgCat1 = $('#img-cat-1');
-   const $imgCat2 = $('#img-cat-2');
-   const $imgCat3 = $('#img-cat-3');
-   
-   const $imgRegion1 = $('#img-region-1');
-   const $imgRegion2 = $('#img-region-2');
-   const $imgRegion3 = $('#img-region-3');
-   const $imgRegion4 = $('#img-region-4');
-   
-   function changeImage(e) {
-      function hiddenAllImages(){
-         $imgCat1.classList.add('hidden');
-         $imgCat2.classList.add('hidden');
-         $imgCat3.classList.add('hidden');
-         $imgRegion1.classList.add('hidden');
-         $imgRegion2.classList.add('hidden');
-         $imgRegion3.classList.add('hidden');
-         $imgRegion4.classList.add('hidden');
-      }
+   document.addEventListener('astro:page-load', () => {
+      const getEl = (id) => document.getElementById(id);
       
-      function deselectRegionRadios() {
-         if(e.target === $radioElect || e.target === $radioRopa || e.target === $radioHogar){
-            $regioTodos.checked = true; // Set "Todos" in region to true when category changes
+      const radiosCat = document.querySelectorAll('input[name="categoria"]');
+      const radiosReg = document.querySelectorAll('input[name="region"]');
+      
+      const images = {
+         cat: [getEl('img-cat-1'), getEl('img-cat-2'), getEl('img-cat-3')],
+         reg: [getEl('img-region-1'), getEl('img-region-2'), getEl('img-region-3'), getEl('img-region-4')]
+      };
+
+      function updateGallery() {
+         const catChecked = (document.querySelector('input[name="categoria"]:checked') as HTMLInputElement)?.id;
+         const regChecked = (document.querySelector('input[name="region"]:checked') as HTMLInputElement)?.id;
+
+         // Ocultar todas las imágenes primero
+         [...images.cat, ...images.reg].forEach(img => {
+            if (img) {
+               img.classList.remove('block');
+               img.classList.add('hidden');
+            }
+         });
+
+         // Lógica para mostrar la imagen correcta
+         if (catChecked === 'radio-elect') {
+            images.cat[0]?.classList.replace('hidden', 'block');
+         } else if (catChecked === 'radio-ropa') {
+            images.cat[1]?.classList.replace('hidden', 'block');
+         } else if (catChecked === 'radio-hogar') {
+            if (regChecked === 'radio-todos') {
+               images.cat[2]?.classList.replace('hidden', 'block');
+            } else if (regChecked === 'radio-este') {
+               images.reg[0]?.classList.replace('hidden', 'block');
+            } else if (regChecked === 'radio-norte') {
+               images.reg[1]?.classList.replace('hidden', 'block');
+            } else if (regChecked === 'radio-oeste') {
+               images.reg[2]?.classList.replace('hidden', 'block');
+            } else if (regChecked === 'radio-sur') {
+               images.reg[3]?.classList.replace('hidden', 'block');
+            }
          }
       }
 
-      hiddenAllImages(); // Start by hiding all images
-
-      if($radioElect.checked) {
-         deselectRegionRadios();
-         $imgCat1.classList.remove('hidden');
-      } 
-      else if($radioRopa.checked) {
-         deselectRegionRadios();
-         $imgCat2.classList.remove('hidden');
-      } 
-      else if($radioHogar.checked) {
-         if ($regioTodos.checked) { // If Hogar is selected and Todos region is selected
-            $imgCat3.classList.remove('hidden'); // Show Hogar default image
-         } else if ($radioEste.checked) {
-            $imgRegion1.classList.remove('hidden');
-         } else if ($radioNorte.checked) {
-            $imgRegion2.classList.remove('hidden');
-         } else if ($radioOeste.checked) {
-            $imgRegion3.classList.remove('hidden');
-         } else if ($radioSur.checked) {
-            $imgRegion4.classList.remove('hidden');
+      [...radiosCat, ...radiosReg].forEach(r => r.addEventListener('change', (e) => {
+         const target = e.target as HTMLInputElement;
+         // Si se cambia la categoría y no es "Hogar", resetear región a "Todos"
+         if (target.name === 'categoria' && target.id !== 'radio-hogar') {
+            const radioTodos = document.getElementById('radio-todos') as HTMLInputElement;
+            if (radioTodos) radioTodos.checked = true;
          }
-      }
+         updateGallery();
+      }));
 
-      // Handle region selections when category is Hogar
-      if ($radioHogar.checked) {
-         if ($radioEste.checked) {
-            $imgRegion1.classList.remove('hidden');
-         } else if ($radioNorte.checked) {
-            $imgRegion2.classList.remove('hidden');
-         } else if ($radioOeste.checked) {
-            $imgRegion3.classList.remove('hidden');
-         } else if ($radioSur.checked) {
-            $imgRegion4.classList.remove('hidden');
-         } else if ($regioTodos.checked) {
-             // If "Todos" is selected for region, show the Hogar category image
-             $imgCat3.classList.remove('hidden');
-         }
-      }
-
-      if ($regioTodos.checked && !$radioHogar.checked) {
-         // If "Todos" region is selected and it's not "Hogar" category, show the corresponding category image
-         if ($radioElect.checked) {
-             $imgCat1.classList.remove('hidden');
-         } else if ($radioRopa.checked) {
-             $imgCat2.classList.remove('hidden');
-         }
-         // No need to show $imgCat3 here as it's handled when $radioHogar.checked is true and $regioTodos.checked is true
-      }
-   };
-   
-   $radioElect.addEventListener('change',changeImage);
-   $radioRopa.addEventListener('change',changeImage);
-   $radioHogar.addEventListener('change',changeImage);
-   
-   $regioTodos.addEventListener('change',changeImage);
-   $radioEste.addEventListener('change',changeImage);
-   $radioNorte.addEventListener('change',changeImage);
-   $radioOeste.addEventListener('change',changeImage);
-   $radioSur.addEventListener('change',changeImage);
-
-    // Initial load to show the correct image based on default selections
-    changeImage({ target: $radioElect });
+      updateGallery();
+   });
 </script>

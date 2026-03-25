@@ -3,8 +3,8 @@
 
 <div>
   <select id="lang-switcher" class="appearance-none bg-tm-bg border-tm-border rounded-md py-2 px-3 text-tm-text2 cursor-pointer focus:outline-none focus:border-tm-pr" >
-    <option id="lang_en" value="en" selected data-key="language_english" class="bg-tm-bg text-tm-pr">🇺🇸 English</option>
-    <option id="lang_es" value="es" data-key="langusge_spanish" class="bg-tm-bg text-tm-pr">🇩🇴 Spanish</option>
+    <option id="lang_en" value="en" selected data-translate_key="language_english" class="bg-tm-bg text-tm-pr">🇺🇸 English</option>
+    <option id="lang_es" value="es" data-translate_key="langusge_spanish" class="bg-tm-bg text-tm-pr">🇩🇴 Spanish</option>
   </select>
 </div>
 
@@ -58,8 +58,8 @@
          
          const translations = await loadTranslations(lang);
          
-         document.querySelectorAll('[data-key]').forEach(element => {
-            const key = element.dataset.key;
+         document.querySelectorAll('[data-translate_key]').forEach(element => {
+            const key = element.dataset.translate_key;
 
             if (translations[key]) {
                element.innerHTML = translations[key];

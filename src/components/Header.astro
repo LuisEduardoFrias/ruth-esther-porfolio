@@ -20,16 +20,16 @@ import DownloadCv from '@/components/DownloadCv.astro';
                </a>
             </button>
             <button class="btn-menu">
-               <a href="/about_me">Sobre mi</a>
+               <a data-translate_key="menu_about_me" href="/about_me">About me</a>
             </button>
             <button class="btn-menu">
-               <a href="/projects/project-1">Proyectos</a>
+               <a data-translate_key="menu_projects" href="/projects/project-1">Projects</a>
             </button>
             <button class="btn-menu">
-               <a href="/experience/people-group">Experiencias</a>
+               <a data-translate_key="menu_experiences" href="/experience/people-group">Experiences</a>
             </button>
             <button class="btn-menu">
-               <a href="/contacts">Contactos</a>
+               <a data-translate_key="menu_contacts" href="/contacts">Contacts</a>
             </button>
          </div>
       </div>
@@ -38,14 +38,14 @@ import DownloadCv from '@/components/DownloadCv.astro';
          <a href="/" class="btn-house w-full hidden btn-menu flex items-center gap-2 py-2 border-b border-tm-pr/20">
             <button class="flex items-center gap-2">
                <div class="w-6 h-6" set:html={IconHouse}></div>
-               <span>Inicio</span>
+               <span data-translate_key="menu_home">Home</span>
             </button>
          </a>
          
-         <a href="/about_me" class="btn-menu w-full py-2 text-left" class="=w-full"><button class="=w-full">Sobre mi</button></a>
-         <a href="/projects/project-1" class="btn-menu w-full py-2 text-left" class="=w-full"><button class="=w-full">Proyectos</button></a>
-         <a href="/experience/people-group" class="btn-menu w-full py-2 text-left" class="=w-full"><button class="=w-full">Experiencias</button></a>
-         <a href="/contacts" class="btn-menu w-full py-2 text-left"><button class="=w-full">Contactos</button></a>
+         <a href="/about_me" class="btn-menu w-full py-2 text-left" class="=\w-full"><button data-translate_key="menu_about_me" class="=w-full">About me</button></a>
+         <a href="/projects/project-1" class="btn-menu w-full py-2 text-left" class="=w-full"><button data-translate_key="menu_projects" class="=w-full">Projects</button></a>
+         <a href="/experience/people-group" class="btn-menu w-full py-2 text-left" class="=w-full"><button data-translate_key="menu_experiences" class="=w-full">Experiences</button></a>
+         <a href="/contacts" class="btn-menu w-full py-2 text-left"><button data-translate_key="menu_contacts" class="=w-full">Contacts</button></a>
       </div>
 
       <div class="flex justify-center items-center w-2/6 px-2">
@@ -65,21 +65,21 @@ import DownloadCv from '@/components/DownloadCv.astro';
             />
          </div>
          <div class="flex flex-col max-w-xs w-full">
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-tm-pr mb-1 leading-tight">
-               Hola, soy Ruth.
+            <h1 data-translate_key="title" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-tm-pr mb-1 leading-tight">
+               Hello, i'm Ruth.
             </h1>
-            <h2 data-key="Subtitle" class="text-xl sm:text-2xl lg:text-3xl font-bold text-tm-se mb-4 leading-snug">
+            <h2 data-translate_key="Subtitle" class="text-xl sm:text-2xl lg:text-3xl font-bold text-tm-se mb-4 leading-snug">
                Data Analyst
             </h2>
-            <p data-key="about_me_" id="about_me" class="text-xl font-medium sm:text-base text-tm-text2 max-w-2xl mx-auto">
-              Transformo datos complejos en decisiones estratégicas
+            <p data-translate_key="about_me_" id="about_me" class="text-xl font-medium sm:text-base text-tm-text2 max-w-2xl mx-auto">
+              I transform complex data into strategic decisions
             </p>
             <div class="h-12 flex justify-center items-center gap-5 flex-row w-full">
                <DownloadCv />
                <div class="border border-2 border-tm-pr p-1 px-2 rounded-full w-[0.50rm] h-3/4 font-medium transition-opacity duration-1000 ease-in-out text-tm-inv-text left-2 pr-2">
                   <a href="/projects/project-1">
                      <button class="h-full w-full hover:text-pr" >
-                        <span class="h-full w-full text-nowrap font-bold text-tm-pr text-sm">Ver Proyectos</span>
+                        <span data-translate_key="btn_see_proyects" class="h-full w-full text-nowrap font-bold text-tm-pr text-sm">See projects</span>
                      </button>
                   </a>
                </div>

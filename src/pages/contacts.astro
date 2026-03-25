@@ -5,8 +5,8 @@ import Whatsapp from '../assets/svg/IconWhatsApp.svg?raw'
 
 <Layout title="Contactos" description="Portafolio profesional de Ruth Esther, Data Analyst.">
    <div class="flex flex-col items-start gap-3 p-4 max-w-6xl mx-auto rounded-xl bg-tm-bg-50 border border-tm-pr/10 hover:border-tm-pr transition-all animate-fade-in">
-      <h2 class="text-2xl font-bold tracking-widest uppercase mb-6 border-b border-[#1a2e5a]/20 pb-2">
-       Contacto
+      <h2 data-translate_key="contact_title" class="text-2xl font-bold tracking-widest uppercase mb-6 border-b border-[#1a2e5a]/20 pb-2">
+       Contact
      </h2>
    
      <div class="space-y-4 flex flex-col gap-4 mb-8">
@@ -17,7 +17,7 @@ import Whatsapp from '../assets/svg/IconWhatsApp.svg?raw'
          </div>
          <button class="whatsappIcon flex gap-2 items-center">
             <div class="p-0" set:html={Whatsapp}></div>
-            <span>cliquéame</span>
+            <span data-translate_key="contact_whatsapp" >click me</span>
          </button>
        </div>
    
